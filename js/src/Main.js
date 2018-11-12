@@ -1,5 +1,5 @@
 window.onload=loadAssets;
-var stats;
+
 
 function loadAssets()
 {
@@ -61,12 +61,7 @@ function init()
 	ui_gamelifeTexture=assetsManager["gamelife-3"];
 	gameLevel=0.1;
 	
-    // fps
-    stats = new Stats();
-    stats.domElement.style.position = 'absolute';
-    stats.domElement.style.left = '0px';
-    stats.domElement.style.top = '0px';
-    document.body.appendChild( stats.domElement );
+
 
 	
 	// Use hand tracking or mouse to control
@@ -199,7 +194,6 @@ function render()
 	collideTest();
 	levelUpdate();
 	renderTimer();
-	stats.update();
 };
 
 var GameControl = {

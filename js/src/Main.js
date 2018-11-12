@@ -18,7 +18,6 @@ function init()
 	topContext=topCanvas.getContext("2d");
 	topContext.globalCompositeOperation = "lighter";
 	
-	
 	middleCanvas=document.getElementById("middle");
 	middleCanvas.style.display="block";
 	middleCanvas.width=gameWidth;

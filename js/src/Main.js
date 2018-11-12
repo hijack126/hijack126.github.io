@@ -183,7 +183,18 @@ function handleMove(e){
 	if (e.targetTouches.length == 1) {
 		var touch = e.targetTouches[0];
 
-		buildBladeParticle(touch.pageX- offset, touch.pageY - offset);
+		if (e.layerX || e.layerX == 0)
+	{
+		// Firefox
+		mouse.x = e.layerX;
+		mouse.y = e.layerY;
+	} else if (e.offsetX || e.offsetX == 0)
+	{ // Opera
+		mouse.x = e.offsetX;
+		mouse.y = e.offsetY;
+	};
+
+		buildBladeParticle(mouse.x, mouse.y);
 	  }
 }
 
@@ -203,6 +214,7 @@ function mousemove(e) {
 	};
 	buildBladeParticle(mouse.x, mouse.y);
 };
+
 //hand tracking event
 function handmove(e) {
 	buildBladeParticle(e.x, e.y);

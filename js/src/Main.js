@@ -64,8 +64,8 @@ function init()
 	topCanvas.addEventListener('mousemove', mousemove, false);
 
 	topCanvas.addEventListener("touchstart", handleStart, false);
-	topCanvas.addEventListener("touchend", handleEnd, false);
-	topCanvas.addEventListener("touchcancel", handleCancel, false);
+	//topCanvas.addEventListener("touchend", handleEnd, false);
+	//topCanvas.addEventListener("touchcancel", handleCancel, false);
 	topCanvas.addEventListener("touchmove", handleMove, false);
 
 	render();

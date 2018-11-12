@@ -53,8 +53,8 @@ function init()
 		storage = chrome.storage.local;
 	else
 		storage = window.localStorage*/
-	if(!storage.highScore)
-	storage.highScore=0;
+	//if(!storage.highScore)
+	//storage.highScore=0;
 	gameState=GAME_READY;
 	score=0;
 	gameLife=3;

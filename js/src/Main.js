@@ -183,10 +183,10 @@ function render()
 	//fruitSystem.render();
 	//bombSystem.render();
 	//particleSystem.render();
-	bladeSystem.render();
+	//bladeSystem.render();
 	
-	buildColorBlade(bladeColor,bladeWidth);
-	collideTest();
+	//buildColorBlade(bladeColor,bladeWidth);
+	//collideTest();
 	levelUpdate();
 	renderTimer();
 };

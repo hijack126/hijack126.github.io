@@ -35,7 +35,6 @@ function init()
 	bottomContext.textAlign="left";
 	bottomContext.textBaseline="top";
 	
-	alert("ok");
 
 	//particle system
 	particleSystem = new SPP.ParticleSystem();
@@ -48,7 +47,6 @@ function init()
 	bombSystem.start();
 	gravity = new SPP.Gravity(0.15);
 
-	alert("ok11");
 	
 	//data
 	if (typeof chrome.storage != "undefined")
@@ -64,7 +62,7 @@ function init()
 	gameLevel=0.1;
 
 	// Use hand tracking or mouse to control
-	topCanvas.addEventListener('mousemove', mousemove, false);
+	//topCanvas.addEventListener('mousemove', mousemove, false);
 
 	
   render();

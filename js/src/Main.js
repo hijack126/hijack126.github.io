@@ -61,8 +61,8 @@ function init()
 	bombSystem.start();
 	gravity = new SPP.Gravity(0.15);
 
-	var offset  = getOffset(topCanvas);
-
+	//var offset  = getOffset(topCanvas);
+	var offset = topCanvas.offset();
 	
 	//data
 	/*if (typeof chrome.storage != "undefined")
@@ -183,18 +183,7 @@ function handleMove(e){
 	if (e.targetTouches.length == 1) {
 		var touch = e.targetTouches[0];
 
-		if (e.layerX || e.layerX == 0)
-	{
-		// Firefox
-		mouse.x = e.layerX;
-		mouse.y = e.layerY;
-	} else if (e.offsetX || e.offsetX == 0)
-	{ // Opera
-		mouse.x = e.offsetX;
-		mouse.y = e.offsetY;
-	};
-
-		buildBladeParticle(mouse.x, mouse.y);
+		buildBladeParticle(touch.pageX- offset.left, touch.pageY - offset.top);
 	  }
 }
 

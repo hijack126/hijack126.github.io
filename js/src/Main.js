@@ -179,8 +179,8 @@ function render()
 	middleContext.clearRect(0,0,gameWidth,gameHeight);
 	bottomContext.clearRect(0,0,gameWidth,gameHeight);
 
-	showScoreTextUI();
-	fruitSystem.render();
+	//showScoreTextUI();
+	//fruitSystem.render();
 	//bombSystem.render();
 	//particleSystem.render();
 	bladeSystem.render();

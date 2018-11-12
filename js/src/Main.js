@@ -6,6 +6,21 @@ function loadAssets()
 	assetsManager.addEventListener("complete",init);
 	assetsManager.start();
 };
+
+function getOffset(obj) {
+	var offsetLeft = 0;
+	var offsetTop = 0;
+	do {
+	  if (!isNaN(obj.offsetLeft)) {
+		  offsetLeft += obj.offsetLeft;
+	  }
+	  if (!isNaN(obj.offsetTop)) {
+		  offsetTop += obj.offsetTop;
+	  }   
+	} while(obj = obj.offsetParent );
+	return {left: offsetLeft, top: offsetTop};
+} 
+
 function init()
 {
 	document.getElementById("loading").style.display='none';
@@ -45,6 +60,8 @@ function init()
 	bombSystem=new SPP.ParticleSystem();
 	bombSystem.start();
 	gravity = new SPP.Gravity(0.15);
+
+	var offset  = getOffset(topCanvas);
 
 	
 	//data
@@ -166,7 +183,7 @@ function handleMove(e){
 	if (e.targetTouches.length == 1) {
 		var touch = e.targetTouches[0];
 
-		buildBladeParticle(touch.pageX, touch.pageY);
+		buildBladeParticle(touch.pageX- offset, touch.pageY - offset);
 	  }
 }
 

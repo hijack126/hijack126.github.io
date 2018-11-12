@@ -62,6 +62,7 @@ function init()
 
 	// Use hand tracking or mouse to control
 	topCanvas.addEventListener('mousemove', mousemove, false);
+	topCanvas.addEventListener('ontouchmove', mousemove, false);
 
 	render();
 	enterGame();

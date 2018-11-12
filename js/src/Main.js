@@ -64,11 +64,14 @@ function init()
 	// Use hand tracking or mouse to control
 	//topCanvas.addEventListener('mousemove', mousemove, false);
 
-	
-  render();
+	alert("haha");
+	render();
+	alert("haha111");
 	enterGame();
+	alert("haha222");
 	
 	initControl();
+	alert("haha333");
 };
 function enterGame()
 {

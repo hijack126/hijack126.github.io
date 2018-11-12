@@ -62,7 +62,7 @@ function init()
 	gameLevel=0.1;
 
 	// Use hand tracking or mouse to control
-	//topCanvas.addEventListener('mousemove', mousemove, false);
+	topCanvas.addEventListener('mousemove', mousemove, false);
 
 	alert("haha");
 	render();

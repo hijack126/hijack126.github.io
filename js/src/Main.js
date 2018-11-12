@@ -62,7 +62,11 @@ function init()
 
 	// Use hand tracking or mouse to control
 	topCanvas.addEventListener('mousemove', mousemove, false);
-	topCanvas.addEventListener('ontouchmove', mousemove, false);
+
+	topCanvas.addEventListener("touchstart", handleStart, false);
+	topCanvas.addEventListener("touchend", handleEnd, false);
+	topCanvas.addEventListener("touchcancel", handleCancel, false);
+	topCanvas.addEventListener("touchmove", handleMove, false);
 
 	render();
 	enterGame();
@@ -150,6 +154,22 @@ function replay(e)
 {
 	hideGameoverUI();
 };
+
+//touch event
+function handleStart(e){
+    
+}
+
+function handleMove(e){
+	e.preventDefault();
+
+	
+	if (event.targetTouches.length == 1) {
+		var touch = event.targetTouches[0];
+
+		buildBladeParticle(touch.pageX, touch.pageY);
+	  }
+}
 
 //mouse event
 function mousemove(e) {

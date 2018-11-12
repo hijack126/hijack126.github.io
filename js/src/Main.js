@@ -36,14 +36,14 @@ function init()
 	bottomContext.textBaseline="top";
 	
 	//particle system
-	/*particleSystem = new SPP.ParticleSystem();
+	particleSystem = new SPP.ParticleSystem();
 	particleSystem.start();
 	bladeSystem=new SPP.ParticleSystem();
 	bladeSystem.start();
 	fruitSystem=new SPP.ParticleSystem();
 	fruitSystem.start();
 	bombSystem=new SPP.ParticleSystem();
-	bombSystem.start();*/
+	bombSystem.start();
 	gravity = new SPP.Gravity(0.15);
 	
 	//data

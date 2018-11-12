@@ -1,6 +1,5 @@
 window.onload=loadAssets;
 
-
 function loadAssets()
 {
 	assetsManager=new FruitGame.AssetsManager();
@@ -10,7 +9,6 @@ function loadAssets()
 function init()
 {
 	document.getElementById("loading").style.display='none';
-	//document.getElementById("info").style.display='block';
 	
 	//canvas
 	topCanvas=document.getElementById("top");
@@ -38,14 +36,14 @@ function init()
 	bottomContext.textBaseline="top";
 	
 	//particle system
-	particleSystem = new SPP.ParticleSystem();
+	/*particleSystem = new SPP.ParticleSystem();
 	particleSystem.start();
 	bladeSystem=new SPP.ParticleSystem();
 	bladeSystem.start();
 	fruitSystem=new SPP.ParticleSystem();
 	fruitSystem.start();
 	bombSystem=new SPP.ParticleSystem();
-	bombSystem.start();
+	bombSystem.start();*/
 	gravity = new SPP.Gravity(0.15);
 	
 	//data
@@ -60,10 +58,7 @@ function init()
 	gameLife=3;
 	ui_gamelifeTexture=assetsManager["gamelife-3"];
 	gameLevel=0.1;
-	
 
-
-	
 	// Use hand tracking or mouse to control
 	topCanvas.addEventListener('mousemove', mousemove, false);
 
@@ -186,8 +181,8 @@ function render()
 
 	showScoreTextUI();
 	fruitSystem.render();
-	bombSystem.render();
-	particleSystem.render();
+	//bombSystem.render();
+	//particleSystem.render();
 	bladeSystem.render();
 	
 	buildColorBlade(bladeColor,bladeWidth);

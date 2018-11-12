@@ -179,14 +179,14 @@ function render()
 	middleContext.clearRect(0,0,gameWidth,gameHeight);
 	bottomContext.clearRect(0,0,gameWidth,gameHeight);
 
-	//showScoreTextUI();
-	//fruitSystem.render();
-	//bombSystem.render();
-	//particleSystem.render();
-	//bladeSystem.render();
+	showScoreTextUI();
+	fruitSystem.render();
+	bombSystem.render();
+	particleSystem.render();
+	bladeSystem.render();
 	
-	//buildColorBlade(bladeColor,bladeWidth);
-	//collideTest();
+	buildColorBlade(bladeColor,bladeWidth);
+	collideTest();
 	levelUpdate();
 	renderTimer();
 };

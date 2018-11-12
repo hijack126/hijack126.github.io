@@ -35,6 +35,8 @@ function init()
 	bottomContext.textAlign="left";
 	bottomContext.textBaseline="top";
 	
+	alert("ok");
+
 	//particle system
 	particleSystem = new SPP.ParticleSystem();
 	particleSystem.start();
@@ -45,6 +47,8 @@ function init()
 	bombSystem=new SPP.ParticleSystem();
 	bombSystem.start();
 	gravity = new SPP.Gravity(0.15);
+
+	alert("ok11");
 	
 	//data
 	if (typeof chrome.storage != "undefined")

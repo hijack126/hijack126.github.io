@@ -163,9 +163,8 @@ function handleStart(e){
 function handleMove(e){
 	e.preventDefault();
 
-	
-	if (event.targetTouches.length == 1) {
-		var touch = event.targetTouches[0];
+	if (e.targetTouches.length == 1) {
+		var touch = e.targetTouches[0];
 
 		buildBladeParticle(touch.pageX, touch.pageY);
 	  }

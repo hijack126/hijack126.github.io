@@ -4,8 +4,8 @@ var FruitGame = FruitGame || {
 	GITHUB:"https://github.com/flashhawk"
 };
 
-var gameWidth=750;
-var gameHeight=500;
+var gameWidth=980;
+var gameHeight=550;
 
 var topCanvas;
 var topContext;

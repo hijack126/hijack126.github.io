@@ -48,7 +48,7 @@ function init()
 	gravity = new SPP.Gravity(0.15);
 
 	//var offset  = getOffset(topCanvas);
-	var offset  = topCanvas.offset;
+	//var offset  = topCanvas.offset;
 	
 	//data
 	/*if (typeof chrome.storage != "undefined")
@@ -111,8 +111,8 @@ function startGame(e)
 	resetGameData();
 	showScoreUI();
 	gameState=GAME_PLAYING;
-	
 }
+
 function renderTimer()
 {
 	if(gameState!=GAME_PLAYING)return;
@@ -184,7 +184,7 @@ function handleMove(e){
 	if (e.targetTouches.length == 1) {
 		var touch = e.targetTouches[0];
 
-		buildBladeParticle(touch.pageX - offset.left, touch.pageY-offset.top);
+		buildBladeParticle(touch.pageX - topCanvas.offsetLeft, touch.pageY-topCanvas.offsetTop);
 	  }
 }
 

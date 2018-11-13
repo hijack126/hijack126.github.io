@@ -47,13 +47,23 @@ function init()
 	bombSystem.start();
 	gravity = new SPP.Gravity(0.15);
 	
+
+	try {
+		localStorage.setItem('testLocalStorage', 'testLocalStorage');
+		localStorage.removeItem('testLocalStorage');
+		alert('supported');
+	} catch(ex) {
+		alert('unsupported');
+	}
+
 	//data
 	if (typeof chrome.storage != "undefined")
 		storage = chrome.storage.local;
 	else if(window.localStorage != "undefined")
 		storage = window.localStorage
 	else
-	    storage = window.sessionStorage;
+		storage = window.sessionStorage;
+	
 	if(!storage.highScore)
 		storage.highScore=0;
 		

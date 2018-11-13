@@ -184,6 +184,8 @@ function handleMove(e){
 	if (e.targetTouches.length == 1) {
 		var touch = e.targetTouches[0];
 
+		var offset = topCanvas.offset();
+
 		buildBladeParticle(touch.pageX- offset.left, touch.pageY - offset.top);
 	  }
 }

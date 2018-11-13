@@ -14,27 +14,37 @@ function init()
 	//canvas
 	topCanvas=document.getElementById("top");
 	topCanvas.style.display="block";
-	topCanvas.width=gameWidth;
-	topCanvas.height=gameHeight;
+	topCanvas.width = window.innerWidth;
+	topCanvas.height = window.innerHeight;
+   
+	//topCanvas.width=gameWidth;
+	//topCanvas.height=gameHeight;
 	topContext=topCanvas.getContext("2d");
 	topContext.globalCompositeOperation = "lighter";
 	
 	middleCanvas=document.getElementById("middle");
 	middleCanvas.style.display="block";
-	middleCanvas.width=gameWidth;
-	middleCanvas.height=gameHeight;
+
+	middleCanvas.width = window.innerWidth;
+	middleCanvas.height = window.innerHeight;
+
+	//middleCanvas.width=gameWidth;
+	//middleCanvas.height=gameHeight;
 	middleContext=middleCanvas.getContext("2d");
 	
 	bottomCanvas=document.getElementById("bottom");
 	bottomCanvas.style.display="block";
 	bottomCanvas.style.dispaly="none";
-	bottomCanvas.width=gameWidth;
-	bottomCanvas.height=gameHeight;
+	
+	bottomCanvas.width = window.innerWidth;
+	bottomCanvas.height = window.innerHeight;
+
+	//bottomCanvas.width=gameWidth;
+	//bottomCanvas.height=gameHeight;
 	bottomContext=bottomCanvas.getContext("2d");
 	bottomContext.fillStyle="#f6c223";
 	bottomContext.textAlign="left";
 	bottomContext.textBaseline="top";
-	
 
 	//particle system
 	particleSystem = new SPP.ParticleSystem();
@@ -46,7 +56,6 @@ function init()
 	bombSystem=new SPP.ParticleSystem();
 	bombSystem.start();
 	gravity = new SPP.Gravity(0.15);
-	
 
 	//data
 	storage = window.localStorage

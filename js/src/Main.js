@@ -183,7 +183,7 @@ function handleMove(e){
 	if (e.targetTouches.length == 1) {
 		var touch = e.targetTouches[0];
 
-		buildBladeParticle(touch.pageX, touch.pageY);
+		buildBladeParticle(touch.screenX, touch.screenY);
 	  }
 }
 

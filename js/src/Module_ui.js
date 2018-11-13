@@ -12,11 +12,10 @@
 		 ui_gameTitle = particleSystem.createParticle(SPP.SpriteImage);
 		 ui_gameTitle.regX= ui_gameTitle.regY=0;
 		 ui_gameTitle.init(0,-assetsManager.gametitle.height,Infinity,assetsManager.gametitle,topContext);
-		 ui_gameTitle.scale = 1.1;
 		 TweenLite.to(ui_gameTitle.position,0.5,{y:0});
 		 
 		ui_newGame = particleSystem.createParticle(SPP.SpriteImage);
-		ui_newGame.init(gameWidth*0.718,gameHeight*0.718,Infinity,assetsManager.newgame,topContext);
+		ui_newGame.init(gameWidth*0.618,gameHeight*0.618,Infinity,assetsManager.newgame,topContext);
 		ui_newGame.scale=5;
 		ui_newGame.alpha=0;
 		ui_newGame.onUpdate=ui_newGameUpdate;
@@ -25,7 +24,7 @@
 		ui_startFruit = fruitSystem.createParticle(FruitGame.Fruit);
 		ui_startFruit.addEventListener("dead",startGame);
 		var textureObj=assetsManager.getRandomFruit();
-		ui_startFruit.init(gameWidth*0.718,gameHeight*0.718,Infinity,textureObj.w,assetsManager.shadow,topContext);
+		ui_startFruit.init(gameWidth*0.618,gameHeight*0.618,Infinity,textureObj.w,assetsManager.shadow,topContext);
 		ui_startFruit.rotationStep=-0.02;
 		ui_startFruit.scale=0;
 		ui_startFruit.alpha=0;

@@ -7,20 +7,6 @@ function loadAssets()
 	assetsManager.start();
 };
 
-function getOffset(obj) {
-	var offsetLeft = 0;
-	var offsetTop = 0;
-	do {
-	  if (!isNaN(obj.offsetLeft)) {
-		  offsetLeft += obj.offsetLeft;
-	  }
-	  if (!isNaN(obj.offsetTop)) {
-		  offsetTop += obj.offsetTop;
-	  }   
-	} while(obj = obj.offsetParent );
-	return {left: offsetLeft, top: offsetTop};
-} 
-
 function init()
 {
 	document.getElementById("loading").style.display='none';
@@ -61,7 +47,6 @@ function init()
 	bombSystem.start();
 	gravity = new SPP.Gravity(0.15);
 
-	//var offset  = getOffset(topCanvas);
 	var offset = topCanvas.offset();
 	
 	//data
@@ -71,6 +56,7 @@ function init()
 		storage = window.localStorage*/
 	//if(!storage.highScore)
 	//storage.highScore=0;
+	alert(isLocalStorageNameSupported());
 	gameState=GAME_READY;
 	score=0;
 	gameLife=3;
@@ -81,8 +67,6 @@ function init()
 	topCanvas.addEventListener('mousemove', mousemove, false);
 
 	topCanvas.addEventListener("touchstart", handleStart, false);
-	//topCanvas.addEventListener("touchend", handleEnd, false);
-	//topCanvas.addEventListener("touchcancel", handleCancel, false);
 	topCanvas.addEventListener("touchmove", handleMove, false);
 
 	render();
@@ -90,6 +74,22 @@ function init()
 	
 	initControl();
 };
+
+function isLocalStorageNameSupported() 
+{
+    var testKey = 'test', storage = window.sessionStorage;
+    try 
+    {
+        storage.setItem(testKey, '1');
+        storage.removeItem(testKey);
+        return localStorageName in win && win[localStorageName];
+    } 
+    catch (error) 
+    {
+        return false;
+    }
+}
+
 function enterGame()
 {
 	showStartGameUI();

@@ -46,17 +46,17 @@ function init()
 	bombSystem=new SPP.ParticleSystem();
 	bombSystem.start();
 	gravity = new SPP.Gravity(0.15);
-
-	//var offset  = getOffset(topCanvas);
-	//var offset  = topCanvas.offset;
 	
 	//data
-	/*if (typeof chrome.storage != "undefined")
+	if (typeof chrome.storage != "undefined")
 		storage = chrome.storage.local;
+	else if(window.localStorage != "undefined")
+		storage = window.localStorage
 	else
-		storage = window.localStorage*/
-	//if(!storage.highScore)
-	//storage.highScore=0;
+	    storage = window.sessionStorage;
+	if(!storage.highScore)
+		storage.highScore=0;
+		
 	gameState=GAME_READY;
 	score=0;
 	gameLife=3;
@@ -76,20 +76,6 @@ function init()
 	
 	initControl();
 };
-
-function getOffset(obj) {
-	var offsetLeft = 0;
-	var offsetTop = 0;
-	do {
-	  if (!isNaN(obj.offsetLeft)) {
-		  offsetLeft += obj.offsetLeft;
-	  }
-	  if (!isNaN(obj.offsetTop)) {
-		  offsetTop += obj.offsetTop;
-	  }   
-	} while(obj = obj.offsetParent );
-	return {left: offsetLeft, top: offsetTop};
-} 
 
 function enterGame()
 {

@@ -71,7 +71,7 @@ function init()
 	render();
 	enterGame();
 	
-	initControl();
+	//initControl();
 };
 
 function enterGame()

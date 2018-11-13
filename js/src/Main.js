@@ -47,7 +47,8 @@ function init()
 	bombSystem.start();
 	gravity = new SPP.Gravity(0.15);
 
-	var offset  = getOffset(topCanvas);
+	//var offset  = getOffset(topCanvas);
+	var offset  = topCanvas.offset;
 	
 	//data
 	/*if (typeof chrome.storage != "undefined")

@@ -49,10 +49,7 @@ function init()
 	
 
 	//data
-	if (chrome && typeof chrome.storage != "undefined")
-		storage = chrome.storage.local;
-	else if(window.localStorage != "undefined")
-		storage = window.localStorage
+	storage = window.localStorage
 	
 	if(!storage.highScore)
 		storage.highScore=0;

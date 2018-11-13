@@ -47,9 +47,7 @@ function init()
 	bombSystem.start();
 	gravity = new SPP.Gravity(0.15);
 
-	//var offset  = getOffset(topCanvas);
-	if(topCanvas.offset())
-	var offset = topCanvas.offset();
+	var offset  = getOffset(topCanvas);
 	
 	//data
 	/*if (typeof chrome.storage != "undefined")
@@ -187,7 +185,7 @@ function handleMove(e){
 
 		//var offset = topCanvas.offset();
 
-		buildBladeParticle(touch.pageX- offset.left, touch.pageY - offset.top);
+		buildBladeParticle(touch.pageX- offset, touch.pageY - offset);
 	  }
 }
 

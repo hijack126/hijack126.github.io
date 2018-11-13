@@ -14,33 +14,22 @@ function init()
 	//canvas
 	topCanvas=document.getElementById("top");
 	topCanvas.style.display="block";
-	topCanvas.width = window.innerWidth;
-	topCanvas.height = window.innerHeight;
-   
-	//topCanvas.width=gameWidth;
-	//topCanvas.height=gameHeight;
+	topCanvas.width=gameWidth;
+	topCanvas.height=gameHeight;
 	topContext=topCanvas.getContext("2d");
 	topContext.globalCompositeOperation = "lighter";
 	
 	middleCanvas=document.getElementById("middle");
 	middleCanvas.style.display="block";
-
-	middleCanvas.width = window.innerWidth;
-	middleCanvas.height = window.innerHeight;
-
-	//middleCanvas.width=gameWidth;
-	//middleCanvas.height=gameHeight;
+	middleCanvas.width=gameWidth;
+	middleCanvas.height=gameHeight;
 	middleContext=middleCanvas.getContext("2d");
 	
 	bottomCanvas=document.getElementById("bottom");
 	bottomCanvas.style.display="block";
 	bottomCanvas.style.dispaly="none";
-	
-	bottomCanvas.width = window.innerWidth;
-	bottomCanvas.height = window.innerHeight;
-
-	//bottomCanvas.width=gameWidth;
-	//bottomCanvas.height=gameHeight;
+	bottomCanvas.width=gameWidth;
+	bottomCanvas.height=gameHeight;
 	bottomContext=bottomCanvas.getContext("2d");
 	bottomContext.fillStyle="#f6c223";
 	bottomContext.textAlign="left";

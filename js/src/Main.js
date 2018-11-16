@@ -68,6 +68,8 @@ function init()
 
 	render();
 	enterGame();
+
+	modal.style.display = "block";
 	
 	//initControl();
 };

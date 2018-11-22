@@ -133,6 +133,7 @@ function resumeGame()
 {
   if(gameState == GAME_PAUSE){
 	  gameState = GAME_PLAYING;
+	  render();
   }
 }
 

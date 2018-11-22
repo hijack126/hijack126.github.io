@@ -91,7 +91,6 @@ function startGame(e)
 	
 	resetGameData();
 	showScoreUI();
-	showPauseUI();
 	gameState=GAME_PLAYING;
 }
 

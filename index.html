@@ -124,7 +124,7 @@ body,html {
 <script src="js/src/Main.js"></script> 
 </head>
 <body ontouchmove="BlockMove(event);" >
-		<a id="fork"  target="_blank"></a>
+		<a id="fork"  onclick="javasript:pauseGame()" ></a>
 <canvas class="canvas" id="bottom" style="display:none">Your borwser does not suport html5 canvans!</canvas>
 <canvas class="canvas" id="shadow" style="display:none">Your borwser does not suport html5 canvans!</canvas>
 <canvas class="canvas" id="middle" style="display:none">Your borwser does not suport html5 canvans!</canvas>
@@ -152,7 +152,7 @@ var modal = document.getElementById('myModal');
 var span = document.getElementsByClassName("close")[0];
 var pause = document.getElementById('fork');
 
-pause.onclick = function() {
+pauseGame = function() {
    alert("asd");
 }
 

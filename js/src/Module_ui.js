@@ -70,7 +70,7 @@
 	showPauseUI = function(){
 		ui_pauseIcon = particleSystem.createParticle(SPP.SpriteImage);
 		ui_pauseIcon.regX=ui_scoreIcon.regY=0;
-		ui_pauseIcon.init(10,30,Infinity,assetsManager.score,bottomContext);
+		ui_pauseIcon.init(10,40,Infinity,assetsManager.score,bottomContext);
 	};
 	
     hideScoreUI=function()

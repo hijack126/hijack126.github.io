@@ -1,5 +1,5 @@
 FruitGame.assets={
-	fruits:["apple","basaha","peach","sandia"],
+	fruits:["orange","pineapple-tart"],
 
 	other:
 		[

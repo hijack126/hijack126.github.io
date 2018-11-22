@@ -20,8 +20,6 @@ FruitGame.Fruit.prototype = SPP.inherit(SPP.Particle.prototype);
 FruitGame.Fruit.prototype.constructor = FruitGame.Fruit;
 FruitGame.Fruit.prototype.update = function()
 {
-	if(gameState==GAME_PAUSE)return;
-	
 	this.rotation+=this.rotationStep;
 	this.context.translate(this.position.x-20,this.position.y-20);
 	//this.context.rotate(this.rotation);

@@ -198,6 +198,8 @@ function handmove(e) {
 //render canvas
 function render() 
 {
+	if(gameState == GAME_PAUSE) return;
+
 	requestAnimationFrame(render);
   
 	topContext.clearRect(0,0,gameWidth,gameHeight);

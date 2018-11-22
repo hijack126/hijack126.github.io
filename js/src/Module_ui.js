@@ -71,9 +71,9 @@
 		ui_pauseIcon = particleSystem.createParticle(SPP.SpriteImage);
 		ui_pauseIcon.regX=ui_scoreIcon.regY=0;
 		ui_pauseIcon.init(10,100,Infinity,assetsManager.score,bottomContext);
-		ui_pauseIcon.click = function(){
+		ui_pauseIcon.addEventListener("click", function() {
             alert("asdasd");
-		};
+		});
 	};
 	
     hideScoreUI=function()

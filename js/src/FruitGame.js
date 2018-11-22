@@ -8,8 +8,8 @@ var gameWidth=window.innerWidth;//980;
 var gameHeight= window.innerHeight;//550;
 
 if(window.orientation==180||window.orientation==0){
-	 gameWidth=980;
-     gameHeight= 550;
+	 gameWidth=550;
+     gameHeight= 980;
 }
 
 var topCanvas;

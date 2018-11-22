@@ -66,6 +66,12 @@
 		ui_gameLife.regY=0;
 		ui_gameLife.init(gameWidth,8,Infinity,ui_gamelifeTexture,bottomContext);
 	};
+
+	showPauseUI = function(){
+		ui_pauseIcon = particleSystem.createParticle(SPP.SpriteImage);
+		ui_pauseIcon.regX=ui_scoreIcon.regY=0;
+		ui_pauseIcon.init(10,30,Infinity,assetsManager.score,bottomContext);
+	};
 	
     hideScoreUI=function()
 	{

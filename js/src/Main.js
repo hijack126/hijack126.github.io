@@ -129,6 +129,11 @@ function levelUpdate()
 	}
 };
 
+function gamePause()
+{
+	gameState = GAME_PAUSE;
+}
+
 function gameOver()
 {
 	if(gameState==GAME_OVER)return;

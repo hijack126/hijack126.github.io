@@ -37,7 +37,7 @@ var score;
 var gameLife;
 var storage;
 var isPlaying;
-var GAME_READY=1,GAME_PLAYING=2,GAME_OVER=3;
+var GAME_READY=1,GAME_PLAYING=2,GAME_OVER=3, GAME_PAUSE=4;
 var gameState;
 var gameLevel;
 var levelStep=0.0001;
@@ -47,6 +47,7 @@ var ui_gameTitle;
 var ui_newGame;
 var ui_startFruit;
 
+var ui_pauseIcon;
 var ui_scoreIcon;
 var ui_gameLife;
 var ui_gamelifeTexture;

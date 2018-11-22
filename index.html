@@ -26,7 +26,7 @@ body,html {
 	width: 149px;
 	height: 149px;
 	cursor: pointer;
-	background-image: url(assets/forkme.png);
+	background-color: #fefefe;
 	z-index: 0;
 }
 #info a{
@@ -124,7 +124,7 @@ body,html {
 <script src="js/src/Main.js"></script> 
 </head>
 <body ontouchmove="BlockMove(event);" >
-		<a id="fork"  onclick="javasript:pauseGame()" ></a>
+		<a id="fork"  onclick="javasript:PauseGame()" ></a>
 <canvas class="canvas" id="bottom" style="display:none">Your borwser does not suport html5 canvans!</canvas>
 <canvas class="canvas" id="shadow" style="display:none">Your borwser does not suport html5 canvans!</canvas>
 <canvas class="canvas" id="middle" style="display:none">Your borwser does not suport html5 canvans!</canvas>
@@ -152,7 +152,7 @@ var modal = document.getElementById('myModal');
 var span = document.getElementsByClassName("close")[0];
 var pause = document.getElementById('fork');
 
-pauseGame = function() {
+function PauseGame() {
    alert("asd");
 }
 

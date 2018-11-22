@@ -129,9 +129,18 @@ function levelUpdate()
 	}
 };
 
-function gamePause()
+function resumeGame()
 {
-	gameState = GAME_PAUSE;
+  if(gameState == GAME_PAUSE){
+	  gameState = GAME_PLAYING;
+  }
+}
+
+function pauseGame()
+{
+	if( gameState = GAME_PLAYING){
+		gameState = GAME_PAUSE;
+	}
 }
 
 function gameOver()

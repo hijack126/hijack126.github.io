@@ -56,10 +56,10 @@
 
 	showScoreUI=function()
 	{
-		ui_scoreIcon = particleSystem.createParticle(SPP.SpriteImage);
-		ui_scoreIcon.regX=ui_scoreIcon.regY=0;
-		ui_scoreIcon.init(10,50,Infinity,assetsManager.score,bottomContext);
-		ui_scoreIcon.scale = 3;
+		//ui_scoreIcon = particleSystem.createParticle(SPP.SpriteImage);
+		//ui_scoreIcon.regX=ui_scoreIcon.regY=0;
+		//ui_scoreIcon.init(10,50,Infinity,assetsManager.score,bottomContext);
+		//ui_scoreIcon.scale = 3;
 
 		ui_gameLife = particleSystem.createParticle(SPP.SpriteImage);
 		ui_gameLife.regX=1;
@@ -70,10 +70,10 @@
 
     hideScoreUI=function()
 	{
-		if(ui_scoreIcon!=undefined)
-		{
-			ui_scoreIcon.life=0;
-		}
+		//if(ui_scoreIcon!=undefined)
+		//{
+		//	ui_scoreIcon.life=0;
+		//}
 		if(ui_gameLife!=undefined)
 		{
 			ui_gameLife.life=0;

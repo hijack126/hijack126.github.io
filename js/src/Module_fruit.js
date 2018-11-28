@@ -44,7 +44,7 @@
 	};
 	var  buildHalfFruit=function(target)
 	{
-		var speed=3+ Math.random() * 3;
+		var speed=3+ Math.random() * 8;
 		
 		var right = particleSystem.createParticle(FruitGame.Fruit);
 		right.init(target.position.x,target.position.y,Infinity,target.textureObj.r,assetsManager.shadow,middleContext);

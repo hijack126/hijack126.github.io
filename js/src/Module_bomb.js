@@ -58,6 +58,7 @@
 				+ assetsManager.bomb.height, Infinity, assetsManager.bomb,
 				assetsManager.shadow, middleContext);
 		p.bottomY = gameHeight + assetsManager.bomb.height;
+		p.scale = 1.8;
 	};
 	// cut bomb
 	cutBomb = function(target) {

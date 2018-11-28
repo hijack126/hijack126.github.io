@@ -22,6 +22,7 @@
 			juice.velocity.reset(0, -(4 + Math.random() * 4));
 			juice.velocity.rotate(360*Math.random());
 			juice.addForce("g", gravity);
+			juice.scale = 1.8;
 		}
 	};
 	//splash
@@ -91,7 +92,7 @@
 	//throw fruit
 	throwFruit=function()
 	{
-		var textureObj=assetsManager.getRandomFruit();
+		var textureObj = assetsManager.getRandomFruit();
 		textureObj.scale = 1.8;
 		
 		var p = fruitSystem.createParticle(FruitGame.Fruit);

@@ -47,7 +47,7 @@ FruitGame.Fruit.prototype.init = function(x,y,life,texture,shadow,context)
 	this.texture=texture;
 	this.shadow=shadow;
 	this.rotation=0;
-	this.scale=1.5;
+	this.scale=1.8;
 	this.radius=texture.width>=texture.height?texture.width*0.5:texture.height*0.5;
 	this.radius*=this.scale;
 	this.bottomY=null;

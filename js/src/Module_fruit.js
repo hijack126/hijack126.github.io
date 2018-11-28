@@ -92,6 +92,7 @@
 	throwFruit=function()
 	{
 		var textureObj=assetsManager.getRandomFruit();
+		textureObj.scale = 1.8;
 		
 		var p = fruitSystem.createParticle(FruitGame.Fruit);
 		p.velocity.reset(0, -(18 + Math.random() * 4));

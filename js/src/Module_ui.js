@@ -59,7 +59,8 @@
 	{
 		ui_scoreIcon = particleSystem.createParticle(SPP.SpriteImage);
 		ui_scoreIcon.regX=ui_scoreIcon.regY=0;
-		ui_scoreIcon.init(100,100,Infinity,assetsManager.score,bottomContext);
+		ui_scoreIcon.init(10,10,Infinity,assetsManager.score,bottomContext);
+		ui_scoreIcon.scale = 10;
 
 		ui_gameLife = particleSystem.createParticle(SPP.SpriteImage);
 		ui_gameLife.regX=1;

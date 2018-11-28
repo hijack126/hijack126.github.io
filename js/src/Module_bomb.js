@@ -17,7 +17,7 @@
 				* Math.sin(this.rotation - SPP.MathUtils.toRadian(135));
 		smoke.init(px, py, Infinity, assetsManager.star, topContext);
 		smoke.onUpdate = bombSmokeUpdate;
-		smoke.scale = 0.8;
+		//smoke.scale = 0.8;
 		smoke.damp.reset(0, 0);
 		smoke.velocity.reset(0, -(1 + Math.random() * 1));
 		smoke.velocity.rotate(360 * Math.random());

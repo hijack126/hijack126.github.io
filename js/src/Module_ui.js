@@ -51,7 +51,7 @@
 		}
 		bottomContext.font="36px Courier-Bold";
 		bottomContext.fillText(" "+score,24,6);
-		bottomContext.font="24px Courier-Bold";
+		bottomContext.font="36px Courier-Bold";
 		bottomContext.fillText("Best:"+storage.highScore,13,50);
 	};
 
@@ -60,13 +60,13 @@
 		ui_scoreIcon = particleSystem.createParticle(SPP.SpriteImage);
 		ui_scoreIcon.regX=ui_scoreIcon.regY=0;
 		ui_scoreIcon.init(10,10,Infinity,assetsManager.score,bottomContext);
-		ui_scoreIcon.scale = 5;
+		ui_scoreIcon.scale = 3;
 
 		ui_gameLife = particleSystem.createParticle(SPP.SpriteImage);
 		ui_gameLife.regX=1;
 		ui_gameLife.regY=0;
 		ui_gameLife.init(gameWidth,8,Infinity,ui_gamelifeTexture,bottomContext);
-		ui_gameLife.scale = 5;
+		ui_gameLife.scale = 3;
 	};
 
     hideScoreUI=function()

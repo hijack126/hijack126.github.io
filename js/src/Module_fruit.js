@@ -39,7 +39,7 @@
 		var splash = particleSystem.createParticle(SPP.SpriteImage);
 		splash.init(target.position.x,target.position.y,Infinity,target.textureObj.s,bottomContext);
 		splash.onUpdate=splashUpdate;
-		splash.scale=1+Math.random();
+		splash.scale=1.8+Math.random();
 		splash.rotation=Math.PI*2*Math.random();
 	};
 	var  buildHalfFruit=function(target)

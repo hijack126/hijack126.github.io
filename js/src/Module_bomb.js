@@ -49,7 +49,7 @@
 	};
 	throwBomb = function() {
 		var p = bombSystem.createParticle(FruitGame.Fruit);
-		p.velocity.reset(0, -(10 + Math.random() * 3));
+		p.velocity.reset(0, -(18 + Math.random() * 4));
 		p.velocity.rotate(8 - Math.random() * 16);
 		p.damp.reset(0, 0);
 		p.addForce("g", gravity);

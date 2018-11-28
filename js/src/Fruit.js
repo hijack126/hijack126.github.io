@@ -52,7 +52,6 @@ FruitGame.Fruit.prototype.init = function(x,y,life,texture,shadow,context)
 	this.radius*=this.scale;
 	this.bottomY=null;
 	
-	
 	this.rotationStep=(1-Math.random()*2)*0.1;
 	if(this.rotationStep<=0)this.rotationStep=-0.1;
 	else if(this.rotationStep>0)this.rotationStep=0.1;

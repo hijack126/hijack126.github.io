@@ -26,7 +26,7 @@
 		var textureObj=assetsManager.getRandomFruit();
 		ui_startFruit.init(gameWidth*0.618,gameHeight*0.618,Infinity,textureObj.w,assetsManager.shadow,topContext);
 		ui_startFruit.rotationStep=-0.02;
-		ui_startFruit.scale=0;
+		ui_startFruit.scale=1.8;
 		ui_startFruit.alpha=0;
 		ui_startFruit.textureObj=textureObj;
 		TweenLite.to(ui_startFruit,1,{scale:1,alpha:1,ease :Back.easeOut});

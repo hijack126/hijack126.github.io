@@ -54,7 +54,7 @@
 		right.rotation=target.rotation;
 		right.bottomY=gameHeight+target.textureObj.r.height;
 		right.addForce("g", gravity);
-		right.scale = 2;
+		right.scale=1.5;
 		
 		var left=  particleSystem.createParticle(FruitGame.Fruit);
 		left.init(target.position.x,target.position.y,Infinity,target.textureObj.l,assetsManager.shadow,middleContext);
@@ -64,7 +64,7 @@
 		left.rotation=target.rotation;
 		left.bottomY=gameHeight+target.textureObj.l.height;
 		left.addForce("g", gravity);
-		left.scale = 2;
+		left.scale = 1.5;
 	};
 	//if miss fruit
 	var missUpdate=function()

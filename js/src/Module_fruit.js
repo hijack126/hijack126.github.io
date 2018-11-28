@@ -22,7 +22,7 @@
 			juice.velocity.reset(0, -(4 + Math.random() * 4));
 			juice.velocity.rotate(360*Math.random());
 			juice.addForce("g", gravity);
-			juice.scale = 1.8;
+			juice.scale = 1.3;
 		}
 	};
 	//splash

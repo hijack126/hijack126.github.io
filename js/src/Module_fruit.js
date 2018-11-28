@@ -92,7 +92,6 @@
 		var textureObj=assetsManager.getRandomFruit();
 		
 		var p = fruitSystem.createParticle(FruitGame.Fruit);
-		p.scale = 3;
 		p.velocity.reset(0, -(10 + Math.random() * 3));
 		p.velocity.rotate(8 - Math.random() * 16);
 		p.damp.reset(0, 0);
@@ -102,6 +101,7 @@
 		p.init(gameWidth*0.5+(1-Math.random()*2)*200, gameHeight+textureObj.w.height,Infinity,textureObj.w,assetsManager.shadow,middleContext);
 		p.textureObj=textureObj;
 		p.bottomY=gameHeight+textureObj.w.height;
+		p.scale = 3;
 	};
 	//cut fruit
 	cutFruit=function(target)

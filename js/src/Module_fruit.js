@@ -101,7 +101,6 @@
 		p.init(gameWidth*0.5+(1-Math.random()*2)*200, gameHeight+textureObj.w.height,Infinity,textureObj.w,assetsManager.shadow,middleContext);
 		p.textureObj=textureObj;
 		p.bottomY=gameHeight+textureObj.w.height;
-		p.scale = 3;
 	};
 	//cut fruit
 	cutFruit=function(target)

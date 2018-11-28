@@ -51,7 +51,7 @@
 		}
 		bottomContext.font="36px Courier-Bold";
 		bottomContext.fillText(" "+score,24,6);
-		bottomContext.font="14px Courier-Bold";
+		bottomContext.font="24px Courier-Bold";
 		bottomContext.fillText("Best:"+storage.highScore,13,50);
 	};
 

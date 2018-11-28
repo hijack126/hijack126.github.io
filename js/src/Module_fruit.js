@@ -94,7 +94,7 @@
 		var textureObj=assetsManager.getRandomFruit();
 		
 		var p = fruitSystem.createParticle(FruitGame.Fruit);
-		p.velocity.reset(0, -(15 + Math.random() * 5));
+		p.velocity.reset(0, -(15 + Math.random() * 3));
 		p.velocity.rotate(8 - Math.random() * 16);
 		p.damp.reset(0, 0);
 		p.addForce("g", gravity);

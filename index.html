@@ -89,7 +89,7 @@ body,html {
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
-.modal-content-btn{
+.modal-content input{
 	width: 300px;
     height: 100px;
     font-size: 40px;
@@ -142,7 +142,9 @@ body,html {
 <div id="loading" style="display:block" ></div>
 
 <div id="pauseModal" class="modal">
-	<input type="button" class="modal-content" value="Resume" />
+	<div class="modal-content">
+	    <input type="button" value="Resume" />
+	</div>
 </div>
 
 <div id="myModal" class="modal">

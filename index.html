@@ -16,6 +16,7 @@ body,html {
 	background-image: url(assets/bg.jpg);
 	background-repeat: no-repeat, repeat;
     background-size: cover;
+	background-position: center; 
 }
 
 #fork{
@@ -156,13 +157,15 @@ var pause = document.getElementById('fork');
 
 function PauseGame() {
 
-	if(gameState == GAME_PAUSE){
-		resumeGame();
+  if(gameState == GAME_PAUSE){
+
+	modal.style.display = "block";
+	resumeGame();
   }
   else{
+	modal.style.display = "none";
 	pauseGame();
   }
-
 }
 
 // When the user clicks on <span> (x), close the modal

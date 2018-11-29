@@ -164,11 +164,11 @@ function PauseGame() {
 
   if(gameState == GAME_PAUSE){
 
-	pauseModal.style.display = "block";
+	pauseModal.style.display = "none";
 	resumeGame();
   }
   else{
-	pauseModal.style.display = "none";
+	pauseModal.style.display = "block";
 	pauseGame();
   }
 }

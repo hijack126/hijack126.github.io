@@ -91,6 +91,10 @@ function startGame(e)
 	
 	resetGameData();
 	showScoreUI();
+
+	var fork = document.getElementById('fork');
+	fork.style.display = "block";
+
 	gameState=GAME_PLAYING;
 }
 

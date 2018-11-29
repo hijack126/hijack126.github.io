@@ -92,8 +92,7 @@ function startGame(e)
 	resetGameData();
 	showScoreUI();
 
-	var fork = document.getElementById('fork');
-	fork.style.display = "block";
+	pause.style.display = "block";
 
 	gameState=GAME_PLAYING;
 }
@@ -161,6 +160,7 @@ function gameOver()
 	ui_gamelifeTexture=assetsManager["gamelife-"+gameLife];
 	ui_gameLife.texture=ui_gamelifeTexture;
 	if(score>parseInt(storage["highScore"]))storage.highScore=score;
+	pause.style.display = "none";
 	showGameoverUI();
 };
 function gameOverComplete()

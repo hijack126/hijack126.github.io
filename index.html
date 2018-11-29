@@ -144,7 +144,7 @@ body,html {
 
 <div id="pauseModal" class="modal">
 	<div class="modal-content">
-	    <input type="button" value="Resume" />
+	    <input type="button" value="Resume" onclick="Resume()" />
 	</div>
 </div>
 
@@ -168,6 +168,11 @@ var modal = document.getElementById('myModal');
 var pauseModal = document.getElementById('pauseModal');
 var span = document.getElementsByClassName("close")[0];
 var pause = document.getElementById('fork');
+
+function Resume(){
+	pauseModal.style.display = "none";
+	resumeGame();
+}
 
 function PauseGame() {
 

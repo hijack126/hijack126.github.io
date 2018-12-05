@@ -15,14 +15,14 @@
 		 ui_gameTitle.scale = 2;
 		 TweenLite.to(ui_gameTitle.position,0.5,{y:gameHeight*0.2});
 		 
-		ui_newGame = particleSystem.createParticle(SPP.SpriteImage);
+/*		ui_newGame = particleSystem.createParticle(SPP.SpriteImage);
 		ui_newGame.init(gameWidth*0.618,gameHeight*0.618,Infinity,assetsManager.newgame,topContext);
 		ui_newGame.scale=5;
 		ui_newGame.alpha=0;
 		ui_newGame.onUpdate=ui_newGameUpdate;
 		TweenLite.to(ui_newGame,0.8,{scale:1,alpha:1,ease :Back.easeOut});
 
-/* 		ui_startFruit = fruitSystem.createParticle(FruitGame.Fruit);
+ 		ui_startFruit = fruitSystem.createParticle(FruitGame.Fruit);
 		ui_startFruit.addEventListener("dead",startGame);
 		var textureObj=assetsManager.getRandomFruit();
 		ui_startFruit.init(gameWidth*0.618,gameHeight*0.618,Infinity,textureObj.w,assetsManager.shadow,topContext);
@@ -38,7 +38,7 @@
 	{
 		startbutton.style.display = "none";
 		//ui_startFruit.removeEventListener("dead",startGame);
-		TweenLite.to(ui_gameTitle.position,0.8,{y:-assetsManager.gametitle.heightt*2});
+		TweenLite.to(ui_gameTitle.position,0.8,{y:-assetsManager.gametitle.heightt});
 		TweenLite.to(ui_newGame,0.8,{scale:8,alpha:0,onComplete:function()
 		{
 			ui_gameTitle.life=0;

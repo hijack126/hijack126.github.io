@@ -39,11 +39,11 @@
 		startbutton.style.display = "none";
 		//ui_startFruit.removeEventListener("dead",startGame);
 		TweenLite.to(ui_gameTitle.position,0.8,{y:-assetsManager.gametitle.heightt});
-		TweenLite.to(ui_newGame,0.8,{scale:8,alpha:0,onComplete:function()
+		/*TweenLite.to(ui_newGame,0.8,{scale:8,alpha:0,onComplete:function()
 		{
 			ui_gameTitle.life=0;
 		    ui_newGame.life=0;
-	    }});
+	    }});*/
 	};
 
 	showScoreTextUI=function()

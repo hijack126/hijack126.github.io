@@ -113,6 +113,7 @@ body,html {
 }
 
 .start-button{
+	display: none;
 	position: absolute; 
 	top: 950px;
     left: 250px;
@@ -151,7 +152,7 @@ body,html {
 <canvas class="canvas" id="middle" style="display:none">Your borwser does not suport html5 canvans!</canvas>
 <canvas class="canvas" id="top" style="display:none">Your borwser does not suport html5 canvans!</canvas>
 <canvas id="canvas" style="width:320px; height:240px; border:1px solid black; display:none" width="320" height="240" style="display:none"></canvas>
-<a id="startGame" class="start-button"  onclick="javasript:startGame()"></a>
+<a id="startgameButton" class="start-button"  onclick="javasript:startGame()"></a>
 <div id="loading" style="display:block" ></div>
 
 <div id="pauseModal" class="modal">
@@ -180,6 +181,7 @@ var modal = document.getElementById('myModal');
 var pauseModal = document.getElementById('pauseModal');
 var span = document.getElementsByClassName("close")[0];
 var pause = document.getElementById('fork');
+var startbutton = document.getElementById('startgameButton');
 
 function Resume(){
 	pauseModal.style.display = "none";

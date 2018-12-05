@@ -11,7 +11,7 @@
 		
 		 ui_gameTitle = particleSystem.createParticle(SPP.SpriteImage);
 		 ui_gameTitle.regX= ui_gameTitle.regY=0;
-		 ui_gameTitle.init(0,-assetsManager.gametitle.height*2,Infinity,assetsManager.gametitle,topContext);
+		 ui_gameTitle.init(0,-assetsManager.gametitle.heigh*2,Infinity,assetsManager.gametitle,topContext);
 		 ui_gameTitle.scale = 2;
 		 TweenLite.to(ui_gameTitle.position,0.5,{y:gameHeight*0.2});
 		 
@@ -30,12 +30,15 @@
 		ui_startFruit.alpha=0;
 		ui_startFruit.textureObj=textureObj;
 		TweenLite.to(ui_startFruit,1,{scale:1.8,alpha:1,ease :Back.easeOut}); */
+
+		startbutton.style.display = "block";
 	};
 	
     hideStartGameUI=function()
 	{
-		ui_startFruit.removeEventListener("dead",startGame);
-		TweenLite.to(ui_gameTitle.position,0.8,{y:-assetsManager.gametitle.height});
+		startbutton.style.display = "none";
+		//ui_startFruit.removeEventListener("dead",startGame);
+		TweenLite.to(ui_gameTitle.position,0.8,{y:-assetsManager.gametitle.heightt*2});
 		TweenLite.to(ui_newGame,0.8,{scale:8,alpha:0,onComplete:function()
 		{
 			ui_gameTitle.life=0;

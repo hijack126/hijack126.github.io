@@ -196,12 +196,12 @@ function Resume(){
 function PauseGame() {
 
     if(gameState == GAME_PAUSE){
-		pause.className += "resumegame";
+		pause.className =  pause.className.replace("resumegame", "");
 	   //pauseModal.style.display = "none";
 	   resumeGame();
     }
     else{
-		pause.className -= "resumegame";
+		pause.className += "resumegame";
 	   //pauseModal.style.display = "block";
 	   pauseGame();
     } 

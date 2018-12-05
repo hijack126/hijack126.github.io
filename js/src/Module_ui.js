@@ -11,7 +11,7 @@
 		
 		 ui_gameTitle = particleSystem.createParticle(SPP.SpriteImage);
 		 ui_gameTitle.regX= ui_gameTitle.regY=0;
-		 ui_gameTitle.init(0,-assetsManager.gametitle.height,Infinity,assetsManager.gametitle,topContext);
+		 ui_gameTitle.init(0,-assetsManager.gametitle.height*2,Infinity,assetsManager.gametitle,topContext);
 		 ui_gameTitle.scale = 2;
 		 TweenLite.to(ui_gameTitle.position,0.5,{y:gameHeight*0.2});
 		 

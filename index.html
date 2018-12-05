@@ -112,6 +112,11 @@ body,html {
     cursor: pointer;
 }
 
+.start-button{
+	position: absolute; 
+	background-image: url(assets/newgame.png);
+}
+
 </style>
 <title>Fruit Ninja HTML5 Canvas</title>
 <script src="js/libs/preloadjs-0.6.0.min.js"></script>
@@ -135,12 +140,13 @@ body,html {
 <script src="js/src/Main.js"></script> 
 </head>
 <body ontouchmove="BlockMove(event);" >
-		<a id="fork"  onclick="javasript:PauseGame()" ></a>
+<a id="fork"  onclick="javasript:PauseGame()" ></a>
 <canvas class="canvas" id="bottom" style="display:none">Your borwser does not suport html5 canvans!</canvas>
 <canvas class="canvas" id="shadow" style="display:none">Your borwser does not suport html5 canvans!</canvas>
 <canvas class="canvas" id="middle" style="display:none">Your borwser does not suport html5 canvans!</canvas>
 <canvas class="canvas" id="top" style="display:none">Your borwser does not suport html5 canvans!</canvas>
 <canvas id="canvas" style="width:320px; height:240px; border:1px solid black; display:none" width="320" height="240" style="display:none"></canvas>
+<a id="startGame" class="start-button"  onclick="javasript:StartGame()">Start Game</a>
 <div id="loading" style="display:block" ></div>
 
 <div id="pauseModal" class="modal">

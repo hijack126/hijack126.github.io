@@ -38,7 +38,7 @@
 	{
 		startbutton.style.display = "none";
 		//ui_startFruit.removeEventListener("dead",startGame);
-		TweenLite.to(ui_gameTitle.position,0.8,{y:-assetsManager.gametitle.height*2});
+		TweenLite.to(ui_gameTitle.position,0.5,{y:-assetsManager.gametitle.height*2});
 		/*TweenLite.to(ui_newGame,0.8,{scale:8,alpha:0,onComplete:function()
 		{
 			ui_gameTitle.life=0;

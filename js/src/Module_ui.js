@@ -22,14 +22,14 @@
 		ui_newGame.onUpdate=ui_newGameUpdate;
 		TweenLite.to(ui_newGame,0.8,{scale:1,alpha:1,ease :Back.easeOut});
 
-		ui_startFruit = fruitSystem.createParticle(FruitGame.Fruit);
+/* 		ui_startFruit = fruitSystem.createParticle(FruitGame.Fruit);
 		ui_startFruit.addEventListener("dead",startGame);
 		var textureObj=assetsManager.getRandomFruit();
 		ui_startFruit.init(gameWidth*0.618,gameHeight*0.618,Infinity,textureObj.w,assetsManager.shadow,topContext);
 		ui_startFruit.rotationStep=-0.02;
 		ui_startFruit.alpha=0;
 		ui_startFruit.textureObj=textureObj;
-		TweenLite.to(ui_startFruit,1,{scale:1.8,alpha:1,ease :Back.easeOut});
+		TweenLite.to(ui_startFruit,1,{scale:1.8,alpha:1,ease :Back.easeOut}); */
 	};
 	
     hideStartGameUI=function()

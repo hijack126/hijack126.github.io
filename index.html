@@ -114,7 +114,12 @@ body,html {
 
 .start-button{
 	position: absolute; 
-	background-image: url(assets/newgame.png);
+	top: 950px;
+    left: 250px;
+    width: 500px;
+    height: 200px;
+    background: url(assets/newgame.png) no-repeat center center;
+    background-size: cover;
 }
 
 </style>
@@ -146,7 +151,7 @@ body,html {
 <canvas class="canvas" id="middle" style="display:none">Your borwser does not suport html5 canvans!</canvas>
 <canvas class="canvas" id="top" style="display:none">Your borwser does not suport html5 canvans!</canvas>
 <canvas id="canvas" style="width:320px; height:240px; border:1px solid black; display:none" width="320" height="240" style="display:none"></canvas>
-<a id="startGame" class="start-button"  onclick="javasript:StartGame()">Start Game</a>
+<a id="startGame" class="start-button"  onclick="javasript:startGame()"></a>
 <div id="loading" style="display:block" ></div>
 
 <div id="pauseModal" class="modal">

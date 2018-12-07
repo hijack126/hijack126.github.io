@@ -24,7 +24,7 @@ FruitGame.Fruit.prototype.update = function()
 	this.context.translate(this.position.x-20,this.position.y-20);
 	//this.context.rotate(this.rotation);
 	this.context.scale(this.scale,this.scale);
-	this.drawTexture(this.context,this.shadow,0,0);
+	//this.drawTexture(this.context,this.shadow,0,0);
 	this.context.setTransform(1,0,0,1,0,0);
 	
 	this.context.translate(this.position.x,this.position.y);
@@ -45,7 +45,7 @@ FruitGame.Fruit.prototype.init = function(x,y,life,texture,shadow,context)
 	SPP.Particle.prototype.init.apply(this,[x,y,life]);
 	this.context=context;
 	this.texture=texture;
-	//this.shadow=shadow;
+	this.shadow=shadow;
 	this.rotation=0;
 	this.scale=1.8;
 	this.radius=texture.width>=texture.height?texture.width*0.5:texture.height*0.5;

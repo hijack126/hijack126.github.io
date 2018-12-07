@@ -52,9 +52,9 @@
 		{
 			return;
 		}
-		bottomContext.font="36px Helvetica Neue LT Std 77 Bold Condensed";
+		bottomContext.font="66px Helvetica Neue LT Std 77 Bold Condensed";
 		bottomContext.fillText(" "+score,24,6);
-		bottomContext.font="36px Helvetica Neue LT Std 77 Bold Condensed";
+		bottomContext.font="66px Helvetica Neue LT Std 77 Bold Condensed";
 		bottomContext.fillText("Best:"+storage.highScore,13,50);
 	};
 

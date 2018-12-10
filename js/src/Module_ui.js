@@ -53,9 +53,9 @@
 			return;
 		}
 		bottomContext.font="40px Helvetica Neue Bold";
-		bottomContext.fillText("Score:"+score,24,20);
+		bottomContext.fillText("Score:"+score,20,20);
 		bottomContext.font="36px Helvetica Neue Bold";
-		bottomContext.fillText("Best:"+storage.highScore,13,80);
+		bottomContext.fillText("Best:"+storage.highScore,20,80);
 	};
 
 	showScoreUI=function()

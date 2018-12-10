@@ -52,9 +52,9 @@
 		{
 			return;
 		}
-		bottomContext.font="30px Helvetica Neue Bold";
-		bottomContext.fillText(" "+score,24,20);
-		bottomContext.font="26px Helvetica Neue Bold";
+		bottomContext.font="40px Helvetica Neue Bold";
+		bottomContext.fillText("Score:"+score,24,20);
+		bottomContext.font="36px Helvetica Neue Bold";
 		bottomContext.fillText("Best:"+storage.highScore,13,80);
 	};
 

@@ -53,7 +53,7 @@
 			return;
 		}
 		bottomContext.font="46px Helvetica Neue Bold";
-		bottomContext.fillText("Score:"+score,20,20);
+		bottomContext.fillText("Scores:"+score,20,20);
 		bottomContext.font="42px Helvetica Neue Bold";
 		bottomContext.fillText("Best:"+storage.highScore,20,80);
 	};

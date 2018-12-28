@@ -6,7 +6,6 @@ Boot.prototype={
 
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true;
-        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         game.renderer.renderSession.roundPixels = true;
 
         this.game.state.start("Preload");
@@ -23,12 +22,21 @@ Preload.prototype={
         this.game.load.image('danish','assets/Danish@2x.png');
         this.game.load.image('donut','assets/Donut@2x.png');
     },
-    
     create:function(){
 
         this.game.state.start("Main");
     }
 }
+
+var TileContainer = function(game, x, y){
+    width = 200;
+    height = 200;
+    Phaser.Sprite.call(this, game, x, y, "");
+    this.anchor.setTo(0.5);
+    game.add.existing(this);
+}
+TileContainer.prototype = Object.create(Phaser.Sprite.prototype);
+TileContainer.prototype.constructor = TileContainer;
 
 var Main=function(game){
 };
@@ -40,14 +48,16 @@ Main.prototype={
         var me=this;
 
         me.game.add.image(0, 0,'bg');
+        
         //me.game.stage.backgroundColor="34495f";
         me.tileTypes=['croissant','cupcake','danish','donut'];
         me.score=0;
+        me.offsety = 100;
         me.activeTile1=null;
         me.activeTile2=null;
         me.canMove=false;
-        me.tileWidth=67;
-        me.tileHeight=67;
+        me.tileWidth=66;
+        me.tileHeight=66;
         me.tiles=me.game.add.group();
         me.tileGrid=[[null,null,null,null,null,null],
                      [null,null,null,null,null,null],
@@ -55,18 +65,21 @@ Main.prototype={
                      [null,null,null,null,null,null],
                      [null,null,null,null,null,null],
                      [null,null,null,null,null,null]]
+
+        me.tileContainer = new TileContainer(me.game, 0 , me.offsety);
+        me.tileContainer.addChild(me.tiles);
+
         var seed=Date.now();
         me.random=new Phaser.RandomDataGenerator([seed]);
 
-        me.createScore();
         me.initTiles();
-        
+        me.createScore();
     },
     update:function(){
         var me=this;
         if(me.activeTile1&&!me.activeTile2){
             var hoverX=me.game.input.x;
-            var hoverY=me.game.input.y;
+            var hoverY=me.game.input.y - me.offsety;
             var hoverPosX=Math.floor(hoverX/me.tileWidth);
             var hoverPosY=Math.floor(hoverY/me.tileHeight);
             var difX=(hoverPosX-me.startPosX);
@@ -102,7 +115,7 @@ Main.prototype={
         var me=this;
         var tileToAdd=me.tileTypes[me.random.integerInRange(0,me.tileTypes.length-1)];
         var tile=me.tiles.create((x*me.tileWidth)+me.tileWidth/2, 0, tileToAdd);
-        me.game.add.tween(tile).to({y:y*me.tileHeight+me.tileHeight/2},500,Phaser.Easing.Linear.In,true)
+        me.game.add.tween(tile).to({y:y*me.tileHeight+me.tileHeight/2},500,Phaser.Easing.Linear.In,true);
         tile.anchor.setTo(0.5);
         tile.inputEnabled=true;
         tile.tileType=tileToAdd;
@@ -113,7 +126,7 @@ Main.prototype={
         var me=this;
         if(me.canMove){
             me.activeTile1=tile;
-            me.startPosX=Math.floor( (tile.x-me.tileWidth/2)/me.tileWidth);
+            me.startPosX=Math.floor((tile.x-me.tileWidth/2)/me.tileWidth);
             me.startPosY=Math.floor((tile.y-me.tileHeight/2)/me.tileHeight);
         }
     },
@@ -270,9 +283,11 @@ Main.prototype={
     },
     createScore:function(){
         var me=this;
-        var scoreFont="100px Arial";
-        me.scoreLabel=me.game.add.text((Math.floor(me.tileGrid[0].length/2)*me.tileWidth),me.tileGrid.length*me.tileHeight,"0",{font:scoreFont,fill:"#000"});
+        var scoreFont="70px Arial";
+        me.scoreLabel=me.game.add.text((Math.floor(me.tileGrid[0].length/2)*me.tileWidth),0,"0",{font:scoreFont,fill:"#fff"});
         me.scoreLabel.anchor.setTo(0.5,0);
+        me.scoreLabel.stroke = '#000000';
+        me.scoreLabel.strokeThickness = 2;
         me.scoreLabel.align='center';
     },
     incrementScore:function(){

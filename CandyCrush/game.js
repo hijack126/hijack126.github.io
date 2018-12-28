@@ -46,8 +46,8 @@ Main.prototype={
         me.activeTile1=null;
         me.activeTile2=null;
         me.canMove=false;
-        me.tileWidth=70;
-        me.tileHeight=70;
+        me.tileWidth=67;
+        me.tileHeight=67;
         me.tiles=me.game.add.group();
         me.tileGrid=[[null,null,null,null,null,null],
                      [null,null,null,null,null,null],
@@ -57,13 +57,15 @@ Main.prototype={
                      [null,null,null,null,null,null]]
         var seed=Date.now();
         me.random=new Phaser.RandomDataGenerator([seed]);
-        me.initTiles();
+
         me.createScore();
+        me.initTiles();
+        
     },
     update:function(){
         var me=this;
         if(me.activeTile1&&!me.activeTile2){
-            var hoverX=me.game.input.x +5;
+            var hoverX=me.game.input.x;
             var hoverY=me.game.input.y;
             var hoverPosX=Math.floor(hoverX/me.tileWidth);
             var hoverPosY=Math.floor(hoverY/me.tileHeight);
@@ -99,7 +101,7 @@ Main.prototype={
     addTile:function(x,y){
         var me=this;
         var tileToAdd=me.tileTypes[me.random.integerInRange(0,me.tileTypes.length-1)];
-        var tile=me.tiles.create((x*me.tileWidth)+me.tileWidth/2 + 5, 0, tileToAdd);
+        var tile=me.tiles.create((x*me.tileWidth)+me.tileWidth/2, 0, tileToAdd);
         me.game.add.tween(tile).to({y:y*me.tileHeight+me.tileHeight/2},500,Phaser.Easing.Linear.In,true)
         tile.anchor.setTo(0.5);
         tile.inputEnabled=true;
@@ -111,8 +113,8 @@ Main.prototype={
         var me=this;
         if(me.canMove){
             me.activeTile1=tile;
-            me.startPosX=Math.floor( (tile.x-me.tileWidth/2+5)/me.tileWidth);
-            me.startPosY=Math.floor((tile.y-me.tileHeight/2+5)/me.tileHeight);
+            me.startPosX=Math.floor( (tile.x-me.tileWidth/2)/me.tileWidth);
+            me.startPosY=Math.floor((tile.y-me.tileHeight/2)/me.tileHeight);
         }
     },
     tileUp:function(){

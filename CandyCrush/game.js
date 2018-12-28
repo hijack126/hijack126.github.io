@@ -269,7 +269,7 @@ Main.prototype={
     createScore:function(){
         var me=this;
         var scoreFont="100px Arial";
-        me.scoreLabel=me.game.add.text((Math.floor(me.tileGrid[0].length/2)*me.tileWidth),me.tileGrid.length*me.tileHeight,"0",{font:scoreFont,fill:"#fff"});
+        me.scoreLabel=me.game.add.text((Math.floor(me.tileGrid[0].length/2)*me.tileWidth),me.tileGrid.length*me.tileHeight,"0",{font:scoreFont,fill:"#000"});
         me.scoreLabel.anchor.setTo(0.5,0);
         me.scoreLabel.align='center';
     },

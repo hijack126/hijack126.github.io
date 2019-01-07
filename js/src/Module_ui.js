@@ -94,7 +94,7 @@
 
 	    ui_gameOverScore = particleSystem.createParticle(SPP.SpriteImage);
 		ui_gameOverScore.regX=0;
-		ui_gameOverScore.init(0,-assetsManager.gamescorebg.heigh*2,Infinity,assetsManager.gamescorebg,topContext);
+		ui_gameOverScore.init(100,100,Infinity,assetsManager.gamescorebg,topContext);
 		ui_gameOverScore.scale = 2;
 		 
 	};

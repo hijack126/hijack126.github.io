@@ -88,7 +88,11 @@
 		ui_gameOver = particleSystem.createParticle(SPP.SpriteImage);
 		ui_gameOver.init(gameWidth*0.5,gameHeight*0.5,Infinity,assetsManager.gameover,topContext);
 		ui_gameOver.scale=0;
-		TweenLite.to(ui_gameOver,0.8,{delay:2,scale:1,ease :Back.easeOut});
+		TweenLite.to(ui_gameOver,0.8,{delay:2,scale:1,ease :Back.easeOut,onComplete:hideGameoverUI});
+
+		bottomContext.font="42px Helvetica Neue Bold";
+		bottomContext.fillText("Best:"+score,60,80);
+		 
 	};
 	
 	showGameoverUI=function()

@@ -84,14 +84,11 @@
 		}
 	};
 
-	showScoreUI = function(){
+	showScoreUI=function(){
 		ui_gameOver = particleSystem.createParticle(SPP.SpriteImage);
 		ui_gameOver.init(gameWidth*0.5,gameHeight*0.5,Infinity,assetsManager.gameover,topContext);
 		ui_gameOver.scale=0;
-		TweenLite.to(ui_gameOver,0.8,{delay:2,scale:1,ease :Back.easeOut});
-
-		
-
+		TweenLite.to(ui_gameOver,0.8,{delay:2,scale:1,ease :Back.easeOut,onComplete:null});
 	};
 	
 	showGameoverUI=function()

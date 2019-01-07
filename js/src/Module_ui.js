@@ -86,12 +86,11 @@
 
 	showGameOverScoreUI=function(){
 		ui_gameOver = particleSystem.createParticle(SPP.SpriteImage);
-		ui_gameOver.init(gameWidth*0.5,gameHeight*0.5,Infinity,assetsManager.gameover,topContext);
+		ui_gameOver.init(gameWidth*0.5,gameHeight*0.5 - 100,Infinity,assetsManager.gameover,topContext);
 		ui_gameOver.scale=0;
 		TweenLite.to(ui_gameOver,0.8,{delay:2,scale:1,ease :Back.easeOut,onComplete:null});
 
 	    ui_gameOverScore = particleSystem.createParticle(SPP.SpriteImage);
-		ui_gameOverScore.regX=0;
 		ui_gameOverScore.init(gameWidth*0.5, gameHeight*0.5 + 100, Infinity,assetsManager.gamescorebg,topContext);
 		ui_gameOverScore.scale = 0;
 		TweenLite.to(ui_gameOverScore,0.8,{delay:2,scale:2,ease :Back.easeOut,onComplete:null});

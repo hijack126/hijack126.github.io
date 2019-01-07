@@ -130,13 +130,21 @@ body,html {
 
 .collect-button{
 	display: none;
-	position: absolute; 
-	top: 1050px;
-    left: 250px;
-    width: 500px;
+	position: absolute;
+    top: 1350px;
+    left: 150px;
+    width: 700px;
     height: 200px;
     background: url(assets/collectprize.png) no-repeat center center;
     background-size: cover;
+}
+
+.replay-button{
+	display: none;
+	position: absolute;
+	top: 1450px;
+    left: 150px;
+	color: #000;
 }
 
 @font-face {
@@ -175,6 +183,7 @@ body,html {
 <canvas id="canvas" style="width:320px; height:240px; border:1px solid black; display:none" width="320" height="240" style="display:none"></canvas>
 <a id="startgameButton" class="start-button"  onclick="javasript:startGame()"></a>
 <a id="collectPriceButton" class="collect-button"  onclick="javasript:collectPrice()"></a>
+<a id="replay" class="replay-button"  onclick="javasript:replay()">Play again to earn better rewards</a>
 <div id="loading" style="display:block" ></div>
 
 <div id="pauseModal" class="modal">

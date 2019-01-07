@@ -94,6 +94,9 @@
 		ui_gameOverScore.init(gameWidth*0.5, gameHeight*0.5 + 100, Infinity,assetsManager.gamescorebg,topContext);
 		ui_gameOverScore.scale = 0;
 		TweenLite.to(ui_gameOverScore,0.8,{delay:2,scale:2,ease :Back.easeOut,onComplete:null});
+
+		topContext.font="42px Helvetica Neue Bold";
+		topContext.fillText("HHHH:"+storage.highScore,20,80);
 	};
 	
 	showGameoverUI=function()

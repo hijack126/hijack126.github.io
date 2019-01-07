@@ -128,6 +128,17 @@ body,html {
     background-size: cover;
 }
 
+.collect-button{
+	display: none;
+	position: absolute; 
+	top: 950px;
+    left: 250px;
+    width: 500px;
+    height: 200px;
+    background: url(assets/collectprize.png) no-repeat center center;
+    background-size: cover;
+}
+
 @font-face {
     font-family: "Helvetica Neue Bold";
     src: url(assets/fonts/helvetica-neue-bold.ttf) format("truetype");
@@ -163,6 +174,7 @@ body,html {
 <canvas class="canvas" id="top" style="display:none">Your borwser does not suport html5 canvans!</canvas>
 <canvas id="canvas" style="width:320px; height:240px; border:1px solid black; display:none" width="320" height="240" style="display:none"></canvas>
 <a id="startgameButton" class="start-button"  onclick="javasript:startGame()"></a>
+<a id="collectPriceButton" class="collect-button"  onclick="javasript:collectPrice()"></a>
 <div id="loading" style="display:block" ></div>
 
 <div id="pauseModal" class="modal">
@@ -192,6 +204,7 @@ var pauseModal = document.getElementById('pauseModal');
 var span = document.getElementsByClassName("close")[0];
 var pause = document.getElementById('fork');
 var startbutton = document.getElementById('startgameButton');
+var collectPriceButton = document.getElementById('collectPriceButton');
 
 function Resume(){
 	pauseModal.style.display = "none";

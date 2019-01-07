@@ -32,6 +32,7 @@
 		TweenLite.to(ui_startFruit,1,{scale:1.8,alpha:1,ease :Back.easeOut}); */
 
 		startbutton.style.display = "block";
+
 	};
 	
     hideStartGameUI=function()
@@ -97,6 +98,8 @@
 
 		topContext.font="42px Helvetica Neue Bold";
 		topContext.fillText("HHHH:"+storage.highScore,gameWidth*0.5, gameHeight*0.5 + 100);
+
+		collectPriceButton.style.display = "block";
 	};
 	
 	showGameoverUI=function()

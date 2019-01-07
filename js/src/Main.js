@@ -161,7 +161,9 @@ function gameOver()
 	ui_gameLife.texture=ui_gamelifeTexture;
 	if(score>parseInt(storage["highScore"]))storage.highScore=score;
 	pause.style.display = "none";
-	showGameoverUI();
+
+	showScoreUI();
+	//showGameoverUI();
 };
 function gameOverComplete()
 {

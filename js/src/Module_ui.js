@@ -98,11 +98,11 @@
 
 		topContext.font="42px Helvetica Neue Bold";
 		topContext.fillText("HHHH:"+storage.highScore,gameWidth*0.5, gameHeight*0.5);
-		
 	};
 
 	showCollectButton=function(){
 		collectPriceButton.style.display = "block";
+		replayButton.display = "block";
 	};
 	
 	showGameoverUI=function()

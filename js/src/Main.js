@@ -162,7 +162,7 @@ function gameOver()
 	if(score>parseInt(storage["highScore"]))storage.highScore=score;
 	pause.style.display = "none";
 
-	showScoreUI();
+	showGameOverScoreUI();
 	//showGameoverUI();
 };
 function gameOverComplete()

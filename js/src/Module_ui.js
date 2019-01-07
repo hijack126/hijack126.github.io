@@ -92,9 +92,11 @@
 
 		ui_gameOver.life=0;
 		hideScoreUI();
-		
-		bottomContext.font="42px Helvetica Neue Bold";
-		bottomContext.fillText("Best:"+score,60,80);
+
+	    ui_gameOverScore = particleSystem.createParticle(SPP.SpriteImage);
+		ui_gameOverScore.regX=0;
+		ui_gameOverScore.init(0,-assetsManager.gamescorebg.heigh*2,Infinity,assetsManager.gamescorebg,topContext);
+		ui_gameOverScore.scale = 2;
 		 
 	};
 	

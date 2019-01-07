@@ -3,7 +3,8 @@ FruitGame.assets={
 
 	other:
 		[
-		    {id:"gameover",src:"assets/gameover.png"},
+			{id:"gameover",src:"assets/gameover.png"},
+			{id:"gamescorebg",src:"assets/score-bg.png"},
 		 	{id:"gametitle",src:"assets/gametitle.png"},
 			{id:"shadow",src:"assets/shadow.png"},
 			{id:"bomb",src:"assets/bomb.png"},

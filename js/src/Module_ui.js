@@ -105,6 +105,8 @@
 	};
 
 	showCollectButton=function(){
+		scorelabel.style.display = "block";
+		scorenum.style.display = "block";
 		collectPriceButton.style.display = "block";
 		replayButton.style.display = "block";
 	};

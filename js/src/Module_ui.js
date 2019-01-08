@@ -50,7 +50,7 @@
 
 	showScoreTextUI=function()
 	{
-		if(gameState==GAME_READY||gameState==GAME_OVER)
+		if(gameState==GAME_READY || gameState==GAME_OVER)
 		{
 			return;
 		}
@@ -87,10 +87,11 @@
 		collectPriceButton.style.display = "none";
 		replayButton.style.display = "none";
 
-
 		TweenLite.to(ui_gameOver,0.8,{scale:0,ease :Back.easeIn,onComplete:null});
 		TweenLite.to(ui_gameOverScore,0.8,{scale:0,ease :Back.easeIn,onComplete:null});
 		if(ui_congrats) TweenLite.to(ui_congrats,0.8,{scale:0,ease :Back.easeIn,onComplete:null});
+
+		ui_gameLife.scale = 0;
 
 		if(ui_gameLife!=undefined)
 		{
@@ -144,7 +145,6 @@
 		ui_congrats.scale=0;
 		TweenLite.to(ui_congrats,0.8,{delay:2,scale:2,ease :Back.easeOut,onComplete:showCollectionPriceDetailUI});
 	};
-
 
 	showCollectionPriceDetailUI=function(){
 		email.style.display = "block";

@@ -91,8 +91,6 @@
 		TweenLite.to(ui_gameOverScore,0.8,{scale:0,ease :Back.easeIn,onComplete:null});
 		if(ui_congrats) TweenLite.to(ui_congrats,0.8,{scale:0,ease :Back.easeIn,onComplete:null});
 
-		ui_gameLife.scale = 0;
-
 		if(ui_gameLife!=undefined)
 		{
 			ui_gameLife.life=0;

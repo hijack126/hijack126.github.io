@@ -85,31 +85,56 @@
 		}
 	};
 
+	hideGameOverScoreUI = function(){
+
+		TweenLite.to(ui_gameOver,0.8,{scale:0,ease :Back.easeIn,onComplete:gameoverScoreUIHideComplete});
+	}
+
+	gameoverScoreUIHideComplete= function(){
+
+		scorelabel.style.display = "none";
+		scorenum.style.display = "none";
+		collectPriceButton.style.display = "none";
+		replayButton.style.display = "none";
+	}
+
 	showGameOverScoreUI=function(){
 		ui_gameOver = particleSystem.createParticle(SPP.SpriteImage);
-		ui_gameOver.init(gameWidth*0.5,gameHeight*0.5 - 500,Infinity,assetsManager.gameover,topContext);
+		ui_gameOver.init(gameWidth*0.5,gameHeight*0.5 - 400,Infinity,assetsManager.gameover,topContext);
 		ui_gameOver.scale=0;
 		TweenLite.to(ui_gameOver,0.8,{delay:2,scale:1,ease :Back.easeOut,onComplete:null});
 
 	    ui_gameOverScore = particleSystem.createParticle(SPP.SpriteImage);
 		ui_gameOverScore.init(gameWidth*0.5, gameHeight*0.5 -100, Infinity,assetsManager.gamescorebg,topContext);
 		ui_gameOverScore.scale = 0;
-		TweenLite.to(ui_gameOverScore,0.8,{delay:2,scale:2,ease :Back.easeOut,onComplete:showCollectButton});
-
-		topContext.font="42px Helvetica Neue Bold";
-		topContext.fillText("HHHH:"+storage.highScore,gameWidth*0.5, gameHeight*0.5);
+		TweenLite.to(ui_gameOverScore,0.8,{delay:2,scale:2,ease :Back.easeOut,onComplete:showGameOverScoreDetailUI});
 	};
 
-	showCollectionPriceUI = function(){
-
-	};
-
-	showCollectButton=function(){
+	showGameOverScoreDetailUI=function(){
 		scorelabel.style.display = "block";
 		scorenum.style.display = "block";
 		collectPriceButton.style.display = "block";
 		replayButton.style.display = "block";
 	};
+
+	showCollectionPriceUI = function(){
+		ui_congrats = particleSystem.createParticle(SPP.SpriteImage);
+		ui_congrats.init(gameWidth*0.5,gameHeight*0.5 - 400,Infinity,assetsManager.ui_congrats,topContext);
+		ui_congrats.scale=0;
+		TweenLite.to(ui_congrats,0.8,{delay:2,scale:1,ease :Back.easeOut,onComplete:showCollectionPriceDetailUI});
+	};
+
+
+	showCollectionPriceDetailUI=function(){
+
+		email.style.display = "block";
+		eligible.style.display = "block";
+		price.style.display = "block";
+		enter.style.display = "block";
+		submitButton.style.display = "block";
+		replayButton.style.display = "block";
+	}
+
 	
 	showGameoverUI=function()
 	{

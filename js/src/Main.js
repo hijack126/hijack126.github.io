@@ -170,6 +170,11 @@ function gameOverComplete()
 	replay();
 };
 
+function collectPrice(){
+	hideGameOverScoreUI();
+	showCollectionPriceUI();
+};
+
 function replay(e)
 {
 	hideGameoverUI();

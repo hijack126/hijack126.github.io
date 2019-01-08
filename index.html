@@ -128,6 +128,17 @@ body,html {
     background-size: cover;
 }
 
+.submit-button{
+	display: none;
+	position: absolute; 
+	top: 950px;
+    left: 250px;
+    width: 500px;
+    height: 200px;
+    background: url(assets/submit.png) no-repeat center center;
+    background-size: cover;
+}
+
 .collect-button{
 	display: none;
 	position: absolute;
@@ -158,6 +169,32 @@ body,html {
     left: 320px;
 }
 
+.eligible-label{
+	display: none;
+    font-size: 60px;
+    position: absolute;
+    top: 780px;
+    left: 320px;
+}
+
+.enter-label{
+	display: none;
+    font-size: 60px;
+    position: absolute;
+    top: 1080px;
+    left: 320px;
+}
+
+.price-label{
+	font-size: 120px;
+    font-weight: bold;
+    display: none;
+    position: absolute;
+    top: 900px;
+    color: red;
+    left: 430px;
+}
+
 .score-num{
 	font-size: 120px;
     font-weight: bold;
@@ -166,6 +203,12 @@ body,html {
     top: 900px;
     color: red;
     left: 430px;
+}
+
+#email{
+	display: none;
+	border: none;
+	border-bottom: 1px #000;
 }
 
 @font-face {
@@ -204,6 +247,12 @@ body,html {
 <canvas id="canvas" style="width:320px; height:240px; border:1px solid black; display:none" width="320" height="240" style="display:none"></canvas>
 <a id="startgameButton" class="start-button"  onclick="javasript:startGame()"></a>
 <a id="collectPriceButton" class="collect-button"  onclick="javasript:collectPrice()"></a>
+
+<a id="eligible" class="eligible-label">Your eligible for a</a>
+<a id="price" class="price-label">$33 voucher</a>
+<a id="enter" class="enter-label">Please enter your email address and we will send the voucher to you</a>
+<input id="email" type="text" />
+<a id="submitButton" class="submit-button"  onclick="javasript:submit()"></a>
 <a id="scorelabel" class="score-label">Your score is</a>
 <a id="scorenum" class="score-num">33</a>
 <a id="replayButton" class="replay-button"  onclick="javasript:replay()">Play again to earn better rewards</a>
@@ -240,6 +289,11 @@ var collectPriceButton = document.getElementById('collectPriceButton');
 var replayButton = document.getElementById('replayButton');
 var scorelabel =  document.getElementById('scorelabel');
 var scorenum =  document.getElementById('scorenum');
+var submitButton = document.getElementById('submitButton');
+var eligible = document.getElementById('eligible');
+var price = document.getElementById('price');
+var enter = document.getElementById('enter');
+var email = document.getElementById('email');
 
 function Resume(){
 	pauseModal.style.display = "none";

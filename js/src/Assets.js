@@ -5,6 +5,7 @@ FruitGame.assets={
 		[
 			{id:"gameover",src:"assets/gameover.png"},
 			{id:"gamescorebg",src:"assets/score-bg.png"},
+			{id:"congrats",src:"assets/congrats.png"},
 		 	{id:"gametitle",src:"assets/gametitle.png"},
 			{id:"shadow",src:"assets/shadow.png"},
 			{id:"bomb",src:"assets/bomb.png"},

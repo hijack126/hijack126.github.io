@@ -157,8 +157,7 @@ function gameOver()
 	}
 	gameState=GAME_OVER;
 	gameLife=0;
-	//ui_gamelifeTexture=assetsManager["gamelife-"+gameLife];
-	ui_gameLife.texture=null;
+	ui_gamelifeTexture=assetsManager["gamelife-"+gameLife];
 	if(score>parseInt(storage["highScore"]))storage.highScore=score;
 	pause.style.display = "none";
 

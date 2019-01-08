@@ -9,7 +9,7 @@
 	
 	showStartGameUI=function()
 	{
-		 gameState=GAME_READY;
+		 //gameState=GAME_READY;
 		
 		 ui_gameTitle = particleSystem.createParticle(SPP.SpriteImage);
 		 ui_gameTitle.regX= ui_gameTitle.regY=0;

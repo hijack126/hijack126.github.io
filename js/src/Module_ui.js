@@ -86,8 +86,8 @@
 	};
 
 	hideGameOverScoreUI = function(){
-
 		TweenLite.to(ui_gameOver,0.8,{scale:0,ease :Back.easeIn,onComplete:gameoverScoreUIHideComplete});
+		TweenLite.to(ui_gameOverScore,0.8,{scale:0,ease :Back.easeIn,onComplete:null});
 	}
 
 	gameoverScoreUIHideComplete= function(){

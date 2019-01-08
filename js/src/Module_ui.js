@@ -32,7 +32,6 @@
 		TweenLite.to(ui_startFruit,1,{scale:1.8,alpha:1,ease :Back.easeOut}); */
 
 		startbutton.style.display = "block";
-
 	};
 	
     hideStartGameUI=function()
@@ -75,6 +74,8 @@
 
     hideScoreUI=function()
 	{
+		ui_gameOver.life=0;
+
 		email.style.display = "none";
 		eligible.style.display = "none";
 		price.style.display = "none";
@@ -154,7 +155,6 @@
 		replayButton.style.display = "block";
 	}
 
-	
 	showGameoverUI=function()
 	{
 		ui_gameOver = particleSystem.createParticle(SPP.SpriteImage);
@@ -165,7 +165,7 @@
 	
 	var gameoverUIHideComplete=function()
 	{
-		ui_gameOver.life=0;
+		
 		hideScoreUI();
 		showStartGameUI();
 	};

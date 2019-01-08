@@ -138,6 +138,8 @@
 		scorenum.style.display = "block";
 		collectPriceButton.style.display = "block";
 		replayButton.style.display = "block";
+
+		scorenum.innerHTML = score;
 	};
 
 	showCollectionPriceUI = function(){

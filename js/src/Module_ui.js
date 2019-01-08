@@ -74,7 +74,6 @@
 
     hideScoreUI=function()
 	{
-		ui_gameOver.life=0;
 
 		email.style.display = "none";
 		eligible.style.display = "none";
@@ -165,9 +164,9 @@
 	
 	var gameoverUIHideComplete=function()
 	{
-		
+		ui_gameOver.life=0;
 		hideScoreUI();
-		showStartGameUI();
+		//showStartGameUI();
 	};
 	hideGameoverUI=function()
 	{

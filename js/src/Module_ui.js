@@ -75,14 +75,21 @@
 
     hideScoreUI=function()
 	{
-		//if(ui_scoreIcon!=undefined)
-		//{
-		//	ui_scoreIcon.life=0;
-		//}
+		email.style.display = "none";
+		eligible.style.display = "none";
+		price.style.display = "none";
+		enter.style.display = "none";
+		submitButton.style.display = "none";
+		replayButton.style.display = "none";
+		scorelabel.style.display = "none";
+		scorenum.style.display = "none";
+		collectPriceButton.style.display = "none";
+		replayButton.style.display = "none";
 
-		TweenLite.to(ui_gameOver,0.8,{scale:0,ease :Back.easeIn,onComplete:gameoverScoreUIHideComplete});
+
+		TweenLite.to(ui_gameOver,0.8,{scale:0,ease :Back.easeIn,onComplete:null});
 		TweenLite.to(ui_gameOverScore,0.8,{scale:0,ease :Back.easeIn,onComplete:null});
-		TweenLite.to(ui_congrats,0.8,{scale:0,ease :Back.easeIn,onComplete:collectionPriceUIHideComplete});
+		TweenLite.to(ui_congrats,0.8,{scale:0,ease :Back.easeIn,onComplete:null});
 
 		if(ui_gameLife!=undefined)
 		{

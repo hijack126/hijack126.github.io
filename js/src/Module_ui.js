@@ -79,6 +79,11 @@
 		//{
 		//	ui_scoreIcon.life=0;
 		//}
+
+		TweenLite.to(ui_gameOver,0.8,{scale:0,ease :Back.easeIn,onComplete:gameoverScoreUIHideComplete});
+		TweenLite.to(ui_gameOverScore,0.8,{scale:0,ease :Back.easeIn,onComplete:null});
+		TweenLite.to(ui_congrats,0.8,{scale:0,ease :Back.easeIn,onComplete:collectionPriceUIHideComplete});
+
 		if(ui_gameLife!=undefined)
 		{
 			ui_gameLife.life=0;
@@ -91,10 +96,18 @@
 	}
 
 	gameoverScoreUIHideComplete= function(){
-
 		scorelabel.style.display = "none";
 		scorenum.style.display = "none";
 		collectPriceButton.style.display = "none";
+		replayButton.style.display = "none";
+	}
+
+	collectionPriceUIHideComplete = function(){
+		email.style.display = "none";
+		eligible.style.display = "none";
+		price.style.display = "none";
+		enter.style.display = "none";
+		submitButton.style.display = "none";
 		replayButton.style.display = "none";
 	}
 
@@ -126,7 +139,6 @@
 
 
 	showCollectionPriceDetailUI=function(){
-
 		email.style.display = "block";
 		eligible.style.display = "block";
 		price.style.display = "block";

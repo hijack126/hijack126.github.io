@@ -48,7 +48,7 @@
 
 	showScoreTextUI=function()
 	{
-		if(gameState==GAME_READY)
+		if(gameState==GAME_READY||gameState==GAME_OVER)
 		{
 			return;
 		}
@@ -74,7 +74,6 @@
 
     hideScoreUI=function()
 	{
-
 		email.style.display = "none";
 		eligible.style.display = "none";
 		price.style.display = "none";
@@ -166,7 +165,7 @@
 	{
 		ui_gameOver.life=0;
 		hideScoreUI();
-		//showStartGameUI();
+		showStartGameUI();
 	};
 	hideGameoverUI=function()
 	{

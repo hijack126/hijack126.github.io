@@ -100,9 +100,13 @@
 		topContext.fillText("HHHH:"+storage.highScore,gameWidth*0.5, gameHeight*0.5);
 	};
 
+	showCollectionPriceUI = function(){
+
+	};
+
 	showCollectButton=function(){
 		collectPriceButton.style.display = "block";
-		replayButton.display = "block";
+		replayButton.style.display = "block";
 	};
 	
 	showGameoverUI=function()

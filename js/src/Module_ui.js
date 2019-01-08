@@ -67,8 +67,6 @@
 		//ui_scoreIcon.init(10,50,Infinity,assetsManager.score,bottomContext);
 		//ui_scoreIcon.scale = 3;
 
-		ui_gameOver.life=0;
-
 		ui_gameLife = particleSystem.createParticle(SPP.SpriteImage);
 		ui_gameLife.regX=1;
 		ui_gameLife.regY=0;
@@ -121,6 +119,9 @@
 	}
 
 	showGameOverScoreUI=function(){
+		
+		ui_gameLife.life=0;
+		
 		ui_gameOver = particleSystem.createParticle(SPP.SpriteImage);
 		ui_gameOver.init(gameWidth*0.5,gameHeight*0.5 - 400,Infinity,assetsManager.gameover,topContext);
 		ui_gameOver.scale=0;
@@ -165,7 +166,6 @@
 	
 	var gameoverUIHideComplete=function()
 	{
-		ui_gameOver.life=0;
 		hideScoreUI();
 		showStartGameUI();
 	};

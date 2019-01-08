@@ -119,9 +119,9 @@
 
 	showCollectionPriceUI = function(){
 		ui_congrats = particleSystem.createParticle(SPP.SpriteImage);
-		ui_congrats.init(gameWidth*0.5,gameHeight*0.5 - 500,Infinity,assetsManager.congrats,topContext);
+		ui_congrats.init(gameWidth*0.5,gameHeight*0.5 - 600,Infinity,assetsManager.congrats,topContext);
 		ui_congrats.scale=0;
-		TweenLite.to(ui_congrats,0.8,{delay:2,scale:1,ease :Back.easeOut,onComplete:showCollectionPriceDetailUI});
+		TweenLite.to(ui_congrats,0.8,{delay:2,scale:2,ease :Back.easeOut,onComplete:showCollectionPriceDetailUI});
 	};
 
 

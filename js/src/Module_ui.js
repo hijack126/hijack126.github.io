@@ -155,6 +155,7 @@
 
 	showGameoverUI=function()
 	{
+		ui_gameOver.life=0;
 		ui_gameOver = particleSystem.createParticle(SPP.SpriteImage);
 		ui_gameOver.init(gameWidth*0.5,gameHeight*0.5,Infinity,assetsManager.gameover,topContext);
 		ui_gameOver.scale=0;

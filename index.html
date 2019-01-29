@@ -4,21 +4,28 @@
 <meta charset="utf-8" />
 <meta name="viewport" content=" user-scalable=no"/>
 <style type="text/css">
+	
+	@font-face {
+    font-family: "Helvetica Neue Bold";
+    src: url('assets/fonts/HelveticaNeueLTStd-BdCn.eot');
+    src: url('assets/fonts/HelveticaNeueLTStd-BdCn.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/HelveticaNeueLTStd-BdCn.woff2') format('woff2'),
+        url('assets/fonts/HelveticaNeueLTStd-BdCn.woff') format('woff'),
+        url('assets/fonts/HelveticaNeueLTStd-BdCn.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+	
 body,html {
 		height: 100%;
 		margin: 0;
 		padding: 0;
 		background-color: #000;
-		
+		font-family: "Helvetica Neue Bold";
 	}
 #bottom{
 	
 	background: url(assets/bg.jpg) no-repeat center center fixed;
-    background-size: cover;
-	-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-	background-position: center; 
 }
 
 #fork{
@@ -26,13 +33,13 @@ body,html {
 	position: absolute;
 	left: 30px;
 	bottom: 30px;
-	width: 149px;
-	height: 149px;
+	width: 100px;
+	height: 100px;
 	cursor: pointer;
 	z-index: 10;
 	background-image: url(assets/pause.png);
 	background-repeat: no-repeat;
-    background-size: 149px 149px;
+    background-size: contain;
 }
 
 .resumegame{
@@ -119,109 +126,120 @@ body,html {
 
 .start-button{
 	display: none;
-	position: absolute; 
-	top: 950px;
-    left: 250px;
+	position: relative; 
+	top: 51%;
+    margin: 0 auto;
     width: 500px;
-    height: 200px;
+    height: 139px;
     background: url(assets/newgame.png) no-repeat center center;
-    background-size: cover;
+    background-size: contain;
 }
 
 .submit-button{
 	display: none;
-    position: absolute;
-    top: 1150px;
-    left: 150px;
-    width: 700px;
-    height: 200px;
+    position: relative; 
+	top: 38%;
+    margin: 0 auto;
+    width: 500px;
+    height: 139px;
     background: url(assets/submit.png) no-repeat center center;
-    background-size: cover;
+    background-size: contain;
 }
 
 .collect-button{
 	display: none;
-	position: absolute;
-    top: 1150px;
-    left: 150px;
-    width: 700px;
-    height: 200px;
+	position: relative;
+    top: 60%;
+    margin: 0 auto;
+    width: 500px;
+    height: 139px;
     background: url(assets/collectprize.png) no-repeat center center;
-    background-size: cover;
+    background-size: contain;
 }
 
 .replay-button{
-	   display: none;
-		font-size: 50px;
+	display: none;
+	font-size: 48px;
     font-weight: bold;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid #444;
     padding-bottom: 2px;
     position: absolute;
-    top: 1450px;
-    left: 150px;
-    color: #000;
+    width: 65%;
+    margin: 0 auto;
+    left: 0;
+    bottom: 10%;
+    right: 0;
+    color: #444444;
+	font-family: "Helvetica Neue Bold";
 }
 .score-label{
 	display: none;
-    font-size: 60px;
-    position: absolute;
-    top: 780px;
-    left: 320px;
+    font-size: 100px;
+    position: relative;
+    top: 22%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+	font-family: "Helvetica Neue Bold";
 }
 
 .eligible-label{
     display: none;
-    font-size: 60px;
-    position: absolute;
-    top: 550px;
-    left: 240px;
+    font-size: 90px;
+    position: relative;
+	text-align: center;
+    top: 25%;
+	font-family: "Helvetica Neue Bold";
 }
 
 .enter-label{
     display: none;
     font-size: 56px;
-    position: absolute;
-    width: 800px;
-    top: 780px;
-    left: 120px;
+    position: relative;
+    top: 30%;
+    width: 85%;
+    margin: 0 auto;
+	text-align: center;
+	font-family: "Helvetica Neue Bold";
 }
 
 .price-label{
-    font-size: 80px;
+    font-size: 90px;
     font-weight: bold;
     display: none;
-    position: absolute;
-    top: 650px;
-    color: red;
-    left: 260px;
+    position: relative;
+	text-align: center;
+	top: 25%;
+    color: #dd1d1d;
+	font-family: "Helvetica Neue Bold";
 }
 
 .score-num{
-	font-size: 120px;
-    font-weight: bold;
     display: none;
-    position: absolute;
-    top: 900px;
-    color: red;
-    left: 430px;
+    font-size: 120px;
+	color: #000;
+    position: relative;
+    top: 23%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+	font-family: "Helvetica Neue Bold";
 }
 
 #email{
 	display: none;
-    font-size: 60px;
+    font-size: 56px;
     border: none;
-    position: absolute;
-    width: 600px;
-    top: 1000px;
-    height: 100px;
-    left: 180px;
+    position: relative;
+    width: 75%;
+    margin: 0 auto;
+    top: 33%;
+    text-align: center;
+    line-height: 2em;
+    color: #444;
     background: transparent;
-    border-bottom: 1px #000 solid;
-}
-
-@font-face {
-    font-family: "Helvetica Neue Bold";
-    src: url(assets/fonts/helvetica-neue-bold.ttf) format("truetype");
+    border-bottom: 1px #444 solid;
+	font-family: "Helvetica Neue Bold";
 }
 
 </style>
@@ -256,10 +274,10 @@ body,html {
 <a id="startgameButton" class="start-button"  onclick="javasript:startGame()"></a>
 <a id="collectPriceButton" class="collect-button"  onclick="javasript:collectPrice()"></a>
 
-<a id="eligible" class="eligible-label">Your eligible for a</a>
+<a id="eligible" class="eligible-label">You're eligible for a</a>
 <a id="price" class="price-label">$33 voucher</a>
 <a id="enter" class="enter-label">Please enter your email address and we will send the voucher to you</a>
-<input id="email" type="text" placeholder="eg: xxxx@gmail.com " />
+<input id="email" type="text" placeholder="eg: xxxxxx@gmail.com " />
 <a id="submitButton" class="submit-button"  onclick="javasript:submit()"></a>
 <a id="scorelabel" class="score-label">Your score is</a>
 <a id="scorenum" class="score-num">33</a>

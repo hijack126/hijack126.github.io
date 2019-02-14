@@ -21,6 +21,10 @@ Preload.prototype={
         this.game.load.image('cupcake','assets/Cupcake@2x.png');
         this.game.load.image('danish','assets/Danish@2x.png');
         this.game.load.image('donut','assets/Donut@2x.png');
+
+        this.game.load.image("backpack", "assets/Danish@2x.png");
+        this.game.load.image("binoculars", "assets/Danish@2x.png");
+        this.game.load.image("wagone", "assets/Danish@2x.png");
     },
     create:function(){
 
@@ -74,6 +78,7 @@ Main.prototype={
 
         me.initTiles();
         me.createScore();
+        me.createEquipmentList();
     },
     update:function(){
         var me=this;
@@ -291,8 +296,59 @@ Main.prototype={
         me.scoreLabel.align='center';
     },
     incrementScore:function(){
-            var me=this;me.score+=10;
-            me.scoreLabel.text=me.score;
-        },
-    };
+        var me=this;
+        me.score+=10;
+        me.scoreLabel.text=me.score;
+    },
+    createEquipmentList:function(){
+
+        this.backpackhud =  game.add.sprite(13, 13 *13, 'backpack', 1);
+        this.binocularshud =  game.add.sprite(13, 13 *13, 'binoculars', 1);
+        this.wagonehud =  game.add.sprite(13, 13 *13, 'wagonehud', 1);
+
+        this.equipmentType = ['backpack','binoculars','wagon'];
+        this.equimentAmout = [0,0,0];
+        this.currentStage = 0;
+        this.stageScore = [100];
+        this.stageMoves = [10];
+        this.selectedEquiment = -1;
+    },
+    chooseEquiment:function(index){
+        this.selectedEquiment = index;
+    },
+    useEquipment:function(row, col){
+
+        if(this.selectedEquiment < 0 ||
+        this.equimentAmout[this.selectedEquiment] < 1) return;
+
+        switch(this.selectedEquiment)
+        {
+            case 0:
+               useBackpack(row, col);
+               break;
+            case 1:
+               useBinoculars(row, col);
+               break;
+            case 1:
+                useWagone(row, col);
+                break;
+            default:
+                break;
+        }
+
+        this.equimentAmout[this.selectedEquiment]--;
+    },
+    useBackpack:function(row, col){
+
+    },
+    useBinoculars:function(row, col){
+
+    },
+    useWagone:function(row, col){
+
+    }
+};
+
+
+
 

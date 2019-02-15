@@ -315,18 +315,16 @@ Main.prototype={
     updateMoveCount:function(move){
         this.stageMoves += move;
     },
-    chooseEquiment:function(index){
-        this.selectedEquiment = index;
-    },
+
     createEquipmentList:function(){
 
         this.backpackhud =  game.add.sprite(13, 400, 'backpack', 1);
         this.binocularshud =  game.add.sprite(33, 400, 'binoculars', 1);
         this.wagonehud =  game.add.sprite(53, 400, 'wagonehud', 1);
 
-        this.backpackhud.events.onInputDown.add(this.chooseEquiment(0), this);
-        this.binocularshud.events.onInputDown.add(this.chooseEquiment(1), this);
-        this.wagonehud.events.onInputDown.add(this.chooseEquiment(2), this);
+        this.backpackhud.events.onInputDown.add(chooseEquiment, 0);
+        this.binocularshud.events.onInputDown.add(chooseEquiment, 1);
+        this.wagonehud.events.onInputDown.add(chooseEquiment, 2);
 
         this.equipmentType = ['backpack','binoculars','wagon'];
         this.equimentAmout = [0,0,0];
@@ -335,7 +333,9 @@ Main.prototype={
         this.stageMoves = 10;
         this.selectedEquiment = -1;
     },
-
+    chooseEquiment:function(index){
+        this.selectedEquiment = index;
+    },
     useEquipment:function(row, col){
 
         if(this.selectedEquiment < 0 ||

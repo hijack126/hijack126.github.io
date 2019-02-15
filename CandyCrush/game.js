@@ -303,8 +303,10 @@ Main.prototype={
     createEquipmentList:function(){
 
         this.backpackhud =  game.add.sprite(13, 13 *13, 'backpack', 1);
-        this.binocularshud =  game.add.sprite(13, 13 *13, 'binoculars', 1);
-        this.wagonehud =  game.add.sprite(13, 13 *13, 'wagonehud', 1);
+        this.binocularshud =  game.add.sprite(33, 13 *13, 'binoculars', 1);
+        this.wagonehud =  game.add.sprite(53, 13 *13, 'wagonehud', 1);
+
+        this.backpackhud.events.onInputDown.add(this.chooseEquiment(0), this);
 
         this.equipmentType = ['backpack','binoculars','wagon'];
         this.equimentAmout = [0,0,0];

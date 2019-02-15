@@ -315,6 +315,9 @@ Main.prototype={
     updateMoveCount:function(move){
         this.stageMoves += move;
     },
+    chooseEquiment:function(index){
+        this.selectedEquiment = index;
+    },
     createEquipmentList:function(){
 
         this.backpackhud =  game.add.sprite(13, 400, 'backpack', 1);
@@ -332,9 +335,7 @@ Main.prototype={
         this.stageMoves = 10;
         this.selectedEquiment = -1;
     },
-    chooseEquiment:function(index){
-        this.selectedEquiment = index;
-    },
+
     useEquipment:function(row, col){
 
         if(this.selectedEquiment < 0 ||

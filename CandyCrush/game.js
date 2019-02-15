@@ -163,15 +163,17 @@ Main.prototype={
         var me=this;
         var matches=me.getMatches(me.tileGrid);
         if(matches.length>0){
-                me.removeTileGroup(matches);
-                me.resetTile();
-                me.fillTile();
-                me.game.time.events.add(500,function(){
-                    me.tileUp();
-                });
-                me.game.time.events.add(600,function(){
-                    me.checkMatch();
-                });
+            me.removeTileGroup(matches);
+            me.resetTile();
+            me.fillTile();
+            me.game.time.events.add(500,function(){
+                me.tileUp();
+            });
+            me.game.time.events.add(600,function(){
+                me.checkMatch();
+            });
+
+            me.updateMoveCount(-1);
         }
         else{
             me.swapTiles();
@@ -300,19 +302,34 @@ Main.prototype={
         me.score+=10;
         me.scoreLabel.text=me.score;
     },
+    createMoveCount:function(){
+
+        this.moveLabel = me.game.add.text((Math.floor(me.tileGrid[0].length/2)*me.tileWidth),0,"0",{font:scoreFont,fill:"#fff"});
+        this.moveLabel.anchor.setTo(0.5,0);
+        this.moveLabel.stroke = '#000000';
+        this.moveLabel.strokeThickness = 2;
+        this.moveLabel.align='center';
+
+        this.scoreLabel.text = this.stageMoves;
+    },
+    updateMoveCount:function(move){
+        this.stageMoves += move;
+    },
     createEquipmentList:function(){
 
-        this.backpackhud =  game.add.sprite(13, 13 *13, 'backpack', 1);
-        this.binocularshud =  game.add.sprite(33, 13 *13, 'binoculars', 1);
-        this.wagonehud =  game.add.sprite(53, 13 *13, 'wagonehud', 1);
+        this.backpackhud =  game.add.sprite(13, 400, 'backpack', 1);
+        this.binocularshud =  game.add.sprite(33, 400, 'binoculars', 1);
+        this.wagonehud =  game.add.sprite(53, 400, 'wagonehud', 1);
 
         this.backpackhud.events.onInputDown.add(this.chooseEquiment(0), this);
+        this.binocularshud.events.onInputDown.add(this.chooseEquiment(1), this);
+        this.wagonehud.events.onInputDown.add(this.chooseEquiment(2), this);
 
         this.equipmentType = ['backpack','binoculars','wagon'];
         this.equimentAmout = [0,0,0];
         this.currentStage = 0;
-        this.stageScore = [100];
-        this.stageMoves = [10];
+        this.stageScore = 100;
+        this.stageMoves = 10;
         this.selectedEquiment = -1;
     },
     chooseEquiment:function(index){

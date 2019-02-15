@@ -324,7 +324,7 @@ Main.prototype={
         this.binocularshud =  game.add.sprite(33, 400, 'binoculars');
         this.wagonehud =  game.add.sprite(53, 400, 'wagonehud');
 
-        this.backpackhud.events.onInputDown.add(this.chooseEquiment, this);
+        this.backpackhud.events.onInputDown.add(this.chooseEquiment, 0);
         this.binocularshud.events.onInputDown.add(this.chooseEquiment, this);
         this.wagonehud.events.onInputDown.add(this.chooseEquiment, 2);
 

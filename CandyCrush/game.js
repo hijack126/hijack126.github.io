@@ -322,8 +322,8 @@ Main.prototype={
         this.binocularshud =  game.add.sprite(33, 400, 'binoculars', 1);
         this.wagonehud =  game.add.sprite(53, 400, 'wagonehud', 1);
 
-        this.backpackhud.events.onInputDown.add(this.chooseEquiment, 0);
-        this.binocularshud.events.onInputDown.add(this.chooseEquiment, 1);
+        this.backpackhud.events.onInputDown.add(this.chooseEquiment, this);
+        this.binocularshud.events.onInputDown.add(this.chooseEquiment, this);
         this.wagonehud.events.onInputDown.add(this.chooseEquiment, 2);
 
         this.equipmentType = ['backpack','binoculars','wagon'];
@@ -333,8 +333,8 @@ Main.prototype={
         this.stageMoves = 10;
         this.selectedEquiment = -1;
     },
-    chooseEquiment:function(index){
-        this.selectedEquiment = index;
+    chooseEquiment:function(){
+        this.selectedEquiment = 0;
     },
     useEquipment:function(row, col){
 

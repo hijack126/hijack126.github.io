@@ -318,9 +318,11 @@ Main.prototype={
 
     createEquipmentList:function(){
 
-        this.backpackhud =  game.add.sprite(13, 400, 'backpack', 1);
-        this.binocularshud =  game.add.sprite(33, 400, 'binoculars', 1);
-        this.wagonehud =  game.add.sprite(53, 400, 'wagonehud', 1);
+        this.backpackhud =  game.add.sprite(13, 400, 'backpack');
+        this.backpackhud.anchor.set(0.5);
+        this.backpackhud.inputEnabled = true;
+        this.binocularshud =  game.add.sprite(33, 400, 'binoculars');
+        this.wagonehud =  game.add.sprite(53, 400, 'wagonehud');
 
         this.backpackhud.events.onInputDown.add(this.chooseEquiment, this);
         this.binocularshud.events.onInputDown.add(this.chooseEquiment, this);

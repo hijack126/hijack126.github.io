@@ -123,8 +123,7 @@ Main.prototype={
         tile.anchor.setTo(0.5);
         tile.inputEnabled=true;
         tile.tileType=tileToAdd;
-        tile.x = x;
-        tile.y = y;
+        tile.position = (x,y);
         tile.events.onInputDown.add(me.tileDown,me);
         return tile;
     },
@@ -132,7 +131,7 @@ Main.prototype={
         var me=this;
 
         if(me.selectedEquiment>-1 && me.game.input.mousePointer.isDown){
-            me.useEquipment(tile.x, tile.y, me.tileGrid);
+            me.useEquipment(tile.position.x, tile.position.y, me.tileGrid);
         }
         else if(me.canMove){
             me.activeTile1=tile;
@@ -322,13 +321,13 @@ Main.prototype={
     },
     createEquipmentList:function(){
 
-        this.backpackhud = game.add.sprite(20, 650, 'backpack');
+        this.backpackhud = game.add.sprite(60, 650, 'backpack');
         this.backpackhud.anchor.set(0.5);
         this.backpackhud.inputEnabled = true;
-        this.binocularshud =  game.add.sprite(80, 650, 'binoculars');
+        this.binocularshud =  game.add.sprite(120, 650, 'binoculars');
         this.binocularshud.anchor.set(0.5);
         this.binocularshud.inputEnabled = true;
-        this.wagonehud =  game.add.sprite(140, 650, 'wagonehud');
+        this.wagonehud =  game.add.sprite(180, 650, 'wagonehud');
         this.wagonehud.anchor.set(0.5);
         this.wagonehud.inputEnabled = true;
 

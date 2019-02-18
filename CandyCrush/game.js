@@ -60,16 +60,15 @@ Main.prototype={
         me.activeTile1=null;
         me.activeTile2=null;
         me.canMove=false;
-        me.tileWidth=60;
-        me.tileHeight=60;
+        me.tileWidth=66;
+        me.tileHeight=66;
         me.tiles=me.game.add.group();
-        me.tileGrid=[[null,null,null,null,null,null,null],
-                     [null,null,null,null,null,null,null],
-                     [null,null,null,null,null,null,null],
-                     [null,null,null,null,null,null,null],
-                     [null,null,null,null,null,null,null],
-                     [null,null,null,null,null,null,null],
-                     [null,null,null,null,null,null,null]]
+        me.tileGrid=[[null,null,null,null,null,null],
+                     [null,null,null,null,null,null],
+                     [null,null,null,null,null,null],
+                     [null,null,null,null,null,null],
+                     [null,null,null,null,null,null],
+                     [null,null,null,null,null,null]]
 
         me.tileContainer = new TileContainer(me.game, 0 , me.offsety);
         me.tileContainer.addChild(me.tiles);

@@ -407,11 +407,19 @@ Main.prototype={
          }
 
          matches.push(groups);
-         
-        this.removeTileGroup(matches);
-    },
-    useBinoculars:function(row, col){
 
+        this.removeTileGroup(matches);
+        this.resetTile();
+        this.fillTile();
+        this.game.time.events.add(500,function(){
+            this.tileUp();
+        });
+        this.game.time.events.add(600,function(){
+            this.checkMatch();
+        });
+    },
+    useBinoculars:function(tileType){
+        
     },
     useWagone:function(row, col){
 

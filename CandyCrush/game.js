@@ -60,8 +60,8 @@ Main.prototype={
         me.activeTile1=null;
         me.activeTile2=null;
         me.canMove=false;
-        me.tileWidth=55;
-        me.tileHeight=55;
+        me.tileWidth=60;
+        me.tileHeight=60;
         me.tiles=me.game.add.group();
         me.tileGrid=[[null,null,null,null,null,null,null],
                      [null,null,null,null,null,null,null],

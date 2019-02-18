@@ -410,7 +410,7 @@ Main.prototype={
             }
         }
 
-        me.removeTileGroup(matches);
+        this.removeTileGroup(matches);
     },
     useBinoculars:function(row, col){
 

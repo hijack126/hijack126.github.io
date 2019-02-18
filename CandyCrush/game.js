@@ -344,12 +344,28 @@ Main.prototype={
     },
     chooseBackpack:function(){
         this.selectedEquiment = 0;
+
+        if(this.selectedEquiment < 0 ||
+            this.equimentAmout[this.selectedEquiment] < 1){
+                this.selectedEquiment = -1;
+                return;
+        }
     },
     chooseBinoculars:function(){
         this.selectedEquiment = 1;
+        if(this.selectedEquiment < 0 ||
+            this.equimentAmout[this.selectedEquiment] < 1){
+                this.selectedEquiment = -1;
+                return;
+        }
     },
     chooseWagone:function(){
         this.selectedEquiment = 2;
+        if(this.selectedEquiment < 0 ||
+            this.equimentAmout[this.selectedEquiment] < 1){
+                this.selectedEquiment = -1;
+                return;
+        }
     },
     useEquipment:function(row, col, tileGrid){
 

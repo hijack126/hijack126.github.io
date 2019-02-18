@@ -123,7 +123,7 @@ Main.prototype={
         tile.anchor.setTo(0.5);
         tile.inputEnabled=true;
         tile.tileType=tileToAdd;
-        tile.vPosition = (x,y);
+        tile.vPosition = {x:x, y:y};
         tile.events.onInputDown.add(me.tileDown,me);
         return tile;
     },

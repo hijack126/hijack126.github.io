@@ -1,5 +1,4 @@
 var Boot=function(game){};
-
 Boot.prototype={
     reload:function(){},
     create:function(){
@@ -27,7 +26,6 @@ Preload.prototype={
         this.game.load.image("wagone", "assets/Danish@2x.png");
     },
     create:function(){
-
         this.game.state.start("Main");
     }
 }
@@ -50,7 +48,7 @@ Main.prototype={
     },
     create:function(){
         var me=this;
-
+ 
         me.game.add.image(0, 0,'bg');
         
         //me.game.stage.backgroundColor="34495f";
@@ -125,6 +123,8 @@ Main.prototype={
         tile.anchor.setTo(0.5);
         tile.inputEnabled=true;
         tile.tileType=tileToAdd;
+        tile.x = x;
+        tile.y = y;
         tile.events.onInputDown.add(me.tileDown,me);
         return tile;
     },
@@ -132,7 +132,7 @@ Main.prototype={
         var me=this;
 
         if(me.selectedEquiment>-1 && me.game.input.mousePointer.isDown){
-
+            me.useEquipment(tile.x, tile.y, me.tileGrid);
         }
         else if(me.canMove){
             me.activeTile1=tile;
@@ -320,16 +320,15 @@ Main.prototype={
     updateMoveCount:function(move){
         this.stageMoves += move;
     },
-
     createEquipmentList:function(){
 
-        this.backpackhud =  game.add.sprite(13, 400, 'backpack');
+        this.backpackhud = game.add.sprite(20, 800, 'backpack');
         this.backpackhud.anchor.set(0.5);
         this.backpackhud.inputEnabled = true;
-        this.binocularshud =  game.add.sprite(33, 400, 'binoculars');
+        this.binocularshud =  game.add.sprite(80, 800, 'binoculars');
         this.binocularshud.anchor.set(0.5);
         this.binocularshud.inputEnabled = true;
-        this.wagonehud =  game.add.sprite(53, 400, 'wagonehud');
+        this.wagonehud =  game.add.sprite(140, 800, 'wagonehud');
         this.wagonehud.anchor.set(0.5);
         this.wagonehud.inputEnabled = true;
 
@@ -353,7 +352,7 @@ Main.prototype={
     chooseWagone:function(){
         this.selectedEquiment = 2;
     },
-    useEquipment:function(row, col){
+    useEquipment:function(row, col, tileGrid){
 
         if(this.selectedEquiment < 0 ||
         this.equimentAmout[this.selectedEquiment] < 1) return;
@@ -361,7 +360,7 @@ Main.prototype={
         switch(this.selectedEquiment)
         {
             case 0:
-               useBackpack(row, col);
+               useBackpack(row, col, tileGrid);
                break;
             case 1:
                useBinoculars(row, col);
@@ -374,11 +373,45 @@ Main.prototype={
         }
 
         this.equimentAmout[this.selectedEquiment]--;
-
         this.selectedEquiment = -1;
     },
-    useBackpack:function(row, col){
+    useBackpack:function(row, col, tileGrid){
+        var matches=[];
+        for(var i=0;i<tileGrid.length;i++){
+            var tempArr = tileGrid[i];
+            groups=[];
+            for(var j=0;j<tempArr.length;j++){
+                 if(tileGrid[row-1][col -1]){
+                    matches.push(tileGrid[row-1][col -1]);
+                 }
+                 if(tileGrid[row-1][col]){
+                    matches.push(tileGrid[row-1][col]);
+                 }
+                 if(tileGrid[row][col-1]){
+                    matches.push(tileGrid[row][col -1]);
+                 }
+                 if(tileGrid[row][col]){
+                    matches.push(tileGrid[row][col]);
+                 }
+                 if(tileGrid[row+1][col]){
+                    matches.push(tileGrid[row+1][col]);
+                 }
+                 if(tileGrid[row+1][col-1]){
+                    matches.push(tileGrid[row+1][col -1]);
+                 }
+                 if(tileGrid[row-1][col+1]){
+                    matches.push(tileGrid[row-1][col+1]);
+                 }
+                 if(tileGrid[row][col+1]){
+                    matches.push(tileGrid[row][col+1]);
+                 }
+                 if(tileGrid[row+1][col+1]){
+                    matches.push(tileGrid[row+1][col+1]);
+                 }
+            }
+        }
 
+        me.removeTileGroup(matches);
     },
     useBinoculars:function(row, col){
 

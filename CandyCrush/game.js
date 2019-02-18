@@ -331,12 +331,12 @@ Main.prototype={
         this.wagonehud.anchor.set(0.5);
         this.wagonehud.inputEnabled = true;
 
-        this.backpackhud.events.onInputDown.add(this.chooseEquiment, this);
+        this.backpackhud.events.onInputDown.add(this.chooseBackpack, this);
         this.binocularshud.events.onInputDown.add(this.chooseBinoculars, this);
         this.wagonehud.events.onInputDown.add(this.chooseWagone, this);
 
         this.equipmentType = ['backpack','binoculars','wagon'];
-        this.equimentAmout = [0,0,0];
+        this.equimentAmout = [1,0,0];
         this.currentStage = 0;
         this.stageScore = 100;
         this.stageMoves = 10;

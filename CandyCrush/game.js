@@ -336,7 +336,7 @@ Main.prototype={
         this.wagonehud.events.onInputDown.add(this.chooseWagone, this);
 
         this.equipmentType = ['backpack','binoculars','wagon'];
-        this.equimentAmout = [1,0,0];
+        this.equimentAmout = [1,1,1];
         this.currentStage = 0;
         this.stageScore = 100;
         this.stageMoves = 10;
@@ -378,10 +378,10 @@ Main.prototype={
                this.useBackpack(row, col, tileGrid);
                break;
             case 1:
-               this.useBinoculars(row, col);
+               this.useBinoculars(tileType, tileGrid);
                break;
             case 1:
-                this.useWagone(row, col);
+                this.useWagone(row, col, tileGrid);
                 break;
             default:
                 break;
@@ -436,11 +436,57 @@ Main.prototype={
             me.checkMatch();
         });
     },
-    useBinoculars:function(tileType){
-        
-    },
-    useWagone:function(row, col){
+    useBinoculars:function(tileType, tileGrid){
+        var matches=[];
+        var groups=[];
+        for(var i=0;i<tileGrid.length;i++){
+            var tempArr=tileGrid[i];
+            groups=[];
+            for(var j=0;j<tempArr.length;j++){
+                if(tileGrid[i][j].tileType == tileType){
+                    groups.push(tileGrid[i][j]);
+                }
+            }
+            matches.push(groups);
+        }
 
+        var me=this;
+
+        this.removeTileGroup(matches);
+        this.resetTile();
+        this.fillTile();
+        this.game.time.events.add(500,function(){
+            me.tileUp();
+        });
+        this.game.time.events.add(600,function(){
+            me.checkMatch();
+        });
+    },
+    useWagone:function(row, col, tileGrid){
+        var matches=[];
+        var groups=[];
+        for(var i=0;i<tileGrid.length;i++){
+            var tempArr=tileGrid[i];
+            groups=[];
+            for(var j=0;j<tempArr.length;j++){
+                if(i== row || j==col){
+                    groups.push(tileGrid[i][j]);
+                }
+            }
+            matches.push(groups);
+        }
+
+        var me=this;
+
+        this.removeTileGroup(matches);
+        this.resetTile();
+        this.fillTile();
+        this.game.time.events.add(500,function(){
+            me.tileUp();
+        });
+        this.game.time.events.add(600,function(){
+            me.checkMatch();
+        });
     }
 };
 

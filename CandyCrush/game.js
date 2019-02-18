@@ -380,7 +380,7 @@ Main.prototype={
             case 1:
                this.useBinoculars(tileType, tileGrid);
                break;
-            case 1:
+            case 2:
                 this.useWagone(row, col, tileGrid);
                 break;
             default:

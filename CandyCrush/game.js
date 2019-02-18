@@ -423,7 +423,8 @@ Main.prototype={
          }
 
          matches.push(groups);
-
+         
+         this.removeTileGroup(matches);
          this.resetTiles();
     },
     useBinoculars:function(tileType, tileGrid){
@@ -439,8 +440,8 @@ Main.prototype={
             }
             matches.push(groups);
         }
-
-        this.resetTiles();
+        this.removeTileGroup(matches);
+        this.resetAllTiles();
     },
     useWagone:function(row, col, tileGrid){
         var matches=[];
@@ -456,12 +457,13 @@ Main.prototype={
             matches.push(groups);
         }
 
-        this.resetTiles();
+        this.removeTileGroup(matches);
+        this.resetAllTiles();
     },
-    resetTiles:function(){
+    resetAllTiles:function(){
         var me=this;
 
-        this.removeTileGroup(matches);
+       
         this.resetTile();
         this.fillTile();
         this.game.time.events.add(500,function(){

@@ -376,40 +376,38 @@ Main.prototype={
     },
     useBackpack:function(row, col, tileGrid){
         var matches=[];
-        for(var i=0;i<tileGrid.length;i++){
-            var tempArr = tileGrid[i];
-            groups=[];
-            for(var j=0;j<tempArr.length;j++){
-                 if(tileGrid[row-1][col -1]){
-                    matches.push(tileGrid[row-1][col -1]);
-                 }
-                 if(tileGrid[row-1][col]){
-                    matches.push(tileGrid[row-1][col]);
-                 }
-                 if(tileGrid[row][col-1]){
-                    matches.push(tileGrid[row][col -1]);
-                 }
-                 if(tileGrid[row][col]){
-                    matches.push(tileGrid[row][col]);
-                 }
-                 if(tileGrid[row+1][col]){
-                    matches.push(tileGrid[row+1][col]);
-                 }
-                 if(tileGrid[row+1][col-1]){
-                    matches.push(tileGrid[row+1][col -1]);
-                 }
-                 if(tileGrid[row-1][col+1]){
-                    matches.push(tileGrid[row-1][col+1]);
-                 }
-                 if(tileGrid[row][col+1]){
-                    matches.push(tileGrid[row][col+1]);
-                 }
-                 if(tileGrid[row+1][col+1]){
-                    matches.push(tileGrid[row+1][col+1]);
-                 }
-            }
-        }
+        var groups=[];
 
+        if(tileGrid[row-1][col -1]){
+            groups.push(tileGrid[row-1][col -1]);
+         }
+         if(tileGrid[row-1][col]){
+            groups.push(tileGrid[row-1][col]);
+         }
+         if(tileGrid[row][col-1]){
+            groups.push(tileGrid[row][col -1]);
+         }
+         if(tileGrid[row][col]){
+            groups.push(tileGrid[row][col]);
+         }
+         if(tileGrid[row+1][col]){
+            groups.push(tileGrid[row+1][col]);
+         }
+         if(tileGrid[row+1][col-1]){
+            groups.push(tileGrid[row+1][col -1]);
+         }
+         if(tileGrid[row-1][col+1]){
+            groups.push(tileGrid[row-1][col+1]);
+         }
+         if(tileGrid[row][col+1]){
+            groups.push(tileGrid[row][col+1]);
+         }
+         if(tileGrid[row+1][col+1]){
+            groups.push(tileGrid[row+1][col+1]);
+         }
+
+         matches.push(groups);
+         
         this.removeTileGroup(matches);
     },
     useBinoculars:function(row, col){

@@ -327,7 +327,7 @@ Main.prototype={
         this.binocularshud =  game.add.sprite(180, 650, 'binoculars');
         this.binocularshud.anchor.set(0.5);
         this.binocularshud.inputEnabled = true;
-        this.wagonehud =  game.add.sprite(260, 650, 'wagonehud');
+        this.wagonehud =  game.add.sprite(260, 650, 'wagone');
         this.wagonehud.anchor.set(0.5);
         this.wagonehud.inputEnabled = true;
 
@@ -424,17 +424,7 @@ Main.prototype={
 
          matches.push(groups);
 
-         var me=this;
-
-        this.removeTileGroup(matches);
-        this.resetTile();
-        this.fillTile();
-        this.game.time.events.add(500,function(){
-            me.tileUp();
-        });
-        this.game.time.events.add(600,function(){
-            me.checkMatch();
-        });
+         this.resetTiles();
     },
     useBinoculars:function(tileType, tileGrid){
         var matches=[];
@@ -450,17 +440,7 @@ Main.prototype={
             matches.push(groups);
         }
 
-        var me=this;
-
-        this.removeTileGroup(matches);
-        this.resetTile();
-        this.fillTile();
-        this.game.time.events.add(500,function(){
-            me.tileUp();
-        });
-        this.game.time.events.add(600,function(){
-            me.checkMatch();
-        });
+        this.resetTiles();
     },
     useWagone:function(row, col, tileGrid){
         var matches=[];
@@ -476,6 +456,9 @@ Main.prototype={
             matches.push(groups);
         }
 
+        this.resetTiles();
+    },
+    resetTiles:function(){
         var me=this;
 
         this.removeTileGroup(matches);

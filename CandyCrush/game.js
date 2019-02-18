@@ -123,7 +123,7 @@ Main.prototype={
         tile.anchor.setTo(0.5);
         tile.inputEnabled=true;
         tile.tileType=tileToAdd;
-        tile.position = (x,y);
+        tile.vPosition = (x,y);
         tile.events.onInputDown.add(me.tileDown,me);
         return tile;
     },
@@ -131,7 +131,7 @@ Main.prototype={
         var me=this;
 
         if(me.selectedEquiment>-1 && me.game.input.mousePointer.isDown){
-            me.useEquipment(tile.position.x, tile.position.y, me.tileGrid);
+            me.useEquipment(tile.vPosition.x, tile.vPosition.y, me.tileGrid);
         }
         else if(me.canMove){
             me.activeTile1=tile;

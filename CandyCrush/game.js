@@ -68,6 +68,7 @@ Main.prototype={
                      [null,null,null,null,null,null],
                      [null,null,null,null,null,null],
                      [null,null,null,null,null,null],
+                     [null,null,null,null,null,null],
                      [null,null,null,null,null,null]]
 
         me.tileContainer = new TileContainer(me.game, 0 , me.offsety);
@@ -82,6 +83,7 @@ Main.prototype={
     },
     update:function(){
         var me=this;
+
         if(me.activeTile1&&!me.activeTile2){
             var hoverX=me.game.input.x;
             var hoverY=me.game.input.y - me.offsety;
@@ -129,7 +131,11 @@ Main.prototype={
     },
     tileDown:function(tile,pointer){
         var me=this;
-        if(me.canMove){
+
+        if(me.selectedEquiment>-1 && me.game.input.mousePointer.isDown){
+
+        }
+        else if(me.canMove){
             me.activeTile1=tile;
             me.startPosX=Math.floor((tile.x-me.tileWidth/2)/me.tileWidth);
             me.startPosY=Math.floor((tile.y-me.tileHeight/2)/me.tileHeight);
@@ -322,11 +328,15 @@ Main.prototype={
         this.backpackhud.anchor.set(0.5);
         this.backpackhud.inputEnabled = true;
         this.binocularshud =  game.add.sprite(33, 400, 'binoculars');
+        this.binocularshud.anchor.set(0.5);
+        this.binocularshud.inputEnabled = true;
         this.wagonehud =  game.add.sprite(53, 400, 'wagonehud');
+        this.wagonehud.anchor.set(0.5);
+        this.wagonehud.inputEnabled = true;
 
-        this.backpackhud.events.onInputDown.add(this.chooseEquiment, 0);
-        this.binocularshud.events.onInputDown.add(this.chooseEquiment, this);
-        this.wagonehud.events.onInputDown.add(this.chooseEquiment, 2);
+        this.backpackhud.events.onInputDown.add(this.chooseEquiment, this);
+        this.binocularshud.events.onInputDown.add(this.chooseBinoculars, this);
+        this.wagonehud.events.onInputDown.add(this.chooseWagone, this);
 
         this.equipmentType = ['backpack','binoculars','wagon'];
         this.equimentAmout = [0,0,0];
@@ -335,8 +345,14 @@ Main.prototype={
         this.stageMoves = 10;
         this.selectedEquiment = -1;
     },
-    chooseEquiment:function(){
+    chooseBackpack:function(){
         this.selectedEquiment = 0;
+    },
+    chooseBinoculars:function(){
+        this.selectedEquiment = 1;
+    },
+    chooseWagone:function(){
+        this.selectedEquiment = 2;
     },
     useEquipment:function(row, col){
 
@@ -359,6 +375,8 @@ Main.prototype={
         }
 
         this.equimentAmout[this.selectedEquiment]--;
+
+        this.selectedEquiment = -1;
     },
     useBackpack:function(row, col){
 

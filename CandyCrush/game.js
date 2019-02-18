@@ -131,7 +131,7 @@ Main.prototype={
         var me=this;
 
         if(me.selectedEquiment>-1 && me.game.input.mousePointer.isDown){
-            me.useEquipment(tile.vPosition.x, tile.vPosition.y, me.tileGrid);
+            me.useEquipment(tile.vPosition.x, tile.vPosition.y, tile.tileType, me.tileGrid);
         }
         else if(me.canMove){
             me.activeTile1=tile;
@@ -367,7 +367,7 @@ Main.prototype={
                 return;
         }
     },
-    useEquipment:function(row, col, tileGrid){
+    useEquipment:function(row, col, tileType, tileGrid){
 
         if(this.selectedEquiment < 0 ||
         this.equimentAmout[this.selectedEquiment] < 1) return;
@@ -424,14 +424,16 @@ Main.prototype={
 
          matches.push(groups);
 
+         var me=this;
+
         this.removeTileGroup(matches);
         this.resetTile();
         this.fillTile();
         this.game.time.events.add(500,function(){
-            this.tileUp();
+            me.tileUp();
         });
         this.game.time.events.add(600,function(){
-            this.checkMatch();
+            me.checkMatch();
         });
     },
     useBinoculars:function(tileType){

@@ -321,13 +321,13 @@ Main.prototype={
     },
     createEquipmentList:function(){
 
-        this.backpackhud = game.add.sprite(60, 650, 'backpack');
+        this.backpackhud = game.add.sprite(100, 650, 'backpack');
         this.backpackhud.anchor.set(0.5);
         this.backpackhud.inputEnabled = true;
-        this.binocularshud =  game.add.sprite(120, 650, 'binoculars');
+        this.binocularshud =  game.add.sprite(180, 650, 'binoculars');
         this.binocularshud.anchor.set(0.5);
         this.binocularshud.inputEnabled = true;
-        this.wagonehud =  game.add.sprite(180, 650, 'wagonehud');
+        this.wagonehud =  game.add.sprite(260, 650, 'wagonehud');
         this.wagonehud.anchor.set(0.5);
         this.wagonehud.inputEnabled = true;
 

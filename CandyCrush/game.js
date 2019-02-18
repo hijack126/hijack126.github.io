@@ -359,13 +359,13 @@ Main.prototype={
         switch(this.selectedEquiment)
         {
             case 0:
-               me.useBackpack(row, col, tileGrid);
+               this.useBackpack(row, col, tileGrid);
                break;
             case 1:
-               me.useBinoculars(row, col);
+               this.useBinoculars(row, col);
                break;
             case 1:
-                me.useWagone(row, col);
+                this.useWagone(row, col);
                 break;
             default:
                 break;

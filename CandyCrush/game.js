@@ -346,7 +346,7 @@ Main.prototype={
     },
     createEquipmentList:function(){
 
-        this.backpackhud = game.add.sprite(150, 650, 'backpack');
+        this.backpackhud = game.add.sprite(150, 610, 'backpack');
         this.backpackhud.anchor.set(0.5);
         this.backpackhud.inputEnabled = true;
         this.binocularshud =  game.add.sprite(230, 650, 'binoculars');

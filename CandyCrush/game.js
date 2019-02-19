@@ -54,6 +54,7 @@ Main.prototype={
         //me.game.stage.backgroundColor="34495f";
         me.tileTypes=['croissant','cupcake','danish','donut'];
         me.score=0;
+        me.maxScore=600;
         me.offsety = 100;
         me.activeTile1=null;
         me.activeTile2=null;
@@ -87,6 +88,7 @@ Main.prototype={
           };
 
         me.myScoreBar = new ScoreBar(this.game, defaultConfig);
+        me.myScoreBar.setPercent(0); 
 
         var seed=Date.now();
         me.random=new Phaser.RandomDataGenerator([seed]);
@@ -322,6 +324,7 @@ Main.prototype={
         var me=this;
         me.score+=10;
         me.scoreLabel.text=me.score;
+        me.ScoreBar.setPercent(me.score/me.maxScore);
     },
     createMoveCount:function(){
 

@@ -78,7 +78,7 @@ Main.prototype={
         var defaultConfig= {
             width: 250,
             height: 40,
-            x: 0,
+            x: 30,
             y: 0,
             bg: {
               color: '#651828'

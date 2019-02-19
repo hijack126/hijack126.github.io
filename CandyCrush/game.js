@@ -332,7 +332,7 @@ Main.prototype={
     },
     createMoveCount:function(){
 
-        this.moveLabel = this.game.add.text((Math.floor(me.tileGrid[0].length/2)*me.tileWidth),0,"0",{font:scoreFont,fill:"#fff"});
+        this.moveLabel = this.game.add.text((Math.floor(this.tileGrid[0].length/2)*this.tileWidth),0,"0",{font:scoreFont,fill:"#fff"});
         this.moveLabel.anchor.setTo(0.5,0);
         this.moveLabel.stroke = '#000000';
         this.moveLabel.strokeThickness = 2;

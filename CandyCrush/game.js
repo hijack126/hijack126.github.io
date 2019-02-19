@@ -363,7 +363,7 @@ Main.prototype={
         this.help.anchor.set(0.5);
         this.help.inputEnabled = true;
         this.help.events.onInputDown.add(function(){
-            this.showEquipmentHelp();
+            this.showEquipmentHelp(); 
         }, this);
 
         this.backpackhud.events.onInputDown.add(this.chooseBackpack, this);

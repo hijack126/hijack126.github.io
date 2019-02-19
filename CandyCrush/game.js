@@ -52,6 +52,9 @@ Main.prototype={
         me.game.add.image(0, 0,'bg');
         
         //me.game.stage.backgroundColor="34495f";
+
+        me.tween = null;
+        me.popup;
         me.tileTypes=['croissant','cupcake','danish','donut'];
         me.score=0;
         me.maxScore=600;
@@ -332,9 +335,9 @@ Main.prototype={
     },
     createMoveCount:function(){
         var scoreFont="50px Arial";
-        this.moveLabel = this.game.add.text(50,610,"0",{font:scoreFont,fill:"#fff"});
+        this.moveLabel = this.game.add.text(50,610,"0",{font:scoreFont,fill:"#000"});
         this.moveLabel.anchor.setTo(0.5,0);
-        this.moveLabel.stroke = '#000000';
+        this.moveLabel.stroke = '#fff';
         this.moveLabel.strokeThickness = 2;
         this.moveLabel.align='center';
 
@@ -355,6 +358,13 @@ Main.prototype={
         this.wagonehud =  game.add.sprite(310, 650, 'wagone');
         this.wagonehud.anchor.set(0.5);
         this.wagonehud.inputEnabled = true;
+
+        this.help =  game.add.sprite(390, 650, 'wagone');
+        this.help.anchor.set(0.5);
+        this.help.inputEnabled = true;
+        this.help.events.onInputDown.add(function(){
+            this.showEquipmentHelp();
+        }, this);
 
         this.backpackhud.events.onInputDown.add(this.chooseBackpack, this);
         this.binocularshud.events.onInputDown.add(this.chooseBinoculars, this);
@@ -485,8 +495,6 @@ Main.prototype={
     },
     resetAllTiles:function(){
         var me=this;
-
-       
         this.resetTile();
         this.fillTile();
         this.game.time.events.add(500,function(){
@@ -495,6 +503,27 @@ Main.prototype={
         this.game.time.events.add(600,function(){
             me.checkMatch(false);
         });
+    },
+    showEquipmentHelp:function(){
+
+        this.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'background');
+
+        if ((this.tween !== null && this.tween.isRunning) || this.popup.scale.x === 1)
+        {
+            return;
+        }
+        
+        this.tween = game.add.tween(this.popup.scale).to( { x: 1, y: 1 }, 1000, Phaser.Easing.Elastic.Out, true);
+    },
+    closeEquipmentHelp:function(){
+        if (this.tween && this.tween.isRunning || this.popup.scale.x === 0.1)
+        {
+            return;
+        }
+    
+        //  Create a tween that will close the window, but only if it's not already tweening or closed
+        this.tween = game.add.tween(this.popup.scale).to( { x: 0, y: 0 }, 500, Phaser.Easing.Elastic.In, true);
+        this.tween = null;
     }
 };
 

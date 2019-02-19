@@ -506,7 +506,7 @@ Main.prototype={
     },
     showEquipmentHelp:function(){
 
-        this.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'background');
+        this.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'bg');
 
         if ((this.tween !== null && this.tween.isRunning) || this.popup.scale.x === 1)
         {

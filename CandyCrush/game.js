@@ -332,7 +332,7 @@ Main.prototype={
     },
     createMoveCount:function(){
         var scoreFont="50px Arial";
-        this.moveLabel = this.game.add.text(20,600,"0",{font:scoreFont,fill:"#fff"});
+        this.moveLabel = this.game.add.text(50,650,"0",{font:scoreFont,fill:"#fff"});
         this.moveLabel.anchor.setTo(0.5,0);
         this.moveLabel.stroke = '#000000';
         this.moveLabel.strokeThickness = 2;
@@ -346,13 +346,13 @@ Main.prototype={
     },
     createEquipmentList:function(){
 
-        this.backpackhud = game.add.sprite(100, 650, 'backpack');
+        this.backpackhud = game.add.sprite(150, 650, 'backpack');
         this.backpackhud.anchor.set(0.5);
         this.backpackhud.inputEnabled = true;
-        this.binocularshud =  game.add.sprite(180, 650, 'binoculars');
+        this.binocularshud =  game.add.sprite(230, 650, 'binoculars');
         this.binocularshud.anchor.set(0.5);
         this.binocularshud.inputEnabled = true;
-        this.wagonehud =  game.add.sprite(260, 650, 'wagone');
+        this.wagonehud =  game.add.sprite(310, 650, 'wagone');
         this.wagonehud.anchor.set(0.5);
         this.wagonehud.inputEnabled = true;
 

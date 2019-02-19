@@ -501,7 +501,6 @@ var ScoreBar = function(game, providedConfig) {
     this.drawScoreBar();
 };
 ScoreBar.prototype.constructor = ScoreBar;
-module.exports = ScoreBar; 
 
 ScoreBar.prototype.setupConfiguration = function (providedConfig) {
     this.config = this.mergeWithDefaultConfiguration(providedConfig);

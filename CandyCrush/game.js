@@ -534,7 +534,7 @@ ScoreBar.prototype.setPosition = function (x, y) {
     this.x = x;
     this.y = y;
    
-    if(this.bgSprite !== undefined &amp;amp;amp;amp; this.barSprite !== undefined){
+    if(this.bgSprite !== undefined && this.barSprite !== undefined){
       this.bgSprite.position.x = x;
       this.bgSprite.position.y = y;
    
@@ -572,7 +572,7 @@ function mergeObjetcs(targetObj, newObj) {
 }
 
 ScoreBar.prototype.setPercent = function(newValue){
-    if(newValue &amp;amp;amp;lt; 0) newValue = 0;   if(newValue &amp;amp;amp;gt; 100) newValue = 100;
+    if(newValue < 0) newValue = 0;   if(newValue > 100) newValue = 100;
     var newWidth =  (newValue * this.config.width) / 100;
     this.setWidth(newWidth);
 };

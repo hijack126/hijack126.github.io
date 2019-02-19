@@ -55,6 +55,9 @@ Main.prototype={
         me.tileTypes=['croissant','cupcake','danish','donut'];
         me.score=0;
         me.maxScore=600;
+        me.maxMoves=20;
+        me.currentStage = 0;
+        me.stageMoves = 10;
         me.offsety = 100;
         me.activeTile1=null;
         me.activeTile2=null;
@@ -96,6 +99,7 @@ Main.prototype={
         me.initTiles();
         me.createScore();
         me.createEquipmentList();
+        me.createMoveCount();
     },
     update:function(){
         var me=this;
@@ -357,9 +361,7 @@ Main.prototype={
 
         this.equipmentType = ['backpack','binoculars','wagon'];
         this.equimentAmout = [1,1,1];
-        this.currentStage = 0;
-        this.stageScore = 100;
-        this.stageMoves = 10;
+    
         this.selectedEquiment = -1;
     },
     chooseBackpack:function(){

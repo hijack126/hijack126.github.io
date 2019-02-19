@@ -117,7 +117,7 @@ Main.prototype={
                     me.activeTile2=me.tileGrid[hoverPosX][hoverPosY];
                     me.swapTiles();
                     me.game.time.events.add(500,function(){
-                        me.checkMatch();
+                        me.checkMatch(true);
                     });
                 }
             }
@@ -135,7 +135,7 @@ Main.prototype={
             }
         }
         me.game.time.events.add(600,function(){
-            me.checkMatch();
+            me.checkMatch(false);
         });
     },
     addTile:function(x,y){
@@ -186,7 +186,7 @@ Main.prototype={
             me.activeTile2=me.tileGrid[tile2Pos.x][tile2Pos.y];
         }
     },
-    checkMatch:function(){
+    checkMatch:function(isHover){
         var me=this;
         var matches=me.getMatches(me.tileGrid);
         if(matches.length>0){
@@ -197,10 +197,10 @@ Main.prototype={
                 me.tileUp();
             });
             me.game.time.events.add(600,function(){
-                me.checkMatch();
+                me.checkMatch(false);
             });
 
-            me.updateMoveCount(-1);
+            if(isHover) me.updateMoveCount(-1);
         }
         else{
             me.swapTiles();
@@ -493,7 +493,7 @@ Main.prototype={
             me.tileUp();
         });
         this.game.time.events.add(600,function(){
-            me.checkMatch();
+            me.checkMatch(false);
         });
     }
 };

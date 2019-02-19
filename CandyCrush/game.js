@@ -78,7 +78,7 @@ Main.prototype={
         var defaultConfig= {
             width: 250,
             height: 40,
-            x: 60,
+            x: 100,
             y: 0,
             bg: {
               color: '#651828'
@@ -338,11 +338,11 @@ Main.prototype={
         this.moveLabel.strokeThickness = 2;
         this.moveLabel.align='center';
 
-        this.scoreLabel.text = this.stageMoves;
+        this.moveLabel.text = this.stageMoves;
     },
     updateMoveCount:function(move){
         this.stageMoves += move;
-        this.scoreLabel.text = this.stageMoves;
+        this.moveLabel.text = this.stageMoves;
     },
     createEquipmentList:function(){
 

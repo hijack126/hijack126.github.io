@@ -324,7 +324,7 @@ Main.prototype={
         var me=this;
         me.score+=10;
         me.scoreLabel.text=me.score;
-        me.ScoreBar.setPercent(me.score/me.maxScore);
+        me.myScoreBar.setPercent(me.score/me.maxScore);
     },
     createMoveCount:function(){
 

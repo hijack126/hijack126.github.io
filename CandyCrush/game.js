@@ -103,6 +103,10 @@ Main.prototype={
         me.createScore();
         me.createEquipmentList();
         me.createMoveCount();
+
+        me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'bg');
+        me.popup.anchor.set(0.5);
+        me.popup.scale.set(0.0);
     },
     update:function(){
         var me=this;
@@ -506,7 +510,7 @@ Main.prototype={
     },
     showEquipmentHelp:function(){
 
-        this.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'bg');
+        
 
         if ((this.tween !== null && this.tween.isRunning) || this.popup.scale.x === 1)
         {

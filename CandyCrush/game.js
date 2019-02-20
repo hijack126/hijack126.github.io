@@ -361,9 +361,9 @@ Main.prototype={
         var backpackhudBadge = game.add.graphics(0, 0);
         backpackhudBadge.beginFill(0xFF0000, 1);
         backpackhudBadge.drawCircle(150, 650, 20);
-        me. backpackLabel=me.game.add.text(150,650,"0",{font:badgeFont,fill:"#fff"});
-        me.backpackLabel.anchor.setTo(0.5,0);
-        me.backpackLabel.align='center';
+        this. backpackLabel=this.game.add.text(150,650,"0",{font:badgeFont,fill:"#fff"});
+        this.backpackLabel.anchor.setTo(0.5,0);
+        this.backpackLabel.align='center';
 
         this.binocularshud =  game.add.sprite(230, 650, 'binoculars');
         this.binocularshud.anchor.set(0.5);

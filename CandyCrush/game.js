@@ -384,6 +384,7 @@ Main.prototype={
         this.wagonehud =  game.add.sprite(310, 650, 'wagone');
         this.wagonehud.anchor.set(0.5);
         this.wagonehud.inputEnabled = true;
+        var wagonehudBadge = game.add.graphics(0, 0);
         wagonehudBadge.beginFill(0xFF0000, 1);
         wagonehudBadge.drawCircle(340, 650, 20);
         this. wagonehudLabel=this.game.add.text(340,650,"0",{font:badgeFont,fill:"#fff"});

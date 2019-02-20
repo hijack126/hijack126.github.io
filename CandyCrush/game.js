@@ -325,7 +325,7 @@ Main.prototype={
     createScore:function(){
         var me=this;
         var scoreFont="70px Arial";
-        me.scoreLabel=me.game.add.text(10,0,"0",{font:scoreFont,fill:"#fff"});
+        me.scoreLabel=me.game.add.text(100,0,"0",{font:scoreFont,fill:"#fff"});
         me.scoreLabel.anchor.setTo(0.5,0);
         me.scoreLabel.stroke = '#000000';
         me.scoreLabel.strokeThickness = 2;

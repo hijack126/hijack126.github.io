@@ -82,7 +82,7 @@ Main.prototype={
             width: 200,
             height: 30,
             x: 280,
-            y: 60,
+            y: 40,
             bg: {
               color: '#651828'
             },

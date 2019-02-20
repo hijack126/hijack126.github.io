@@ -362,7 +362,7 @@ Main.prototype={
         backpackhudBadge.beginFill(0xFF0000, 1);
         backpackhudBadge.drawCircle(150, 650, 20);
         this. backpackLabel=this.game.add.text(150,650,"0",{font:badgeFont,fill:"#fff"});
-        this.backpackLabel.anchor.setTo(0.5,0);
+        this.backpackLabel.anchor.setTo(0.5);
         this.backpackLabel.align='center';
 
         this.binocularshud =  game.add.sprite(230, 650, 'binoculars');

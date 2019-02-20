@@ -434,11 +434,7 @@ Main.prototype={
 
         if(this.selectedEquiment < 0 ||
         this.equimentAmout[this.selectedEquiment] < 1) return;
-
-        this.backpackLabel.text = this.equimentAmout[0];
-        this.binocularsLabel.text = this.equimentAmout[1];
-        this.wagonehudLabel.text = this.equimentAmout[2];
-
+        
         switch(this.selectedEquiment)
         {
             case 0:
@@ -456,6 +452,10 @@ Main.prototype={
 
         this.equimentAmout[this.selectedEquiment]--;
         this.selectedEquiment = -1;
+
+        this.backpackLabel.text = this.equimentAmout[0];
+        this.binocularsLabel.text = this.equimentAmout[1];
+        this.wagonehudLabel.text = this.equimentAmout[2];
     },
     useBackpack:function(row, col, tileGrid){
         var matches=[];

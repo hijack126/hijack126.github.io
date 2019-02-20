@@ -353,12 +353,17 @@ Main.prototype={
     },
     createEquipmentList:function(){
 
+        var badgeFont="10px Arial";
+
         this.backpackhud = game.add.sprite(150, 650, 'backpack');
         this.backpackhud.anchor.set(0.5);
         this.backpackhud.inputEnabled = true;
         var backpackhudBadge = game.add.graphics(0, 0);
         backpackhudBadge.beginFill(0xFF0000, 1);
         backpackhudBadge.drawCircle(150, 650, 20);
+        me. backpackLabel=me.game.add.text(150,650,"0",{font:badgeFont,fill:"#fff"});
+        me.backpackLabel.anchor.setTo(0.5,0);
+        me.backpackLabel.align='center';
 
         this.binocularshud =  game.add.sprite(230, 650, 'binoculars');
         this.binocularshud.anchor.set(0.5);

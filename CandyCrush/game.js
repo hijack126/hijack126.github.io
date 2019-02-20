@@ -356,6 +356,10 @@ Main.prototype={
         this.backpackhud = game.add.sprite(150, 650, 'backpack');
         this.backpackhud.anchor.set(0.5);
         this.backpackhud.inputEnabled = true;
+        var backpackhudBadge = game.add.graphics(0, 0);
+        backpackhudBadge.beginFill(0xFF0000, 1);
+        backpackhudBadge.drawCircle(150, 650, 20);
+
         this.binocularshud =  game.add.sprite(230, 650, 'binoculars');
         this.binocularshud.anchor.set(0.5);
         this.binocularshud.inputEnabled = true;
@@ -510,8 +514,6 @@ Main.prototype={
     },
     showEquipmentHelp:function(){
 
-        
-
         if ((this.tween !== null && this.tween.isRunning) || this.popup.scale.x === 1)
         {
             return;
@@ -528,7 +530,10 @@ Main.prototype={
         //  Create a tween that will close the window, but only if it's not already tweening or closed
         this.tween = game.add.tween(this.popup.scale).to( { x: 0, y: 0 }, 500, Phaser.Easing.Elastic.In, true);
         this.tween = null;
-    }
+    },
+    gameOver:function(){
+        
+    },
 };
 
 var ScoreBar = function(game, providedConfig) {

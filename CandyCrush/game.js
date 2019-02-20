@@ -488,7 +488,7 @@ Main.prototype={
          matches.push(groups);
          
          this.removeTileGroup(matches);
-         this.resetTiles();
+         this.resetAllTiles();
     },
     useBinoculars:function(tileType, tileGrid){
         var matches=[];

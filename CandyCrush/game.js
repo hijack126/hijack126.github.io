@@ -386,8 +386,8 @@ Main.prototype={
         this.wagonehud.inputEnabled = true;
         var wagonehudBadge = game.add.graphics(0, 0);
         wagonehudBadge.beginFill(0xFF0000, 1);
-        wagonehudBadge.drawCircle(340, 650, 20);
-        this. wagonehudLabel=this.game.add.text(340,650,"0",{font:badgeFont,fill:"#fff"});
+        wagonehudBadge.drawCircle(340, 620, 20);
+        this. wagonehudLabel=this.game.add.text(340,620,"0",{font:badgeFont,fill:"#fff"});
         this.wagonehudLabel.anchor.setTo(0.5);
         this.wagonehudLabel.align='center';
         this.wagonehudLabel.text = this.equimentAmout[2];

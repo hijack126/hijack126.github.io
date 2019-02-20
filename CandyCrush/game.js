@@ -350,6 +350,9 @@ Main.prototype={
     updateMoveCount:function(move){
         this.stageMoves += move;
         this.moveLabel.text = this.stageMoves;
+        if(this.stageMoves < 1){
+            this.gameOver();
+        }
     },
     createEquipmentList:function(){
 
@@ -434,7 +437,7 @@ Main.prototype={
 
         if(this.selectedEquiment < 0 ||
         this.equimentAmout[this.selectedEquiment] < 1) return;
-        
+
         switch(this.selectedEquiment)
         {
             case 0:
@@ -558,7 +561,7 @@ Main.prototype={
         this.tween = null;
     },
     gameOver:function(){
-        
+        this.game.state.start("Preload");
     },
 };
 

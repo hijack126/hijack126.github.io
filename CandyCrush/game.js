@@ -375,8 +375,8 @@ Main.prototype={
         this.binocularshud.inputEnabled = true;
         var binocularshudBadge = game.add.graphics(0, 0);
         binocularshudBadge.beginFill(0xFF0000, 1);
-        binocularshudBadge.drawCircle(210, 620, 20);
-        this.binocularsLabel=this.game.add.text(210,620,"0",{font:badgeFont,fill:"#fff"});
+        binocularshudBadge.drawCircle(260, 620, 20);
+        this.binocularsLabel=this.game.add.text(260,620,"0",{font:badgeFont,fill:"#fff"});
         this.binocularsLabel.anchor.setTo(0.5);
         this.binocularsLabel.align='center';
         this.binocularsLabel.text = this.equimentAmout[1];
@@ -386,7 +386,7 @@ Main.prototype={
         this.wagonehud.inputEnabled = true;
         wagonehudBadge.beginFill(0xFF0000, 1);
         wagonehudBadge.drawCircle(340, 650, 20);
-        this. wagonehudLabel=this.game.add.text(340,620,"0",{font:badgeFont,fill:"#fff"});
+        this. wagonehudLabel=this.game.add.text(340,650,"0",{font:badgeFont,fill:"#fff"});
         this.wagonehudLabel.anchor.setTo(0.5);
         this.wagonehudLabel.align='center';
         this.wagonehudLabel.text = this.equimentAmout[2];

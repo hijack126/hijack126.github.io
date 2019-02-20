@@ -81,8 +81,8 @@ Main.prototype={
         var defaultConfig= {
             width: 250,
             height: 40,
-            x: 200,
-            y: 0,
+            x: 280,
+            y: 60,
             bg: {
               color: '#651828'
             },
@@ -324,7 +324,7 @@ Main.prototype={
     },
     createScore:function(){
         var me=this;
-        var scoreFont="70px Arial";
+        var scoreFont="50px Arial";
         me.scoreLabel=me.game.add.text(100,0,"0",{font:scoreFont,fill:"#fff"});
         me.scoreLabel.anchor.setTo(0.5,0);
         me.scoreLabel.stroke = '#000000';

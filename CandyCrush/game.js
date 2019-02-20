@@ -360,8 +360,8 @@ Main.prototype={
         this.backpackhud.inputEnabled = true;
         var backpackhudBadge = game.add.graphics(0, 0);
         backpackhudBadge.beginFill(0xFF0000, 1);
-        backpackhudBadge.drawCircle(180, 680, 20);
-        this. backpackLabel=this.game.add.text(150,650,"0",{font:badgeFont,fill:"#fff"});
+        backpackhudBadge.drawCircle(120, 620, 20);
+        this. backpackLabel=this.game.add.text(120,620,"0",{font:badgeFont,fill:"#fff"});
         this.backpackLabel.anchor.setTo(0.5);
         this.backpackLabel.align='center';
 

@@ -336,6 +336,10 @@ Main.prototype={
         me.score+=10;
         me.scoreLabel.text=me.score;
         me.myScoreBar.setPercent(me.score/me.maxScore * 100);
+
+        if(me.score >= me.maxScore){
+
+        }
     },
     createMoveCount:function(){
         var scoreFont="50px Arial";
@@ -561,6 +565,9 @@ Main.prototype={
         this.tween = null;
     },
     gameOver:function(){
+        this.game.state.start("Preload");
+    },
+    congraduation:function(){
         this.game.state.start("Preload");
     },
 };

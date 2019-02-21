@@ -73,7 +73,7 @@ Main.prototype={
                      [null,null,null,null,null,null],
                      [null,null,null,null,null,null]]
 
-        var w1 = game.width *0.9;
+        var w1 = game.width *0.95;
         me.tileWidth=w1/6;
         me.tileHeight=me.tileWidth;
 

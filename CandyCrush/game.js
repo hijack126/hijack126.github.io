@@ -574,9 +574,9 @@ Main.prototype={
     },
     onResize:function(){
         this.tileContainer.width = game.width /13;
-        this.tileContainer.height = game.height /13;
+        this.tileContainer.height = this.tileContainer.width;
         this.tileWidth=this.tileContainer.width/6;
-        this.tileHeight=this.tileContainer.height/6;
+        this.tileHeight=this.tileContainer.width/6;
     },
 };
 

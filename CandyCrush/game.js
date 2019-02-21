@@ -103,8 +103,8 @@ Main.prototype={
 
         me.initTiles();
         me.createScore();
-        me.createEquipmentList(160, game.height - 100);
-        me.createMoveCount();
+        me.createEquipmentList(game.height - 80);
+        me.createMoveCount(game.height - 80);
 
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'bg');
         me.popup.anchor.set(0.5);
@@ -345,9 +345,9 @@ Main.prototype={
 
         }
     },
-    createMoveCount:function(){
+    createMoveCount:function(y){
         var scoreFont="50px Arial";
-        this.moveLabel = this.game.add.text(50,610,"0",{font:scoreFont,fill:"#000"});
+        this.moveLabel = this.game.add.text(50,y,"0",{font:scoreFont,fill:"#000"});
         this.moveLabel.anchor.setTo(0.5,0);
         this.moveLabel.stroke = '#fff';
         this.moveLabel.strokeThickness = 2;
@@ -362,7 +362,7 @@ Main.prototype={
             this.gameOver();
         }
     },
-    createEquipmentList:function(x, y){
+    createEquipmentList:function(y){
 
         this.equipmentType = ['backpack','binoculars','wagon'];
         this.equimentAmout = [1,1,1];

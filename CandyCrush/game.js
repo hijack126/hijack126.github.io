@@ -50,8 +50,6 @@ Main.prototype={
         var me=this;
  
         me.game.add.image(0, 0,'bg');
-        
-        //me.game.stage.backgroundColor="34495f";
 
         me.tween = null;
         me.popup;
@@ -98,6 +96,8 @@ Main.prototype={
 
         var seed=Date.now();
         me.random=new Phaser.RandomDataGenerator([seed]);
+       
+        me.onResize();
 
         me.initTiles();
         me.createScore();
@@ -108,7 +108,6 @@ Main.prototype={
         me.popup.anchor.set(0.5);
         me.popup.scale.set(0.0);
 
-        me.onResize();
     },
     update:function(){
         var me=this;
@@ -575,8 +574,8 @@ Main.prototype={
     onResize:function(){
         this.tileContainer.width = game.width/2;
         this.tileContainer.height = this.tileContainer.width;
-        //this.tileWidth=this.tileContainer.width/6;
-        //this.tileHeight=this.tileContainer.width/6;
+        this.tileWidth=this.tileContainer.width/6;
+        this.tileHeight=this.tileContainer.width/6;
     },
 };
 

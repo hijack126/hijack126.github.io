@@ -99,7 +99,6 @@ Main.prototype={
         var seed=Date.now();
         me.random=new Phaser.RandomDataGenerator([seed]);
 
-        me.onResize();
 
         me.initTiles();
         me.createScore();
@@ -109,6 +108,8 @@ Main.prototype={
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'bg');
         me.popup.anchor.set(0.5);
         me.popup.scale.set(0.0);
+
+        me.onResize();
     },
     update:function(){
         var me=this;

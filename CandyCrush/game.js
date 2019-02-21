@@ -107,6 +107,8 @@ Main.prototype={
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'bg');
         me.popup.anchor.set(0.5);
         me.popup.scale.set(0.0);
+
+        me.onResize();
     },
     update:function(){
         var me=this;
@@ -569,6 +571,10 @@ Main.prototype={
     },
     congraduation:function(){
         this.game.state.start("Preload");
+    },
+    onResize:function(){
+        this.tileContainer.width = game.width /2;
+        this.tileContainer.height = game.height /2;
     },
 };
 

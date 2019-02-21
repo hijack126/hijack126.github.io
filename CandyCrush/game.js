@@ -573,8 +573,10 @@ Main.prototype={
         this.game.state.start("Preload");
     },
     onResize:function(){
-        this.tileContainer.width = game.width /10;
-        this.tileContainer.height = game.height /10;
+        this.tileContainer.width = game.width /13;
+        this.tileContainer.height = game.height /13;
+        this.tileWidth=this.tileContainer.width/6;
+        this.tileHeight=this.tileContainer.height/6;
     },
 };
 

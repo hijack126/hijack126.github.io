@@ -30,9 +30,9 @@ Preload.prototype={
     }
 }
 
-var TileContainer = function(game, x, y){
-    width = 200;
-    height = 200;
+var TileContainer = function(game, x, y, w, h){
+    width = w;
+    height = h;
     Phaser.Sprite.call(this, game, x, y, "");
     this.anchor.setTo(0.5);
     game.add.existing(this);
@@ -63,8 +63,8 @@ Main.prototype={
         me.activeTile1=null;
         me.activeTile2=null;
         me.canMove=false;
-        me.tileWidth=66;
-        me.tileHeight=66;
+        //me.tileWidth=66;
+        //me.tileHeight=66;
         me.tiles=me.game.add.group();
         me.tileGrid=[[null,null,null,null,null,null],
                      [null,null,null,null,null,null],
@@ -73,7 +73,11 @@ Main.prototype={
                      [null,null,null,null,null,null],
                      [null,null,null,null,null,null]]
 
-        me.tileContainer = new TileContainer(me.game, 0 , me.offsety);
+        var w1 = game.width/2;
+        me.tileWidth=w1/6;
+        me.tileHeight=w1/6;
+
+        me.tileContainer = new TileContainer(me.game, 0 , me.offsety, w1,w1);
         me.tileContainer.addChild(me.tiles);
 
         var defaultConfig= {
@@ -96,8 +100,6 @@ Main.prototype={
 
         var seed=Date.now();
         me.random=new Phaser.RandomDataGenerator([seed]);
-       
-        me.onResize();
 
         me.initTiles();
         me.createScore();
@@ -108,6 +110,7 @@ Main.prototype={
         me.popup.anchor.set(0.5);
         me.popup.scale.set(0.0);
 
+        //me.onResize();
     },
     update:function(){
         var me=this;

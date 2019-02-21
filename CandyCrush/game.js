@@ -103,7 +103,7 @@ Main.prototype={
 
         me.initTiles();
         me.createScore();
-        me.createEquipmentList();
+        me.createEquipmentList(160, game.height - 100);
         me.createMoveCount();
 
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'bg');
@@ -362,48 +362,50 @@ Main.prototype={
             this.gameOver();
         }
     },
-    createEquipmentList:function(){
+    createEquipmentList:function(x, y){
 
         this.equipmentType = ['backpack','binoculars','wagon'];
         this.equimentAmout = [1,1,1];
         this.selectedEquiment = -1;
 
         var badgeFont="10px Arial";
+        
+        var badgeY = y - 30;
 
-        this.backpackhud = game.add.sprite(150, 650, 'backpack');
+        this.backpackhud = game.add.sprite(150, y, 'backpack');
         this.backpackhud.anchor.set(0.5);
         this.backpackhud.inputEnabled = true;
         var backpackhudBadge = game.add.graphics(0, 0);
         backpackhudBadge.beginFill(0xFF0000, 1);
-        backpackhudBadge.drawCircle(180, 620, 20);
-        this. backpackLabel=this.game.add.text(180,620,"0",{font:badgeFont,fill:"#fff"});
+        backpackhudBadge.drawCircle(180, badgeY, 20);
+        this. backpackLabel=this.game.add.text(180,badgeY,"0",{font:badgeFont,fill:"#fff"});
         this.backpackLabel.anchor.setTo(0.5);
         this.backpackLabel.align='center';
         this.backpackLabel.text = this.equimentAmout[0];
 
-        this.binocularshud =  game.add.sprite(230, 650, 'binoculars');
+        this.binocularshud =  game.add.sprite(230, y, 'binoculars');
         this.binocularshud.anchor.set(0.5);
         this.binocularshud.inputEnabled = true;
         var binocularshudBadge = game.add.graphics(0, 0);
         binocularshudBadge.beginFill(0xFF0000, 1);
-        binocularshudBadge.drawCircle(260, 620, 20);
-        this.binocularsLabel=this.game.add.text(260,620,"0",{font:badgeFont,fill:"#fff"});
+        binocularshudBadge.drawCircle(260, badgeY, 20);
+        this.binocularsLabel=this.game.add.text(260,badgeY,"0",{font:badgeFont,fill:"#fff"});
         this.binocularsLabel.anchor.setTo(0.5);
         this.binocularsLabel.align='center';
         this.binocularsLabel.text = this.equimentAmout[1];
 
-        this.wagonehud =  game.add.sprite(310, 650, 'wagone');
+        this.wagonehud =  game.add.sprite(310, y, 'wagone');
         this.wagonehud.anchor.set(0.5);
         this.wagonehud.inputEnabled = true;
         var wagonehudBadge = game.add.graphics(0, 0);
         wagonehudBadge.beginFill(0xFF0000, 1);
-        wagonehudBadge.drawCircle(340, 620, 20);
-        this. wagonehudLabel=this.game.add.text(340,620,"0",{font:badgeFont,fill:"#fff"});
+        wagonehudBadge.drawCircle(340, badgeY, 20);
+        this. wagonehudLabel=this.game.add.text(340,badgeY,"0",{font:badgeFont,fill:"#fff"});
         this.wagonehudLabel.anchor.setTo(0.5);
         this.wagonehudLabel.align='center';
         this.wagonehudLabel.text = this.equimentAmout[2];
 
-        this.help =  game.add.sprite(390, 650, 'wagone');
+        this.help =  game.add.sprite(390, y, 'wagone');
         this.help.anchor.set(0.5);
         this.help.inputEnabled = true;
         this.help.events.onInputDown.add(function(){

@@ -73,9 +73,9 @@ Main.prototype={
                      [null,null,null,null,null,null],
                      [null,null,null,null,null,null]]
 
-        var w1 = game.width;
+        var w1 = game.width *0.9;
         me.tileWidth=w1/6;
-        me.tileHeight=w1/6;
+        me.tileHeight=me.tileWidth;
 
         me.tileContainer = new TileContainer(me.game, 0 , me.offsety, w1,w1);
         me.tileContainer.addChild(me.tiles);

@@ -573,7 +573,7 @@ Main.prototype={
         this.game.state.start("Preload");
     },
     onResize:function(){
-        this.tileContainer.width = game.width /13;
+        this.tileContainer.width = game.width *0.8;
         this.tileContainer.height = this.tileContainer.width;
         this.tileWidth=this.tileContainer.width/6;
         this.tileHeight=this.tileContainer.width/6;

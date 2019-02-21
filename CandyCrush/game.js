@@ -104,7 +104,7 @@ Main.prototype={
         me.initTiles();
         me.createScore();
         me.createEquipmentList(game.height - 80);
-        me.createMoveCount(game.height - 80);
+        me.createMoveCount(game.height - 100);
 
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'bg');
         me.popup.anchor.set(0.5);

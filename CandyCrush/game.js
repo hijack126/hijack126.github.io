@@ -83,7 +83,7 @@ Main.prototype={
         var defaultConfig= {
             width: 200,
             height: 30,
-            x: 280,
+            x: game.width - 210,
             y: 40,
             bg: {
               color: '#651828'
@@ -104,7 +104,7 @@ Main.prototype={
         me.initTiles();
         me.createScore();
         me.createEquipmentList(game.height - 80);
-        me.createMoveCount(game.height - 100);
+        me.createMoveCount(game.height - 110);
 
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'bg');
         me.popup.anchor.set(0.5);
@@ -329,7 +329,7 @@ Main.prototype={
     createScore:function(){
         var me=this;
         var scoreFont="50px Arial";
-        me.scoreLabel=me.game.add.text(80,20,"0",{font:scoreFont,fill:"#fff"});
+        me.scoreLabel=me.game.add.text(60,20,"0",{font:scoreFont,fill:"#fff"});
         me.scoreLabel.anchor.setTo(0.5,0);
         me.scoreLabel.stroke = '#000000';
         me.scoreLabel.strokeThickness = 2;

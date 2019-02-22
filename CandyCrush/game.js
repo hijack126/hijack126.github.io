@@ -413,9 +413,9 @@ Main.prototype={
             this.showEquipmentHelp(); 
         }, this);
 
-        this.backpackhud.events.input.onDown.add(this.chooseBackpack, this);
-        this.binocularshud.events.input.onDown.add(this.chooseBinoculars, this);
-        this.wagonehud.events.input.onDown.add(this.chooseWagone, this);
+        this.backpackhud.events.onInputOver.add(this.chooseBackpack, this);
+        this.binocularshud.events.onInputOver.add(this.chooseBinoculars, this);
+        this.wagonehud.events.onInputOver.add(this.chooseWagone, this);
     },
     chooseBackpack:function(){
         this.selectedEquiment = 0;

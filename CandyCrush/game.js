@@ -165,7 +165,7 @@ Main.prototype={
     tileDown:function(tile,pointer){
         var me=this;
 
-        if(me.selectedEquiment>-1 && me.game.input.mousePointer.isDown){
+        if(me.selectedEquiment>-1){// && me.game.input.mousePointer.isDown){
             me.useEquipment(tile.vPosition.x, tile.vPosition.y, tile.tileType, me.tileGrid);
         }
         else if(me.canMove){

@@ -159,7 +159,7 @@ Main.prototype={
         tile.inputEnabled=true;
         tile.tileType=tileToAdd;
         tile.vPosition = {x:x, y:y};
-        tile.events.onInputDown.add(me.tileDown,me);
+        tile.events.onInputOver.add(me.tileDown,me);
         return tile;
     },
     tileDown:function(tile,pointer){

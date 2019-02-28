@@ -22,6 +22,7 @@ Preload.prototype={
         this.game.load.image('Rhino','assets/Rhino@2x.png');
         this.game.load.image('Tiger','assets/Tiger@2x.png');
 
+        this.game.load.image("tile", "assets/Tile.png");
         this.game.load.image("header", "assets/Header.png");
         this.game.load.image("backpack", "assets/Powerup-9x9@2x.png");
         this.game.load.image("binoculars", "assets/Powerup-Same-Animal@2x.png");
@@ -36,7 +37,7 @@ Preload.prototype={
 var TileContainer = function(game, x, y, w, h){
     width = w;
     height = h;
-    Phaser.Sprite.call(this, game, x, y, "");
+    Phaser.Sprite.call(this, game, x, y, "tile");
     this.anchor.setTo(0.5);
     game.add.existing(this);
 }
@@ -83,9 +84,6 @@ Main.prototype={
 
         me.tileContainer = new TileContainer(me.game, 0 , me.offsety, w1, w1);
         me.tileContainer.addChild(me.tiles);
-
-     
-      
 
         var seed=Date.now();
         me.random=new Phaser.RandomDataGenerator([seed]);

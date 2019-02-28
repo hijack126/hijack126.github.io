@@ -63,7 +63,7 @@ Main.prototype={
         me.maxMoves = 20;
         me.currentStage = 0;
         me.stageMoves = 10;
-        me.offsety = 180;
+        me.offsety = 170;
         me.activeTile1 = null;
         me.activeTile2 = null;
         me.canMove = false;
@@ -384,7 +384,7 @@ Main.prototype={
         backpackhudBadge.drawCircle(180, badgeY, 20);
         this.backpackLabel=this.game.add.text(180,badgeY,"0",{font:badgeFont,fill:"#fff"});
         this.backpackLabel.anchor.setTo(0.5);
-        this.backpackLabel.scale.setTo(0.8);
+        this.backpackLabel.scale.setTo(0.6);
         this.backpackLabel.align='center';
         this.backpackLabel.text = this.equimentAmout[0];
 
@@ -396,7 +396,7 @@ Main.prototype={
         binocularshudBadge.drawCircle(260, badgeY, 20);
         this.binocularsLabel=this.game.add.text(260,badgeY,"0",{font:badgeFont,fill:"#fff"});
         this.binocularsLabel.anchor.setTo(0.5);
-        this.binocularsLabel.scale.setTo(0.8);
+        this.binocularsLabel.scale.setTo(0.6);
         this.binocularsLabel.align='center';
         this.binocularsLabel.text = this.equimentAmout[1];
 
@@ -408,6 +408,7 @@ Main.prototype={
         wagonehudBadge.drawCircle(340, badgeY, 20);
         this. wagonehudLabel=this.game.add.text(340,badgeY,"0",{font:badgeFont,fill:"#fff"});
         this.wagonehudLabel.anchor.setTo(0.5);
+        this.wagonehudLabel.scale.setTo(0.6);
         this.wagonehudLabel.align='center';
         this.wagonehudLabel.text = this.equimentAmout[2];
 

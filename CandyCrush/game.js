@@ -38,7 +38,7 @@ var TileContainer = function(game, x, y, w, h){
     width = w;
     height = h;
     Phaser.Sprite.call(this, game, x, y, "");
-    var tile = this.game.add.image(120, 100,'tile');
+    var tile = this.game.add.image(120, 200,'tile');
     tile.anchor.setTo(0.5);
     tile.scale.setTo(0.8);
     this.anchor.setTo(0.5);

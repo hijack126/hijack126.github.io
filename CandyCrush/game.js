@@ -41,7 +41,7 @@ var TileContainer = function(game, x, y, w, h){
     var tile = me.game.add.image(x, y,'tile');
     tile.anchor.setTo(0.5);
     this.anchor.setTo(0.5);
-    game.add.existing(this);
+    game.add.existing(this); 
 }
 TileContainer.prototype = Object.create(Phaser.Sprite.prototype);
 TileContainer.prototype.constructor = TileContainer;

@@ -53,20 +53,20 @@ Main.prototype={
         var me=this;
  
         me.game.add.image(0, 0,'bg');
-        me.game.add.image(0, 0,'header').scale.setTo(0.6);
+        me.game.add.image(0, 0,'header').scale.setTo(0.63);
 
         me.tween = null;
         me.popup;
         me.tileTypes=['Monkey','Penguin','Rhino','Tiger'];
-        me.score=0;
-        me.maxScore=600;
-        me.maxMoves=20;
+        me.score = 0;
+        me.maxScore = 600;
+        me.maxMoves = 20;
         me.currentStage = 0;
         me.stageMoves = 10;
         me.offsety = 100;
-        me.activeTile1=null;
-        me.activeTile2=null;
-        me.canMove=false;
+        me.activeTile1 = null;
+        me.activeTile2 = null;
+        me.canMove = false;
         //me.tileWidth=66;
         //me.tileHeight=66;
         me.tiles=me.game.add.group();
@@ -81,7 +81,7 @@ Main.prototype={
         me.tileWidth=Math.floor(w1/6);
         me.tileHeight=me.tileWidth;
 
-        me.tileContainer = new TileContainer(me.game, 0 , me.offsety, w1,w1);
+        me.tileContainer = new TileContainer(me.game, 100 , me.offsety, w1, w1);
         me.tileContainer.addChild(me.tiles);
 
         var defaultConfig= {

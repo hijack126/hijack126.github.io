@@ -22,9 +22,11 @@ Preload.prototype={
         this.game.load.image('Rhino','assets/Rhino@2x.png');
         this.game.load.image('Tiger','assets/Tiger@2x.png');
 
+        this.game.load.image("header", "assets/Header.png");
         this.game.load.image("backpack", "assets/Powerup-9x9@2x.png");
         this.game.load.image("binoculars", "assets/Powerup-Same-Animal@2x.png");
         this.game.load.image("wagone", "assets/Powerup-Line@2x.png");
+        this.game.load.image("help", "assets/Powerup-Hint@2x.png");
     },
     create:function(){
         this.game.state.start("Main");
@@ -51,6 +53,7 @@ Main.prototype={
         var me=this;
  
         me.game.add.image(0, 0,'bg');
+        me.game.add.image(0, 0,'header');
 
         me.tween = null;
         me.popup;
@@ -406,7 +409,7 @@ Main.prototype={
         this.wagonehudLabel.align='center';
         this.wagonehudLabel.text = this.equimentAmout[2];
 
-        this.help =  game.add.sprite(390, y, 'wagone');
+        this.help =  game.add.sprite(390, y, 'help');
         this.help.anchor.set(0.5);
         this.help.inputEnabled = true;
         this.help.events.onInputDown.add(function(){

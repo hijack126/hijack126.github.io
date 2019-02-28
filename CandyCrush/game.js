@@ -382,8 +382,9 @@ Main.prototype={
         var backpackhudBadge = game.add.graphics(0, 0);
         backpackhudBadge.beginFill(0xFF0000, 1);
         backpackhudBadge.drawCircle(180, badgeY, 20);
-        this. backpackLabel=this.game.add.text(180,badgeY,"0",{font:badgeFont,fill:"#fff"});
+        this.backpackLabel=this.game.add.text(180,badgeY,"0",{font:badgeFont,fill:"#fff"});
         this.backpackLabel.anchor.setTo(0.5);
+        this.backpackLabel.scale.to(0.8);
         this.backpackLabel.align='center';
         this.backpackLabel.text = this.equimentAmout[0];
 
@@ -395,6 +396,7 @@ Main.prototype={
         binocularshudBadge.drawCircle(260, badgeY, 20);
         this.binocularsLabel=this.game.add.text(260,badgeY,"0",{font:badgeFont,fill:"#fff"});
         this.binocularsLabel.anchor.setTo(0.5);
+        this.binocularsLabel.scale.to(0.8);
         this.binocularsLabel.align='center';
         this.binocularsLabel.text = this.equimentAmout[1];
 

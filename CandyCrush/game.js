@@ -63,7 +63,7 @@ Main.prototype={
         me.maxMoves = 20;
         me.currentStage = 0;
         me.stageMoves = 10;
-        me.offsety = 100;
+        me.offsety = 200;
         me.activeTile1 = null;
         me.activeTile2 = null;
         me.canMove = false;
@@ -81,7 +81,7 @@ Main.prototype={
         me.tileWidth=Math.floor(w1/6);
         me.tileHeight=me.tileWidth;
 
-        me.tileContainer = new TileContainer(me.game, 100 , me.offsety, w1, w1);
+        me.tileContainer = new TileContainer(me.game, 0 , me.offsety, w1, w1);
         me.tileContainer.addChild(me.tiles);
 
         var defaultConfig= {

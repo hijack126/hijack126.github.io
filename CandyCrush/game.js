@@ -84,21 +84,7 @@ Main.prototype={
         me.tileContainer = new TileContainer(me.game, 0 , me.offsety, w1, w1);
         me.tileContainer.addChild(me.tiles);
 
-        var defaultConfig= {
-            width: 200,
-            height: 30,
-            x: game.width - 150,
-            y: 140,
-            bg: {
-              color: '#651828'
-            },
-            bar: {
-              color: '#FEFF03'
-            },
-            animationDuration: 200,
-            flipped: false
-          };
-
+     
       
 
         var seed=Date.now();
@@ -332,11 +318,27 @@ Main.prototype={
     createScore:function(){
         var me=this;
         var scoreFont="50px Arial";
-        me.scoreLabel=me.game.add.text(60,120,"0",{font:scoreFont,fill:"#fff"});
+        me.scoreLabel=me.game.add.text(60,140,"0",{font:scoreFont,fill:"#fff"});
         me.scoreLabel.anchor.setTo(0.5,0);
         me.scoreLabel.stroke = '#000000';
         me.scoreLabel.strokeThickness = 2;
         me.scoreLabel.align='center';
+
+        var defaultConfig= {
+            width: 200,
+            height: 30,
+            x: game.width - 150,
+            y: 140,
+            bg: {
+              color: '#651828'
+            },
+            bar: {
+              color: '#FEFF03'
+            },
+            animationDuration: 200,
+            flipped: false
+          };
+
 
         me.myScoreBar = new ScoreBar(this.game, defaultConfig);
         me.myScoreBar.setPercent(0); 

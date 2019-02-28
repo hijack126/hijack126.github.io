@@ -53,7 +53,7 @@ Main.prototype={
         var me=this;
  
         me.game.add.image(0, 0,'bg');
-        me.game.add.image(0, 0,'header').scale.setTo(0.6, 0.6);
+        me.game.add.image(0, 0,'header').scale.setTo(0.5, 0.5);
 
         me.tween = null;
         me.popup;

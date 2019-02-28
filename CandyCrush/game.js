@@ -17,14 +17,14 @@ var Preload=function(game){
 
 Preload.prototype={
     preload:function(){
-        this.game.load.image('croissant','assets/Croissant@2x.png');
-        this.game.load.image('cupcake','assets/Cupcake@2x.png');
-        this.game.load.image('danish','assets/Danish@2x.png');
-        this.game.load.image('donut','assets/Donut@2x.png');
+        this.game.load.image('Monkey','assets/Monkey@2x.png');
+        this.game.load.image('Penguin','assets/Penguin@2x.png');
+        this.game.load.image('Rhino','assets/Rhino@2x.png');
+        this.game.load.image('Tiger','assets/Tiger@2x.png');
 
-        this.game.load.image("backpack", "assets/Danish@2x.png");
-        this.game.load.image("binoculars", "assets/Danish@2x.png");
-        this.game.load.image("wagone", "assets/Danish@2x.png");
+        this.game.load.image("backpack", "assets/Powerup-9x9@2x.png");
+        this.game.load.image("binoculars", "assets/Powerup-Same-Animal@2x.png");
+        this.game.load.image("wagone", "assets/Powerup-Line@2x.png");
     },
     create:function(){
         this.game.state.start("Main");
@@ -54,7 +54,7 @@ Main.prototype={
 
         me.tween = null;
         me.popup;
-        me.tileTypes=['croissant','cupcake','danish','donut'];
+        me.tileTypes=['Monkey','Penguin','Rhino','Tiger'];
         me.score=0;
         me.maxScore=600;
         me.maxMoves=20;

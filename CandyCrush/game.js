@@ -37,7 +37,8 @@ Preload.prototype={
 var TileContainer = function(game, x, y, w, h){
     width = w;
     height = h;
-    Phaser.Sprite.call(this, game, x, y, "tile");
+    Phaser.Sprite.call(this, game, x, y, "");
+    me.game.add.image(x, y,'tile');
     this.anchor.setTo(0.5);
     game.add.existing(this);
 }

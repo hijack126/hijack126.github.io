@@ -271,19 +271,25 @@ Main.prototype={
             var tempArr=matches[i];
             for(var j=0;j<tempArr.length;j++){
                 var tiletoRemove = tempArr[j];
-                //var tilePos = this.getTilePos(this.tileGrid, tiletoRemove);
+                var tilePos = this.getTilePos(this.tileGrid, tiletoRemove);
 
                 var s = game.add.tween(tiletoRemove.scale);
                 s.to({x: 0, y:0}, 500, Phaser.Easing.Linear.None);
                 //s.onComplete.add(function(){}, this);
+                setTimeout(() => {
+    
+                    me.tiles.remove(tiletoRemove);
+                    me.incrementScore();
+                    if(tilePos.x!=-1&&tilePos.y!=-1){
+                        me.tileGrid[tilePos.x][tilePos.y]=null;
+                    }
+                }, 500);
                 s.start();               
             }
         }
 
-        timeSinceLastIncrement =  game.time.now + 500;
-        while(timeSinceLastIncrement > game.time.now){
-
-        }
+/*         timeSinceLastIncrement =  game.time.now + 500;
+        while(timeSinceLastIncrement > game.time.now){}
      
         for(var i=0;i<matches.length;i++){
             var tempArr=matches[i];
@@ -297,7 +303,7 @@ Main.prototype={
                     me.tileGrid[tilePos.x][tilePos.y]=null;
                 }
             }
-        }
+        } */
     },
     getTilePos:function(tileGrid,tile){
         var pos={x:-1,y:-1};for(var i=0;i<tileGrid.length;i++){

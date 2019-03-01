@@ -274,7 +274,7 @@ Main.prototype={
 
                 s = game.add.tween(tile);
                 s.to({x: 0, y:0}, 1000, Phaser.Easing.Linear.None);
-                s.onComplete.addOnce(removeTile, this);
+                s.onComplete.addOnce(me.removeTile, this);
                 s.start();
             }
         }

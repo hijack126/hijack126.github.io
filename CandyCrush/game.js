@@ -278,7 +278,7 @@ Main.prototype={
             }
         }
     },
-    removeTile:function(tile){
+    removeTile:function(tile, a, b){
 
         var tilePos=this.getTilePos(this.tileGrid,tile);
 

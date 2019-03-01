@@ -288,8 +288,8 @@ Main.prototype={
             }
         }
 
-        timeSinceLastIncrement =  game.time.now + 500;
-        while(timeSinceLastIncrement > game.time.now){}
+        // timeSinceLastIncrement =  game.time.now + 500;
+        // while(timeSinceLastIncrement > game.time.now){}
      
         for(var i=0;i<matches.length;i++){
             var tempArr=matches[i];

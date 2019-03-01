@@ -81,7 +81,7 @@ Main.prototype={
                      [null,null,null,null,null,null]]
 
         var w1 = game.width;
-        me.tileWidth=Math.floor(w1/6);
+        me.tileWidth=Math.floor(w1/7);
         me.tileHeight=me.tileWidth;
 
         me.tileContainer = new TileContainer(me.game, 0 , me.offsety, w1, w1);
@@ -274,13 +274,15 @@ Main.prototype={
                 s = game.add.tween(tile.scale);
                 s.to({x: 0, y:0}, 500, Phaser.Easing.Linear.None);
                 s.onComplete.add(function(){
-                    this.tiles.remove(tempArr[j]);
-                    this.incrementScore();
-                    if(tilePos.x!=-1&&tilePos.y!=-1){
-                        this.tileGrid[tilePos.x][tilePos.y]=null;
-                    }
+                
                 }, this);
                 s.start();
+
+                this.tiles.remove(tile);
+                this.incrementScore();
+                if(tilePos.x!=-1&&tilePos.y!=-1){
+                    this.tileGrid[tilePos.x][tilePos.y]=null;
+                }
             }
         }
     },

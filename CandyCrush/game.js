@@ -272,10 +272,9 @@ Main.prototype={
                 var tile=tempArr[j];
 
                 s = game.add.tween(tile.scale);
-                s.to({x: 0, y:0}, 1000, Phaser.Easing.Linear.None);
+                s.to({x: 0, y:0}, 500, Phaser.Easing.Linear.None);
                 s.onComplete.addOnce(function() {
                     var tilePos=this.getTilePos(this.tileGrid,tile);
-
                     this.tiles.remove(tile);
                     this.incrementScore();
                     if(tilePos.x!=-1&&tilePos.y!=-1){

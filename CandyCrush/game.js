@@ -285,12 +285,12 @@ Main.prototype={
                 var tempArr=matches[i];
                 for(var j=0;j<tempArr.length;j++){
                     var tiletoRemove = tempArr[j];
-                    var tilePos = this.getTilePos(this.tileGrid, tiletoRemove);
+                    var tilePos = me.getTilePos(me.tileGrid, tiletoRemove);
     
-                    this.tiles.remove(tiletoRemove);
-                    this.incrementScore();
+                    me.tiles.remove(tiletoRemove);
+                    me.incrementScore();
                     if(tilePos.x!=-1&&tilePos.y!=-1){
-                        this.tileGrid[tilePos.x][tilePos.y]=null;
+                        me.tileGrid[tilePos.x][tilePos.y]=null;
                     }
                 }
             }

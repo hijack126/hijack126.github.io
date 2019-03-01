@@ -283,7 +283,6 @@ Main.prototype={
                     }
                 }, this);
                 s.start();
-
                
             }
         }

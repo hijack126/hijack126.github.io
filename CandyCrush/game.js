@@ -273,7 +273,7 @@ Main.prototype={
                 var tiletoRemove = tempArr[j];
                 var tilePos = this.getTilePos(this.tileGrid, tiletoRemove);
 
-                s = game.add.tween(tiletoRemove.scale);
+                var s = game.add.tween(tiletoRemove.scale);
                 s.to({x: 0, y:0}, 500, Phaser.Easing.Linear.None);
                 s.onComplete.add(function(){
                     this.tiles.remove(tiletoRemove);

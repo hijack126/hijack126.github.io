@@ -40,7 +40,7 @@ var TileContainer = function(game, x, y, w, h){
     Phaser.Sprite.call(this, game, x, y, "");
     var tile = this.game.add.image(150, 350,'tile');
     tile.anchor.setTo(0.5);
-    tile.scale.setTo(0.8);
+    tile.scale.setTo(0.6);
     this.anchor.setTo(0.5);
     game.add.existing(this); 
 }
@@ -269,22 +269,20 @@ Main.prototype={
         for(var i=0;i<matches.length;i++){
             var tempArr=matches[i];
             for(var j=0;j<tempArr.length;j++){
-                var tile=tempArr[j];
-                var tilePos=this.getTilePos(this.tileGrid,tile);
+                var tile = tempArr[j];
+                var tilePos = this.getTilePos(this.tileGrid, tile);
 
                 s = game.add.tween(tile.scale);
-                s.to({x: 0, y:0}, 1000, Phaser.Easing.Linear.None);
+                s.to({x: 0, y:0}, 500, Phaser.Easing.Linear.None);
                 s.onComplete.add(function(){
-
+                    this.tiles.remove(tempArr[j]);
+                    this.incrementScore();
+                    if(tilePos.x!=-1&&tilePos.y!=-1){
+                        this.tileGrid[tilePos.x][tilePos.y]=null;
+                    }
                    
                 }, this);
                 s.start();
-
-                this.tiles.remove(tile);
-                this.incrementScore();
-                if(tilePos.x!=-1&&tilePos.y!=-1){
-                    this.tileGrid[tilePos.x][tilePos.y]=null;
-                }
             }
         }
     },

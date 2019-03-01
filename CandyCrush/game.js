@@ -280,7 +280,7 @@ Main.prototype={
     },
     removeTile:function(tile){
 
-        var tilePos=me.getTilePos(me.tileGrid,tile);
+        var tilePos=this.getTilePos(this.tileGrid,tile);
 
         this.tiles.remove(tile);
         this.incrementScore();

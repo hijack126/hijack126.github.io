@@ -38,7 +38,7 @@ var TileContainer = function(game, x, y, w, h){
     width = w;
     height = h;
     Phaser.Sprite.call(this, game, x, y, "");
-    var tile = this.game.add.image(140, 300,'tile');
+    var tile = this.game.add.image(150, 350,'tile');
     tile.anchor.setTo(0.5);
     tile.scale.setTo(0.8);
     this.anchor.setTo(0.5);
@@ -276,13 +276,15 @@ Main.prototype={
                 s.to({x: 0, y:0}, 1000, Phaser.Easing.Linear.None);
                 s.onComplete.add(function(){
 
-                    this.tiles.remove(tile);
-                    this.incrementScore();
-                    if(tilePos.x!=-1&&tilePos.y!=-1){
-                        this.tileGrid[tilePos.x][tilePos.y]=null;
-                    }
+                   
                 }, this);
                 s.start();
+
+                this.tiles.remove(tile);
+                this.incrementScore();
+                if(tilePos.x!=-1&&tilePos.y!=-1){
+                    this.tileGrid[tilePos.x][tilePos.y]=null;
+                }
             }
         }
     },

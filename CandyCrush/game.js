@@ -271,7 +271,7 @@ Main.prototype={
             var tempArr=matches[i];
             for(var j=0;j<tempArr.length;j++){
                 var tiletoRemove = tempArr[j];
-                var tilePos = this.getTilePos(this.tileGrid, tile);
+                var tilePos = this.getTilePos(this.tileGrid, tiletoRemove);
 
                 s = game.add.tween(tile.scale);
                 s.to({x: 0, y:0}, 500, Phaser.Easing.Linear.None);

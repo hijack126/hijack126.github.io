@@ -270,11 +270,11 @@ Main.prototype={
             var tempArr=matches[i];
             for(var j=0;j<tempArr.length;j++){
                 var tile=tempArr[j];
+                var tilePos=this.getTilePos(this.tileGrid,tile);
 
                 s = game.add.tween(tile.scale);
                 s.to({x: 0, y:0}, 1000, Phaser.Easing.Linear.None);
                 s.onComplete.add(function(){
-                    var tilePos=this.getTilePos(this.tileGrid,tile);
 
                     this.tiles.remove(tile);
                     this.incrementScore();

@@ -85,7 +85,7 @@ Main.prototype={
         me.tileWidth=Math.floor(w1/7) - 5;
         me.tileHeight=me.tileWidth;
 
-        me.tileContainer = new TileContainer(me.game, 0 , me.offsety, w1, w1);
+        me.tileContainer = new TileContainer(me.game, 20 , me.offsety, w1, w1);
         me.tileContainer.addChild(me.tiles);
 
         var seed=Date.now();

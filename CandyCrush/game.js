@@ -270,21 +270,21 @@ Main.prototype={
         for(var i=0;i<matches.length;i++){
             var tempArr=matches[i];
             for(var j=0;j<tempArr.length;j++){
-                var tile = tempArr[j];
+                var tiletoRemove = tempArr[j];
                 var tilePos = this.getTilePos(this.tileGrid, tile);
 
                 s = game.add.tween(tile.scale);
                 s.to({x: 0, y:0}, 500, Phaser.Easing.Linear.None);
                 s.onComplete.add(function(){
-                
+                    this.tiles.remove(tiletoRemove);
+                    this.incrementScore();
+                    if(tilePos.x!=-1&&tilePos.y!=-1){
+                        this.tileGrid[tilePos.x][tilePos.y]=null;
+                    }
                 }, this);
                 s.start();
 
-                this.tiles.remove(tile);
-                this.incrementScore();
-                if(tilePos.x!=-1&&tilePos.y!=-1){
-                    this.tileGrid[tilePos.x][tilePos.y]=null;
-                }
+               
             }
         }
     },

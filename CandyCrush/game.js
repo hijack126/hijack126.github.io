@@ -275,15 +275,14 @@ Main.prototype={
 
                 var s = game.add.tween(tiletoRemove.scale);
                 s.to({x: 0, y:0}, 500, Phaser.Easing.Linear.None);
-                s.onComplete.add(function(){
+                s.onComplete.add(function(tiletoRemove){
                     this.tiles.remove(tiletoRemove);
                     this.incrementScore();
                     if(tilePos.x!=-1&&tilePos.y!=-1){
                         this.tileGrid[tilePos.x][tilePos.y]=null;
                     }
                 }, this);
-                s.start();
-               
+                s.start();               
             }
         }
     },

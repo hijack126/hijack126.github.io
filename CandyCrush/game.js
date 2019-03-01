@@ -276,19 +276,19 @@ Main.prototype={
                 var s = game.add.tween(tiletoRemove.scale);
                 s.to({x: 0, y:0}, 500, Phaser.Easing.Linear.None);
                 //s.onComplete.add(function(){}, this);
-                setTimeout(() => {
+                // setTimeout(() => {
     
-                    me.tiles.remove(tiletoRemove);
-                    me.incrementScore();
-                    if(tilePos.x!=-1&&tilePos.y!=-1){
-                        me.tileGrid[tilePos.x][tilePos.y]=null;
-                    }
-                }, 500);
+                //     me.tiles.remove(tiletoRemove);
+                //     me.incrementScore();
+                //     if(tilePos.x!=-1&&tilePos.y!=-1){
+                //         me.tileGrid[tilePos.x][tilePos.y]=null;
+                //     }
+                // }, 500);
                 s.start();               
             }
         }
 
-/*         timeSinceLastIncrement =  game.time.now + 500;
+        timeSinceLastIncrement =  game.time.now + 500;
         while(timeSinceLastIncrement > game.time.now){}
      
         for(var i=0;i<matches.length;i++){
@@ -303,7 +303,7 @@ Main.prototype={
                     me.tileGrid[tilePos.x][tilePos.y]=null;
                 }
             }
-        } */
+        } 
     },
     getTilePos:function(tileGrid,tile){
         var pos={x:-1,y:-1};for(var i=0;i<tileGrid.length;i++){

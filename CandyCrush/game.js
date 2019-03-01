@@ -271,29 +271,30 @@ Main.prototype={
             var tempArr=matches[i];
             for(var j=0;j<tempArr.length;j++){
                 var tiletoRemove = tempArr[j];
-                var tilePos = this.getTilePos(this.tileGrid, tiletoRemove);
+                //var tilePos = this.getTilePos(this.tileGrid, tiletoRemove);
 
                 var s = game.add.tween(tiletoRemove.scale);
                 s.to({x: 0, y:0}, 500, Phaser.Easing.Linear.None);
-                s.onComplete.add(function(tiletoRemove){
+                //s.onComplete.add(function(){}, this);
+                s.start();               
+            }
+        }
+
+        setTimeout(function () {
+            for(var i=0;i<matches.length;i++){
+                var tempArr=matches[i];
+                for(var j=0;j<tempArr.length;j++){
+                    var tiletoRemove = tempArr[j];
+                    var tilePos = this.getTilePos(this.tileGrid, tiletoRemove);
+    
                     this.tiles.remove(tiletoRemove);
                     this.incrementScore();
                     if(tilePos.x!=-1&&tilePos.y!=-1){
                         this.tileGrid[tilePos.x][tilePos.y]=null;
                     }
-                }, this);
-                s.start();               
+                }
             }
-        }
-    },
-    removeTiles:function(){
-        for(var i=0;i<matches.length;i++){
-            var tempArr=matches[i];
-            for(var j=0;j<tempArr.length;j++){
-                var tile=tempArr[j];
-               
-            }
-        }
+        }, 500);
     },
     getTilePos:function(tileGrid,tile){
         var pos={x:-1,y:-1};for(var i=0;i<tileGrid.length;i++){

@@ -22,6 +22,7 @@ Preload.prototype={
         this.game.load.image('Rhino','assets/Rhino@2x.png');
         this.game.load.image('Tiger','assets/Tiger@2x.png');
 
+        this.game.load.image("powerupHintClose", "assets/Powerup-Hint-Close@2x.png")
         this.game.load.image("powerupBackground", "assets/Powerup-Background@2x.png")
         this.game.load.image("powerupHintBackground", "assets/Powerup-Hint-Background@2x.png")
         this.game.load.image("starbg", 'assets/Star-Background@2x.png');
@@ -101,6 +102,7 @@ Main.prototype={
         me.createEquipmentList(game.height - 50);
         me.createMoveCount(game.height - 110);
 
+        game.add.sprite(game.world.centerX + 100, game.world.centerY - 200, 'powerupHintClose');
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
         me.popup.anchor.set(0.5);
         me.popup.scale.setTo(0.0);

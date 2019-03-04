@@ -105,9 +105,9 @@ Main.prototype={
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
         me.popup.anchor.set(0.5);
         me.popup.scale.setTo(0.5);
-        game.add.sprite(game.world.centerX + 110, game.world.centerY - 210, 'powerupHintClose').scale.setTo(0.5);
-
-        //me.onResize();
+        me.popupClose = game.add.sprite(game.world.centerX + 110, game.world.centerY - 210, 'powerupHintClose');
+        me.popupClose.anchor.set(0.5);
+        me.popupClose.scale.setTo(0.0);
     },
     update:function(){
         var me=this;
@@ -612,6 +612,7 @@ Main.prototype={
         }
         
         this.tween = game.add.tween(this.popup.scale).to( { x: 0.5, y: 0.5 }, 1000, Phaser.Easing.Elastic.Out, true);
+        game.add.tween(this.popupClose.scale).to( { x: 0.5, y: 0.5 }, 1000, Phaser.Easing.Elastic.Out, true);
     },
     closeEquipmentHelp:function(){
         if (this.tween && this.tween.isRunning || this.popup.scale.x === 0.1)
@@ -621,6 +622,7 @@ Main.prototype={
     
         //  Create a tween that will close the window, but only if it's not already tweening or closed
         this.tween = game.add.tween(this.popup.scale).to( { x: 0, y: 0 }, 500, Phaser.Easing.Elastic.In, true);
+        this.tween = game.add.tween(this.popupClose.scale).to( { x: 0, y: 0 }, 500, Phaser.Easing.Elastic.In, true);
         this.tween = null;
     },
     gameOver:function(){

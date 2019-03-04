@@ -105,7 +105,7 @@ Main.prototype={
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
 
 
-        me.popup.addChild(game.add.sprite(10, 10, 'backpack'););
+        me.popup.addChild(game.add.sprite(10, 10, 'backpack'));
 
         me.popup.anchor.set(0.5);
         me.popup.scale.setTo(0.0);

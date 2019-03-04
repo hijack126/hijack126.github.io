@@ -101,7 +101,7 @@ Main.prototype={
         me.createEquipmentList(game.height - 50);
         me.createMoveCount(game.height - 110);
 
-        me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'bg');
+        me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
         me.popup.anchor.set(0.5);
         me.popup.scale.set(0.0);
 

@@ -415,7 +415,7 @@ Main.prototype={
 
         var badgeFont="10px Arial";
         
-        var badgeY = y - 30;
+        var badgeY = y - 50;
 
         this.backpackhud = game.add.sprite(150, y, 'backpack');
         this.backpackhud.anchor.set(0.5);
@@ -425,8 +425,8 @@ Main.prototype={
         //var backpackhudBadge = game.add.graphics(0, 0);
         //backpackhudBadge.beginFill(0xFF0000, 1);
         //backpackhudBadge.drawCircle(180, badgeY, 20);
-        game.add.image(180, badgeY, 'powerupBackground').scale.setTo(0.5);
-        this.backpackLabel=this.game.add.text(180,badgeY,"0",{font:badgeFont,fill:"#fff"});
+        game.add.image(180, badgeY, 'powerupBackground').scale.setTo(0.7);
+        this.backpackLabel=this.game.add.text(170,badgeY,"0",{font:badgeFont,fill:"#fff"});
         this.backpackLabel.anchor.setTo(0.5);
         this.backpackLabel.align='center';
         this.backpackLabel.text = this.equimentAmout[0];

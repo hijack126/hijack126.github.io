@@ -642,7 +642,7 @@ ScoreBar.prototype.setupConfiguration = function (providedConfig) {
 
 ScoreBar.prototype.drawBackground = function() {
  
-    me.game.add.image(this.x, this.y,'starbg').scale.setTo(0.5);
+    this.game.add.image(this.x, this.y,'starbg');
 
     var bmd = this.game.add.bitmapData(this.config.width, this.config.height);
     bmd.ctx.fillStyle = this.config.bg.color;

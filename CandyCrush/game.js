@@ -438,7 +438,7 @@ Main.prototype={
         // var binocularshudBadge = game.add.graphics(0, 0);
         // binocularshudBadge.beginFill(0xFF0000, 1);
         // binocularshudBadge.drawCircle(260, badgeY, 20);
-        game.add.image(260, badgeY, 'powerupBackground').scale.setTo(0.7);
+        game.add.image(250, badgeY, 'powerupBackground').scale.setTo(0.7);
         this.binocularsLabel=this.game.add.text(260,badgeY+10,"0",{font:badgeFont,fill:"#fff"});
         this.binocularsLabel.anchor.setTo(0.5);
         this.binocularsLabel.align='center';
@@ -451,7 +451,7 @@ Main.prototype={
         // var wagonehudBadge = game.add.graphics(0, 0);
         // wagonehudBadge.beginFill(0xFF0000, 1);
         // wagonehudBadge.drawCircle(340, badgeY, 20);
-        game.add.image(340, badgeY, 'powerupBackground').scale.setTo(0.7);
+        game.add.image(330, badgeY, 'powerupBackground').scale.setTo(0.7);
         this. wagonehudLabel=this.game.add.text(340,badgeY+10,"0",{font:badgeFont,fill:"#fff"});
         this.wagonehudLabel.anchor.setTo(0.5);
         this.wagonehudLabel.align='center';

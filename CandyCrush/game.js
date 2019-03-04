@@ -67,7 +67,7 @@ Main.prototype={
         me.maxMoves = 20;
         me.currentStage = 0;
         me.stageMoves = 10;
-        me.offsety = 170;
+        me.offsety = 200;
         me.activeTile1 = null;
         me.activeTile2 = null;
         me.canMove = false;
@@ -354,7 +354,6 @@ Main.prototype={
         var scoreFont="20px Arial";
         me.scoreLabel=me.game.add.text(80,120,"0",{font:scoreFont,fill:"#000"});
         me.scoreLabel.anchor.setTo(0.5,0);
-        me.scoreLabel.strokeThickness = 2;
         me.scoreLabel.align='center';
 
         var defaultConfig= {

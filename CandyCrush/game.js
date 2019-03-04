@@ -105,7 +105,7 @@ Main.prototype={
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
         me.popup.anchor.set(0.5);
         me.popup.scale.setTo(0.5);
-        game.add.sprite(game.world.centerX + 110, game.world.centerY - 200, 'powerupHintClose').scale.setTo(0.5);
+        game.add.sprite(game.world.centerX + 110, game.world.centerY - 210, 'powerupHintClose').scale.setTo(0.5);
 
         //me.onResize();
     },

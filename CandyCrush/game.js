@@ -105,10 +105,10 @@ Main.prototype={
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
         me.popup.anchor.set(0.5);
         me.popup.scale.setTo(0.0);
-        me.popupClose = game.add.sprite(game.world.centerX + 135, game.world.centerY - 205, 'powerupHintClose');
+        me.popupClose = game.add.sprite(game.world.centerX + 135, game.world.centerY - 195, 'powerupHintClose');
         me.popupClose.anchor.set(0.5);
         me.popupClose.scale.setTo(0.0);
-
+        me.popupClose.inputEnabled = true;
         me.popupClose.events.onInputDown.add(function(){
             me.closeEquipmentHelp(); 
         }, this);

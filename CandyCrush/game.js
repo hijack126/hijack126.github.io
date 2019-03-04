@@ -22,6 +22,7 @@ Preload.prototype={
         this.game.load.image('Rhino','assets/Rhino@2x.png');
         this.game.load.image('Tiger','assets/Tiger@2x.png');
 
+        this.game.load.image("scoreBackground","assets/ScoreBackground.png")
         this.game.load.image("tile", "assets/Tile.png");
         this.game.load.image("header", "assets/Header.png");
         this.game.load.image("backpack", "assets/Powerup-9x9@2x.png");
@@ -193,8 +194,8 @@ Main.prototype={
         var matches=me.getMatches(me.tileGrid);
         if(matches.length>0){
             me.removeTileGroup(matches);
-            me.resetTile();
-            me.fillTile();
+            //me.resetTile();
+            //me.fillTile();
             me.game.time.events.add(500,function(){
                 me.tileUp();
             });
@@ -374,6 +375,8 @@ Main.prototype={
 
         me.myScoreBar = new ScoreBar(this.game, defaultConfig);
         me.myScoreBar.setPercent(0); 
+
+        me.game.add.image(0, 30,'scoreBackground').scale.setTo(0.63);
     },
     incrementScore:function(){
         var me=this;
@@ -546,7 +549,7 @@ Main.prototype={
          matches.push(groups);
          
          this.removeTileGroup(matches);
-         this.resetAllTiles();
+         //this.resetAllTiles();
     },
     useBinoculars:function(tileType, tileGrid){
         var matches=[];
@@ -562,7 +565,7 @@ Main.prototype={
             matches.push(groups);
         }
         this.removeTileGroup(matches);
-        this.resetAllTiles();
+        //this.resetAllTiles();
     },
     useWagone:function(row, col, tileGrid){
         var matches=[];
@@ -579,7 +582,7 @@ Main.prototype={
         }
 
         this.removeTileGroup(matches);
-        this.resetAllTiles();
+        //this.resetAllTiles();
     },
     resetAllTiles:function(){
         var me=this;

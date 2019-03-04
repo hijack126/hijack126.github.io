@@ -372,11 +372,10 @@ Main.prototype={
             flipped: false
           };
 
-
         me.myScoreBar = new ScoreBar(this.game, defaultConfig);
         me.myScoreBar.setPercent(0); 
 
-        me.game.add.image(0, 30,'scoreBackground').scale.setTo(0.63);
+        me.game.add.image(0, 100,'scoreBackground').scale.setTo(0.5);
     },
     incrementScore:function(){
         var me=this;

@@ -362,7 +362,7 @@ Main.prototype={
             width: 160,
             height: 20,
             x: game.width - 100,
-            y: 150,
+            y: 140,
             bg: {
               color: '#651828'
             },
@@ -644,8 +644,8 @@ ScoreBar.prototype.drawBackground = function() {
  
     this.game.add.image(this.x - 95, this.y-25,'starbg').scale.setTo(0.7);
     this.game.add.image(this.x - 30, this.y-45,'star').scale.setTo(0.7);
-    this.game.add.image(this.x - 10, this.y-45,'star').scale.setTo(0.7); 
-    this.game.add.image(this.x + 20, this.y-45,'star').scale.setTo(0.7);
+    this.game.add.image(this.x, this.y-45,'star').scale.setTo(0.7); 
+    this.game.add.image(this.x + 80, this.y-45,'star').scale.setTo(0.7);
 
     var bmd = this.game.add.bitmapData(this.config.width, this.config.height);
     bmd.ctx.fillStyle = this.config.bg.color;

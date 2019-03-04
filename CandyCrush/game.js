@@ -105,7 +105,7 @@ Main.prototype={
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
         me.popup.anchor.set(0.5);
         me.popup.scale.setTo(0.0);
-        me.popupClose = game.add.sprite(game.world.centerX + 130, game.world.centerY - 200, 'powerupHintClose');
+        me.popupClose = game.add.sprite(game.world.centerX + 140, game.world.centerY - 200, 'powerupHintClose');
         me.popupClose.anchor.set(0.5);
         me.popupClose.scale.setTo(0.0);
 

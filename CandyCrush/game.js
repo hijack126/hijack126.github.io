@@ -69,7 +69,7 @@ Main.prototype={
         me.maxMoves = 20;
         me.currentStage = 0;
         me.stageMoves = 10;
-        me.offsety = 200;
+        me.offsety = 220;
         me.activeTile1 = null;
         me.activeTile2 = null;
         me.canMove = false;
@@ -362,7 +362,7 @@ Main.prototype={
             width: 160,
             height: 20,
             x: game.width - 100,
-            y: 180,
+            y: 160,
             bg: {
               color: '#651828'
             },

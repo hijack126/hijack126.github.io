@@ -415,7 +415,7 @@ Main.prototype={
 
         var badgeFont="10px Arial";
         
-        var badgeY = y - 50;
+        var badgeY = y - 60;
 
         this.backpackhud = game.add.sprite(150, y, 'backpack');
         this.backpackhud.anchor.set(0.5);

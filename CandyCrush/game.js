@@ -350,6 +350,7 @@ Main.prototype={
     },
     createScore:function(){
         var me=this;
+        me.game.add.image(0, 100,'scoreBackground').scale.setTo(0.5);
         var scoreFont="50px Arial";
         me.scoreLabel=me.game.add.text(60,110,"0",{font:scoreFont,fill:"#fff"});
         me.scoreLabel.anchor.setTo(0.5,0);
@@ -652,8 +653,6 @@ ScoreBar.prototype.drawBackground = function() {
 };
 
 ScoreBar.prototype.drawScoreBar = function() {
-
-    me.game.add.image(0, 100,'scoreBackground').scale.setTo(0.5);
 
     var bmd = this.game.add.bitmapData(this.config.width, this.config.height);
     bmd.ctx.fillStyle = this.config.bar.color;

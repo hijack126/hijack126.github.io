@@ -362,7 +362,7 @@ Main.prototype={
             width: 160,
             height: 20,
             x: game.width - 100,
-            y: 120,
+            y: 160,
             bg: {
               color: '#651828'
             },

@@ -103,7 +103,7 @@ Main.prototype={
 
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
         me.popup.anchor.set(0.5);
-        me.popup.scale.setTo(0.3);
+        me.popup.scale.setTo(0.0);
 
         //me.onResize();
     },
@@ -609,7 +609,7 @@ Main.prototype={
             return;
         }
         
-        this.tween = game.add.tween(this.popup.scale).to( { x: 1, y: 1 }, 1000, Phaser.Easing.Elastic.Out, true);
+        this.tween = game.add.tween(this.popup.scale).to( { x: 0.5, y: 0.5 }, 1000, Phaser.Easing.Elastic.Out, true);
     },
     closeEquipmentHelp:function(){
         if (this.tween && this.tween.isRunning || this.popup.scale.x === 0.1)

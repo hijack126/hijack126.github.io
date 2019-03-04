@@ -22,6 +22,7 @@ Preload.prototype={
         this.game.load.image('Rhino','assets/Rhino@2x.png');
         this.game.load.image('Tiger','assets/Tiger@2x.png');
 
+        this.game.load.image("powerupHintBackground", "assets/Powerup-Hint-Background@2x.png")
         this.game.load.image("starbg", 'assets/Star-Background@2x.png');
         this.game.load.image("star", 'assets/Star@2x.png');
         this.game.load.image("scoreBackground","assets/ScoreBackground.png")
@@ -404,6 +405,8 @@ Main.prototype={
         }
     },
     createEquipmentList:function(y){
+
+        this.eqbg = game.add.image(50, y, 'powerupHintBackground');
 
         this.equipmentType = ['backpack','binoculars','wagon'];
         this.equimentAmout = [1,1,1];

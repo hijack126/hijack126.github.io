@@ -100,7 +100,7 @@ Main.prototype={
         me.initTiles();
         me.createScore();
         me.createEquipmentList(game.height - 50);
-        me.createMoveCount(game.height - 110);
+        me.createMoveCount(game.height - 60);
 
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
 
@@ -401,11 +401,9 @@ Main.prototype={
         }
     },
     createMoveCount:function(y){
-        var scoreFont="50px Arial";
+        var scoreFont="30px Arial";
         this.moveLabel = this.game.add.text(50,y,"0",{font:scoreFont,fill:"#000"});
         this.moveLabel.anchor.setTo(0.5,0);
-        this.moveLabel.stroke = '#fff';
-        this.moveLabel.strokeThickness = 2;
         this.moveLabel.align='center';
 
         this.moveLabel.text = this.stageMoves;

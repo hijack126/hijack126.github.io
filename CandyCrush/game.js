@@ -452,7 +452,7 @@ Main.prototype={
         this.wagonehudLabel.align='center';
         this.wagonehudLabel.text = this.equimentAmout[2];
 
-        this.help =  game.add.sprite(390, y-30, 'help');
+        this.help =  game.add.sprite(380, y-35, 'help');
         this.help.anchor.set(0.5);
         this.help.scale.setTo(0.5);
         this.help.inputEnabled = true;

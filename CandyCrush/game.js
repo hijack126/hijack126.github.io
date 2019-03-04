@@ -103,6 +103,10 @@ Main.prototype={
         me.createMoveCount(game.height - 110);
 
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
+
+
+        me.popup.addChild(game.add.sprite(10, 10, 'backpack'););
+
         me.popup.anchor.set(0.5);
         me.popup.scale.setTo(0.0);
         me.popupClose = game.add.sprite(game.world.centerX + 160, game.world.centerY - 220, 'powerupHintClose');

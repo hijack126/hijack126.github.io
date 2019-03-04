@@ -110,7 +110,7 @@ Main.prototype={
         me.popupClose.scale.setTo(0.0);
 
         me.popupClose.events.onInputDown.add(function(){
-            this.closeEquipmentHelp(); 
+            me.closeEquipmentHelp(); 
         }, this);
     },
     update:function(){

@@ -360,7 +360,7 @@ Main.prototype={
         var defaultConfig= {
             width: 180,
             height: 30,
-            x: game.width - 150,
+            x: game.width - 170,
             y: 140,
             bg: {
               color: '#651828'

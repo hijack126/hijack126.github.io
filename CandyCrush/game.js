@@ -374,8 +374,6 @@ Main.prototype={
 
         me.myScoreBar = new ScoreBar(this.game, defaultConfig);
         me.myScoreBar.setPercent(0); 
-
-        me.game.add.image(0, 100,'scoreBackground').scale.setTo(0.5);
     },
     incrementScore:function(){
         var me=this;
@@ -654,6 +652,9 @@ ScoreBar.prototype.drawBackground = function() {
 };
 
 ScoreBar.prototype.drawScoreBar = function() {
+
+    me.game.add.image(0, 100,'scoreBackground').scale.setTo(0.5);
+
     var bmd = this.game.add.bitmapData(this.config.width, this.config.height);
     bmd.ctx.fillStyle = this.config.bar.color;
     bmd.ctx.beginPath();

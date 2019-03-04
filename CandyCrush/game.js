@@ -350,9 +350,9 @@ Main.prototype={
     },
     createScore:function(){
         var me=this;
-        me.game.add.image(10, 110,'scoreBackground').scale.setTo(0.5);
+        me.game.add.image(10, 120,'scoreBackground').scale.setTo(0.5);
         var scoreFont="20px Arial";
-        me.scoreLabel=me.game.add.text(80,120,"0",{font:scoreFont,fill:"#000"});
+        me.scoreLabel=me.game.add.text(75,130,"0",{font:scoreFont,fill:"#000"});
         me.scoreLabel.anchor.setTo(0.5,0);
         me.scoreLabel.align='center';
 
@@ -360,7 +360,7 @@ Main.prototype={
             width: 180,
             height: 30,
             x: game.width - 130,
-            y: 130,
+            y: 140,
             bg: {
               color: '#651828'
             },

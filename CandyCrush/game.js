@@ -418,7 +418,7 @@ Main.prototype={
 
         this.backpackhud = game.add.sprite(150, y, 'backpack');
         this.backpackhud.anchor.set(0.5);
-        this.backpackhud.scale.setTo(0.7);
+        this.backpackhud.scale.setTo(0.6);
         this.backpackhud.inputEnabled = true;
         var backpackhudBadge = game.add.graphics(0, 0);
         backpackhudBadge.beginFill(0xFF0000, 1);
@@ -430,7 +430,7 @@ Main.prototype={
 
         this.binocularshud =  game.add.sprite(230, y, 'binoculars');
         this.binocularshud.anchor.set(0.5);
-        this.binocularshud.scale.setTo(0.7);
+        this.binocularshud.scale.setTo(0.6);
         this.binocularshud.inputEnabled = true;
         var binocularshudBadge = game.add.graphics(0, 0);
         binocularshudBadge.beginFill(0xFF0000, 1);
@@ -442,7 +442,7 @@ Main.prototype={
 
         this.wagonehud =  game.add.sprite(310, y, 'wagone');
         this.wagonehud.anchor.set(0.5);
-        this.wagonehud.scale.setTo(0.7);
+        this.wagonehud.scale.setTo(0.6);
         this.wagonehud.inputEnabled = true;
         var wagonehudBadge = game.add.graphics(0, 0);
         wagonehudBadge.beginFill(0xFF0000, 1);

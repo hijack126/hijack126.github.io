@@ -22,6 +22,8 @@ Preload.prototype={
         this.game.load.image('Rhino','assets/Rhino@2x.png');
         this.game.load.image('Tiger','assets/Tiger@2x.png');
 
+        this.game.load.image("starbg", 'assets/Star-Background@2x.png');
+        this.game.load.image("star", 'assets/Star@2x.png');
         this.game.load.image("scoreBackground","assets/ScoreBackground.png")
         this.game.load.image("tile", "assets/Tile.png");
         this.game.load.image("header", "assets/Header.png");
@@ -640,6 +642,8 @@ ScoreBar.prototype.setupConfiguration = function (providedConfig) {
 
 ScoreBar.prototype.drawBackground = function() {
  
+    me.game.add.image(this.x, this.y,'starbg').scale.setTo(0.5);
+
     var bmd = this.game.add.bitmapData(this.config.width, this.config.height);
     bmd.ctx.fillStyle = this.config.bg.color;
     bmd.ctx.beginPath();

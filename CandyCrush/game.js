@@ -426,7 +426,7 @@ Main.prototype={
         //backpackhudBadge.beginFill(0xFF0000, 1);
         //backpackhudBadge.drawCircle(180, badgeY, 20);
         game.add.image(160, badgeY, 'powerupBackground').scale.setTo(0.7);
-        this.backpackLabel=this.game.add.text(170,badgeY-10,"0",{font:badgeFont,fill:"#fff"});
+        this.backpackLabel=this.game.add.text(170,badgeY+10,"0",{font:badgeFont,fill:"#fff"});
         this.backpackLabel.anchor.setTo(0.5);
         this.backpackLabel.align='center';
         this.backpackLabel.text = this.equimentAmout[0];

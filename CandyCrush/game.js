@@ -105,7 +105,7 @@ Main.prototype={
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
 
 
-        me.popup.addChild(game.add.sprite(0, 0, 'backpack'));
+        me.popup.addChild(game.add.sprite(0, -100, 'backpack'));
         me.popup.addChild(game.add.sprite(0, 0, 'binoculars'));
         me.popup.addChild(game.add.sprite(0, 0, 'wagone'));
 

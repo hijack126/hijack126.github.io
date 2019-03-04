@@ -22,6 +22,7 @@ Preload.prototype={
         this.game.load.image('Rhino','assets/Rhino@2x.png');
         this.game.load.image('Tiger','assets/Tiger@2x.png');
 
+        this.game.load.image("powerupBackground", "assets/Powerup-Background@2x.png")
         this.game.load.image("powerupHintBackground", "assets/Powerup-Hint-Background@2x.png")
         this.game.load.image("starbg", 'assets/Star-Background@2x.png');
         this.game.load.image("star", 'assets/Star@2x.png');
@@ -420,9 +421,11 @@ Main.prototype={
         this.backpackhud.anchor.set(0.5);
         this.backpackhud.scale.setTo(0.6);
         this.backpackhud.inputEnabled = true;
-        var backpackhudBadge = game.add.graphics(0, 0);
-        backpackhudBadge.beginFill(0xFF0000, 1);
-        backpackhudBadge.drawCircle(180, badgeY, 20);
+
+        //var backpackhudBadge = game.add.graphics(0, 0);
+        //backpackhudBadge.beginFill(0xFF0000, 1);
+        //backpackhudBadge.drawCircle(180, badgeY, 20);
+        game.add.image(180, badgeY, 'powerupBackground').scale.setTo(0.5);
         this.backpackLabel=this.game.add.text(180,badgeY,"0",{font:badgeFont,fill:"#fff"});
         this.backpackLabel.anchor.setTo(0.5);
         this.backpackLabel.align='center';

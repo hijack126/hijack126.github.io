@@ -359,8 +359,8 @@ Main.prototype={
         me.scoreLabel.align='center';
 
         var defaultConfig= {
-            width: 180,
-            height: 30,
+            width: 160,
+            height: 20,
             x: game.width - 130,
             y: 140,
             bg: {

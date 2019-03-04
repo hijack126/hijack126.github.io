@@ -615,7 +615,7 @@ Main.prototype={
             return;
         }
         
-        this.tween = game.add.tween(this.popup.scale).to( { x: 0.5, y: 0.5 }, 1000, Phaser.Easing.Elastic.Out, true);
+        this.tween = game.add.tween(this.popup.scale).to( { x: 0.6, y: 0.6 }, 1000, Phaser.Easing.Elastic.Out, true);
         game.add.tween(this.popupClose.scale).to( { x: 0.5, y: 0.5 }, 1000, Phaser.Easing.Elastic.Out, true);
     },
     closeEquipmentHelp:function(){

@@ -350,11 +350,10 @@ Main.prototype={
     },
     createScore:function(){
         var me=this;
-        me.game.add.image(0, 100,'scoreBackground').scale.setTo(0.5);
-        var scoreFont="50px Arial";
-        me.scoreLabel=me.game.add.text(60,110,"0",{font:scoreFont,fill:"#fff"});
+        me.game.add.image(20, 120,'scoreBackground').scale.setTo(0.5);
+        var scoreFont="20px Arial";
+        me.scoreLabel=me.game.add.text(60,110,"0",{font:scoreFont,fill:"#000"});
         me.scoreLabel.anchor.setTo(0.5,0);
-        me.scoreLabel.stroke = '#000000';
         me.scoreLabel.strokeThickness = 2;
         me.scoreLabel.align='center';
 

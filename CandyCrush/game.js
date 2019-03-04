@@ -406,7 +406,7 @@ Main.prototype={
     },
     createEquipmentList:function(y){
 
-        this.eqbg = game.add.image(50, y-20, 'powerupHintBackground');
+        this.eqbg = game.add.image(50, y-20, 'powerupHintBackground').scale.setTo(0.5);
 
         this.equipmentType = ['backpack','binoculars','wagon'];
         this.equimentAmout = [1,1,1];

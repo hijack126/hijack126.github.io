@@ -378,7 +378,7 @@ Main.prototype={
         var me=this;
         me.game.add.image(10, 140,'scoreBackground').scale.setTo(0.5);
         var scoreFont="20px CaveatBrush-Regular";
-        me.scoreLabel=me.game.add.bitmapText(75,150, 'myfont', '0', 32);
+        me.scoreLabel=me.game.add.bitmapText(75,150, 'myfont', '0', 25);
         me.scoreLabel.anchor.setTo(0.5,0);
         me.scoreLabel.align='center';
 

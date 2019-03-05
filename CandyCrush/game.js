@@ -108,9 +108,9 @@ Main.prototype={
 
         var scoreFont="40px CaveatBrush-Regular";
         //var label1 = me.game.add.text(-100,-250,"Special Equipment",{font:scoreFont,fill:"#000"});
-        var label1 = me.game.add.bitmapText(-200,-350, 'myfont', 'Special Equipment', 60); 
-        me.popup.addChild(label1);
+        me.popup.addChild(me.game.add.bitmapText(-180,-350, 'myfont', 'Special Equipment', 60));
         me.popup.addChild(game.add.sprite(-200, -150, 'backpack'));
+        me.popup.addChild(me.game.add.bitmapText(0,-150, 'myfont', 'This backpack will clear way animals in a 3x3 space', 56));
         me.popup.addChild(game.add.sprite(-200, 0, 'binoculars'));
         me.popup.addChild(game.add.sprite(-200, 150, 'wagone'));
 

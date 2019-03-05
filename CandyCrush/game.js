@@ -411,7 +411,7 @@ Main.prototype={
         }
     },
     createMoveCount:function(y){
-        this.game.add.bitmapText(20,y-30, 'myfont', 'Moves Left:', 22);
+        this.game.add.bitmapText(15,y-20, 'myfont', 'Moves Left:', 20);
         this.moveLabel = this.game.add.bitmapText(50,y+10, 'myfont', '0', 35);
         this.moveLabel.anchor.setTo(0.5,0);
         this.moveLabel.align='center';

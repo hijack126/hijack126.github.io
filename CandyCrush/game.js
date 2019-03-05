@@ -109,8 +109,8 @@ Main.prototype={
         var scoreFont="40px CaveatBrush-Regular";
         //var label1 = me.game.add.text(-100,-250,"Special Equipment",{font:scoreFont,fill:"#000"});
         me.popup.addChild(me.game.add.bitmapText(-180,-350, 'myfont', 'Special Equipment', 52));
-        me.popup.addChild(me.game.add.bitmapText(-200,-270, 'myfont', 'Earn these items when you execute combos.\n Tap the item and anywhere on the board to use them!', 26));
-        me.popup.addChild(me.game.add.bitmapText(-250,-250, 'myfont', 'Tap the item and anywhere on the board to use them!', 26));
+        me.popup.addChild(me.game.add.bitmapText(-200,-270, 'myfont', 'Earn these items when you execute combos.', 26));
+        me.popup.addChild(me.game.add.bitmapText(-250,-230, 'myfont', 'Tap the item and anywhere on the board to use them!', 26));
 
         me.popup.addChild(game.add.sprite(-200, -150, 'backpack'));
         me.popup.addChild(me.game.add.bitmapText(-80,-130, 'myfont', 'This backpack will clear way\n animals in a 3x3 space', 22));

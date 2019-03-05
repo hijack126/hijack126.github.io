@@ -220,32 +220,18 @@ Main.prototype={
         var matches=me.getMatches(me.tileGrid);
         if(matches.length>0){
 
-            if(matches.length == 4){
-                this.equimentAmout[0] += 1;
-                this.backpackLabel.text = this.equimentAmout[0];
-            }else if(matches.length == 5){
-                this.equimentAmout[1] += 1;
-                this.binocularsLabel.text =  this.equimentAmout[1];
-            }else if(matches.length == 6){
-                var tType =  matches[0].tileType;
-                var lr = matches[0].row;
-                var cl =  matches[0].col;
-                var needAddEqui = true;
-                for(var a = 1; a< matches.length; a++){
-                    if(tType != matches[a].tileType){
-                        needAddEqui =false;
-                        break;
-                    }
-
-                    if(lr == matches[0].row){
-                        
-                    }
-                }
-
-                if(needAddEqui){
-                    this.equimentAmout[2] += 1;
-                    this.wagonehudLabel.text =  this.equimentAmout[2];
-                }
+            for(var a = 0; a< matches.length; a++){
+               if(matches[a].length == 4)
+               {
+                  this.equimentAmout[0] += 1;
+                  this.backpackLabel.text = this.equimentAmout[0];
+               }else if(matches[a].length == 5){
+                  this.equimentAmout[1] += 1;
+                  this.binocularsLabel.text =  this.equimentAmout[1];
+               }else if(matches[a].length == 6){
+                  this.equimentAmout[2] += 1;
+                  this.wagonehudLabel.text =  this.equimentAmout[2];
+               }
             }
 
             me.removeTileGroup(matches);

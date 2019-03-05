@@ -104,8 +104,8 @@ Main.prototype={
 
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
 
-        var scoreFont="20px CaveatBrush-Regular";
-        var label1 = me.game.add.text(0,-200,"Special Equipment",{font:scoreFont,fill:"#000"});
+        var scoreFont="40px CaveatBrush-Regular";
+        var label1 = me.game.add.text(-100,-250,"Special Equipment",{font:scoreFont,fill:"#000"});
         
         me.popup.addChild(label1);
         me.popup.addChild(game.add.sprite(-200, -150, 'backpack'));

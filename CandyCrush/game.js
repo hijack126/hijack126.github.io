@@ -110,7 +110,7 @@ Main.prototype={
         //var label1 = me.game.add.text(-100,-250,"Special Equipment",{font:scoreFont,fill:"#000"});
         me.popup.addChild(me.game.add.bitmapText(-180,-350, 'myfont', 'Special Equipment', 60));
         me.popup.addChild(game.add.sprite(-200, -150, 'backpack'));
-        me.popup.addChild(me.game.add.bitmapText(0,-150, 'myfont', 'This backpack will clear way\n animals in a 3x3 space', 30));
+        me.popup.addChild(me.game.add.bitmapText(-80,-150, 'myfont', 'This backpack will clear way\n animals in a 3x3 space', 30));
         me.popup.addChild(game.add.sprite(-200, 0, 'binoculars'));
         me.popup.addChild(game.add.sprite(-200, 150, 'wagone'));
 

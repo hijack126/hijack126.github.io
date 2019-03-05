@@ -113,11 +113,11 @@ Main.prototype={
         me.popup.addChild(me.game.add.bitmapText(-250,-230, 'myfont', 'Tap the item and anywhere on the board to use them!', 26));
 
         me.popup.addChild(game.add.sprite(-200, -150, 'backpack'));
-        me.popup.addChild(me.game.add.bitmapText(-80,-130, 'myfont', 'This backpack will clear way\n animals in a 3x3 space', 22));
+        me.popup.addChild(me.game.add.bitmapText(-80,-130, 'myfont', 'This backpack will clear way\n animals in a 3x3 space', 24));
         me.popup.addChild(game.add.sprite(-200, 0, 'binoculars'));
-        me.popup.addChild(me.game.add.bitmapText(-80, 20, 'myfont', 'The binoculars will clear all the\n selected animals on the borad', 22));
+        me.popup.addChild(me.game.add.bitmapText(-80, 20, 'myfont', 'The binoculars will clear all the\n selected animals on the borad', 24));
         me.popup.addChild(game.add.sprite(-200, 150, 'wagone'));
-        me.popup.addChild(me.game.add.bitmapText(-80, 170, 'myfont', 'The wagone will clear all animals in\n a horizontal and vertical line', 22));
+        me.popup.addChild(me.game.add.bitmapText(-80, 170, 'myfont', 'The wagone will clear all animals in\n a horizontal and vertical line', 24));
 
         me.popup.anchor.set(0.5);
         me.popup.scale.setTo(0.0);

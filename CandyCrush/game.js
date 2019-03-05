@@ -34,6 +34,8 @@ Preload.prototype={
         this.game.load.image("binoculars", "assets/Powerup-Same-Animal@2x.png");
         this.game.load.image("wagone", "assets/Powerup-Line@2x.png");
         this.game.load.image("help", "assets/Powerup-Hint@2x.png");
+
+        this.game.load.bitmapFont('myfont', 'assets/fonts/font_0.tga', 'assets/fonts/font.fnt');
     },
     create:function(){
         this.game.state.start("Main");
@@ -105,8 +107,8 @@ Main.prototype={
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
 
         var scoreFont="40px CaveatBrush-Regular";
-        var label1 = me.game.add.text(-100,-250,"Special Equipment",{font:scoreFont,fill:"#000"});
-        
+        //var label1 = me.game.add.text(-100,-250,"Special Equipment",{font:scoreFont,fill:"#000"});
+        var label1 = me.game.add.bitmapText(-100,-250, 'myfont', '0', 128); 
         me.popup.addChild(label1);
         me.popup.addChild(game.add.sprite(-200, -150, 'backpack'));
         me.popup.addChild(game.add.sprite(-200, 0, 'binoculars'));

@@ -22,19 +22,20 @@ Preload.prototype={
         this.game.load.image('Rhino','assets/Rhino@2x.png');
         this.game.load.image('Tiger','assets/Tiger@2x.png');
 
-        // this.game.load.image("powerupHintClose", "assets/Powerup-Hint-Close@2x.png")
-        // this.game.load.image("powerupBackground", "assets/Powerup-Background@2x.png")
-        // this.game.load.image("powerupHintBackground", "assets/Powerup-Hint-Background@2x.png")
-        // this.game.load.image("starbg", 'assets/Star-Background@2x.png');
-        // this.game.load.image("star", 'assets/Star@2x.png');
-        // this.game.load.image("scoreBackground","assets/ScoreBackground.png")
-        // this.game.load.image("tile", "assets/Tile.png");
-        // this.game.load.image("header", "assets/Header.png");
-        // this.game.load.image("backpack", "assets/Powerup-9x9@2x.png");
-        // this.game.load.image("binoculars", "assets/Powerup-Same-Animal@2x.png");
-        // this.game.load.image("wagone", "assets/Powerup-Line@2x.png");
-        // this.game.load.image("help", "assets/Powerup-Hint@2x.png");
-           //this.game.load.image('bg', 'assets/Background@2x.png');
+        this.game.load.image("powerupHintClose", "assets/Powerup-Hint-Close@2x.png")
+        this.game.load.image("powerupBackground", "assets/Powerup-Background@2x.png")
+        this.game.load.image("powerupHintBackground", "assets/Powerup-Hint-Background@2x.png")
+        this.game.load.image("starbg", 'assets/Star-Background@2x.png');
+        this.game.load.image("star", 'assets/Star@2x.png');
+        this.game.load.image("scoreBackground","assets/ScoreBackground.png")
+        this.game.load.image("tile", "assets/Tile.png");
+        this.game.load.image("header", "assets/Header.png");
+        this.game.load.image("backpack", "assets/Powerup-9x9@2x.png");
+        this.game.load.image("binoculars", "assets/Powerup-Same-Animal@2x.png");
+        this.game.load.image("wagone", "assets/Powerup-Line@2x.png");
+        this.game.load.image("help", "assets/Powerup-Hint@2x.png");
+        this.game.load.image('bg', 'assets/Background@2x.png');
+        
         this.game.load.bitmapFont('myfont', 'assets/fonts/font.png', 'assets/fonts/font.fnt');
     },
     create:function(){

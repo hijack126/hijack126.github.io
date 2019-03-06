@@ -25,7 +25,7 @@ Preload.prototype={
         this.game.load.image("powerupHintClose", "assets/Powerup-Hint-Close@2x.png")
         this.game.load.image("powerupBackground", "assets/Powerup-Background@2x.png")
         this.game.load.image("powerupHintBackground", "assets/Powerup-Hint-Background@2x.png")
-        this.game.load.image("starbg", 'assets/Star-Background@2x.png');
+        //this.game.load.image("starbg", 'assets/Star-Background@2x.png');
         this.game.load.image("star", 'assets/Star@2x.png');
         this.game.load.image("scoreBackground","assets/ScoreBackground.png")
         this.game.load.image("tile", "assets/Tile.png");
@@ -82,6 +82,8 @@ Main.prototype={
         //me.tileHeight=66;
         me.tiles=me.game.add.group();
         me.tileGrid=[[null,null,null,null,null,null,null],
+                     [null,null,null,null,null,null,null],
+                     [null,null,null,null,null,null,null],
                      [null,null,null,null,null,null,null],
                      [null,null,null,null,null,null,null],
                      [null,null,null,null,null,null,null],

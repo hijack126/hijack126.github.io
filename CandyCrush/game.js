@@ -34,8 +34,8 @@ Preload.prototype={
         // this.game.load.image("binoculars", "assets/Powerup-Same-Animal@2x.png");
         // this.game.load.image("wagone", "assets/Powerup-Line@2x.png");
         // this.game.load.image("help", "assets/Powerup-Hint@2x.png");
-
-        // this.game.load.bitmapFont('myfont', 'assets/fonts/font.png', 'assets/fonts/font.fnt');
+           //this.game.load.image('bg', 'assets/Background@2x.png');
+        this.game.load.bitmapFont('myfont', 'assets/fonts/font.png', 'assets/fonts/font.fnt');
     },
     create:function(){
         this.game.state.start("Main");
@@ -59,7 +59,7 @@ var Main=function(game){
 };
 Main.prototype={
     preload:function(){
-        game.load.image('bg', 'assets/Background@2x.png');
+      
     },
     create:function(){
         var me=this;

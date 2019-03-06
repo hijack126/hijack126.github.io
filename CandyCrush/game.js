@@ -4,9 +4,9 @@ Boot.prototype={
     create:function(){
 
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        game.scale.pageAlignHorizontally = true;
-        game.scale.pageAlignVertically = true;
-        game.renderer.renderSession.roundPixels = true;
+        // game.scale.pageAlignHorizontally = true;
+        // game.scale.pageAlignVertically = true;
+        // game.renderer.renderSession.roundPixels = true;
 
         this.game.state.start("Preload");
     }
@@ -107,17 +107,17 @@ Main.prototype={
         me.popup = game.add.sprite(game.world.centerX, game.world.centerY, 'powerupHintBackground');
 
         var scoreFont="40px CaveatBrush-Regular";
-        //var label1 = me.game.add.text(-100,-250,"Special Equipment",{font:scoreFont,fill:"#000"});
-        // me.popup.addChild(me.game.add.bitmapText(-180,-350, 'myfont', 'Special Equipment', 52));
-        // me.popup.addChild(me.game.add.bitmapText(-200,-270, 'myfont', 'Earn these items when you execute combos.', 26));
-        // me.popup.addChild(me.game.add.bitmapText(-250,-230, 'myfont', 'Tap the item and anywhere on the board to use them!', 26));
+        var label1 = me.game.add.text(-100,-250,"Special Equipment",{font:scoreFont,fill:"#000"});
+        me.popup.addChild(me.game.add.bitmapText(-180,-350, 'myfont', 'Special Equipment', 52));
+        me.popup.addChild(me.game.add.bitmapText(-200,-270, 'myfont', 'Earn these items when you execute combos.', 26));
+        me.popup.addChild(me.game.add.bitmapText(-250,-230, 'myfont', 'Tap the item and anywhere on the board to use them!', 26));
 
-        // me.popup.addChild(game.add.sprite(-200, -150, 'backpack'));
-        // me.popup.addChild(me.game.add.bitmapText(-80,-130, 'myfont', 'This backpack will clear way\n animals in a 3x3 space', 24));
-        // me.popup.addChild(game.add.sprite(-200, 0, 'binoculars'));
-        // me.popup.addChild(me.game.add.bitmapText(-80, 20, 'myfont', 'The binoculars will clear all the\n selected animals on the borad', 24));
-        // me.popup.addChild(game.add.sprite(-200, 150, 'wagone'));
-        // me.popup.addChild(me.game.add.bitmapText(-80, 170, 'myfont', 'The wagone will clear all animals in\n a horizontal and vertical line', 24));
+        me.popup.addChild(game.add.sprite(-200, -150, 'backpack'));
+        me.popup.addChild(me.game.add.bitmapText(-80,-130, 'myfont', 'This backpack will clear way\n animals in a 3x3 space', 24));
+        me.popup.addChild(game.add.sprite(-200, 0, 'binoculars'));
+        me.popup.addChild(me.game.add.bitmapText(-80, 20, 'myfont', 'The binoculars will clear all the\n selected animals on the borad', 24));
+        me.popup.addChild(game.add.sprite(-200, 150, 'wagone'));
+        me.popup.addChild(me.game.add.bitmapText(-80, 170, 'myfont', 'The wagone will clear all animals in\n a horizontal and vertical line', 24));
 
         me.popup.anchor.set(0.5);
         me.popup.scale.setTo(0.0);

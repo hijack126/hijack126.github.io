@@ -85,7 +85,6 @@ Main.prototype={
                      [null,null,null,null,null,null,null],
                      [null,null,null,null,null,null,null],
                      [null,null,null,null,null,null,null],
-                     [null,null,null,null,null,null,null],
                      [null,null,null,null,null,null,null]]
 
         var w1 = game.width;

@@ -4,9 +4,9 @@ Boot.prototype={
     create:function(){
 
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        // game.scale.pageAlignHorizontally = true;
-        // game.scale.pageAlignVertically = true;
-        // game.renderer.renderSession.roundPixels = true;
+        game.scale.pageAlignHorizontally = true;
+        game.scale.pageAlignVertically = true;
+        game.renderer.renderSession.roundPixels = true;
 
         this.game.state.start("Preload");
     }
@@ -17,10 +17,10 @@ var Preload=function(game){
 
 Preload.prototype={
     preload:function(){
-        this.game.load.image('Monkey','assets/Monkey@2x.png');
-        this.game.load.image('Penguin','assets/Penguin@2x.png');
-        this.game.load.image('Rhino','assets/Rhino@2x.png');
-        this.game.load.image('Tiger','assets/Tiger@2x.png');
+        this.game.load.image('Monkey','assets/Monkey.png');
+        this.game.load.image('Penguin','assets/Penguinx.png');
+        this.game.load.image('Rhino','assets/Rhino.png');
+        this.game.load.image('Tiger','assets/Tiger.png');
 
         this.game.load.image("powerupHintClose", "assets/Powerup-Hint-Close@2x.png")
         this.game.load.image("powerupBackground", "assets/Powerup-Background@2x.png")

@@ -463,7 +463,7 @@ Main.prototype={
         //backpackhudBadge.beginFill(0xFF0000, 1);
         //backpackhudBadge.drawCircle(180, badgeY, 20);
         game.add.image(160, badgeY, 'powerupBackground').scale.setTo(0.7);
-        this.backpackLabel=this.game.add.text(170,badgeY+10,"0",{font:badgeFont,fill:"#fff"});
+        this.backpackLabel=this.game.add.text(170,badgeY+12,"0",{font:badgeFont,fill:"#fff"});
         this.backpackLabel.anchor.setTo(0.5);
         this.backpackLabel.align='center';
         this.backpackLabel.text = this.equimentAmout[0];
@@ -476,7 +476,7 @@ Main.prototype={
         // binocularshudBadge.beginFill(0xFF0000, 1);
         // binocularshudBadge.drawCircle(260, badgeY, 20);
         game.add.image(250, badgeY, 'powerupBackground').scale.setTo(0.7);
-        this.binocularsLabel=this.game.add.text(260,badgeY+10,"0",{font:badgeFont,fill:"#fff"});
+        this.binocularsLabel=this.game.add.text(260,badgeY+12,"0",{font:badgeFont,fill:"#fff"});
         this.binocularsLabel.anchor.setTo(0.5);
         this.binocularsLabel.align='center';
         this.binocularsLabel.text = this.equimentAmout[1];
@@ -489,7 +489,7 @@ Main.prototype={
         // wagonehudBadge.beginFill(0xFF0000, 1);
         // wagonehudBadge.drawCircle(340, badgeY, 20);
         game.add.image(330, badgeY, 'powerupBackground').scale.setTo(0.7);
-        this. wagonehudLabel=this.game.add.text(340,badgeY+10,"0",{font:badgeFont,fill:"#fff"});
+        this. wagonehudLabel=this.game.add.text(340,badgeY+12,"0",{font:badgeFont,fill:"#fff"});
         this.wagonehudLabel.anchor.setTo(0.5);
         this.wagonehudLabel.align='center';
         this.wagonehudLabel.text = this.equimentAmout[2];

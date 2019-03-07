@@ -373,6 +373,7 @@ Main.prototype={
                     var tempTile=me.tileGrid[i][j-1];
                     me.tileGrid[i][j]=tempTile;
                     me.tileGrid[i][j-1]=null;
+                    tempTile.vPosition.y = j;
                     me.game.add.tween(tempTile).to({y:(me.tileHeight*j)+(me.tileHeight/2)},200,Phaser.Easing.Linear.In,true);
                     j=me.tileGrid[i].length;
                 }

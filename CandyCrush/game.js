@@ -17,10 +17,10 @@ var Preload=function(game){
 
 Preload.prototype={
     preload:function(){
-        this.game.load.image('Monkey','assets/Monkey@2x.png');
-        this.game.load.image('Penguin','assets/Penguin@2x.png');
+        this.game.load.image('Monkey','assets/Rhino@2x.png');
+        this.game.load.image('Penguin','assets/Rhino@2x.png');
         this.game.load.image('Rhino','assets/Rhino@2x.png');
-        this.game.load.image('Tiger','assets/Tiger@2x.png');
+        this.game.load.image('Tiger','assets/Rhino@2x.png');
 
         this.game.load.image("powerupHintClose", "assets/Powerup-Hint-Close@2x.png")
         this.game.load.image("powerupBackground", "assets/Powerup-Background@2x.png")
@@ -91,8 +91,8 @@ Main.prototype={
                      [null,null,null,null,null,null,null]]
 
         var w1 = game.width;
-        me.tileWidth=Math.floor(w1/7) - 5;
-        me.tileHeight=me.tileWidth;
+        me.tileWidth = Math.floor(w1/7) - 5;
+        me.tileHeight = me.tileWidth;
 
         me.tileContainer = new TileContainer(me.game, 20 , me.offsety, w1, w1);
         me.tileContainer.addChild(me.tiles);

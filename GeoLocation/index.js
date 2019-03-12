@@ -22,9 +22,10 @@ function init() {
     navigator.geolocation.watchPosition(gotPosition, function() {
       noGeolocation('Error: The Geolocation service failed.');
     }, { enableHighAccuracy: true, maximumAge: 10e3, timeout: 20e3 });
-  else
+  else{
 	  alert('not support');
-    noGeolocation('Error: Your browser doesn\'t support geolocation.');
+      noGeolocation('Error: Your browser doesn\'t support geolocation.');
+  }
 }
 
 function gotPosition(position) {

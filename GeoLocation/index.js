@@ -40,7 +40,8 @@ function init() {
 }
 
 function startRecord(){
-	
+	 var sl = document.getElementById("currentSpeed");
+	 sl.text = currentSpeed;
 }
 
 function gotPosition(position) {

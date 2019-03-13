@@ -49,8 +49,6 @@ function gotPosition(position) {
     , off = at.accuracy
     , z
     ;
-
-  currentSpeed = position.speed;
 	
   pos = ll(at.latitude, at.longitude);
   if (you) you.setPosition(pos); else {
@@ -72,9 +70,35 @@ function gotPosition(position) {
   if (off < 900) z = 17;
   if (off < 100) z = 18;
   if (z !== zoom) map.setZoom(zoom = z);
+  
+   if (at.speed != null) {
+        // update the speed
+        moveSpeed(at.speed);
+    }
 
-  map.panTo(pos);
-  save(at);
+    map.panTo(pos);
+    save(at);
+	
+	$("#currentSpeed").text("geosuccess: " + count++ + " : " + event.coords.heading + ":" + event.coords.speed);
+
+}
+
+function moveSpeed(speed) {
+ 
+    // we use a svg transform to move to correct orientation and location
+    var translateValue  = "translate(171,157)";
+    // to is in the range of 45 to 315, which is 0 to 260 km
+    var to = {property: Math.round((speed*3.6/250) *270) + 45};
+ 
+    // stop the current animation and run to the new one
+    $(currentSpeed).stop().animate(to, {
+        duration: 2000,
+        step: function() {
+            $("#speed").attr("transform", translateValue
+                + " rotate(" + this.property + ")")
+        }
+    });
+}
 }
 
 function noGeolocation(message) {

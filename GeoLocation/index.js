@@ -79,7 +79,7 @@ function gotPosition(position) {
     map.panTo(pos);
     save(at);
 	
-	$("#currentSpeed").text("geosuccess: " + count++ + " : " + event.coords.heading + ":" + event.coords.speed);
+	$("#currentSpeed").text("geo information: " + event.coords.heading + ":" + event.coords.speed);
 
 }
 

@@ -12,19 +12,31 @@ var map
 
 google.maps.event.addDomListener(window, 'load', init);
 
-function init() {
-  map = new google.maps.Map( document.getElementById('map')
-                           , { zoom: zoom
-                             , mapTypeId: google.maps.MapTypeId.ROADMAP
-                             });
+var currentSpeed = 0;
+var topSpeed = 0;
 
-  if (navigator.geolocation)
-    navigator.geolocation.watchPosition(gotPosition, function() {
-      noGeolocation('Error: The Geolocation service failed.');
-    }, { enableHighAccuracy: true, maximumAge: 10e3, timeout: 20e3 });
-  else{	  
-      noGeolocation('Error: Your browser doesn\'t support geolocation.');
-  }
+function init() {
+    map = new google.maps.Map(document.getElementById('map'), 
+	                        { 
+							    zoom: zoom, 
+							    mapTypeId: google.maps.MapTypeId.ROADMAP
+                            });
+    
+    if (navigator.geolocation){
+        navigator.geolocation.watchPosition(
+            gotPosition, 
+	  	    function() {
+                noGeolocation('Error: The Geolocation service failed.');
+            }, 
+	        { 
+	            enableHighAccuracy: true, 
+	            maximumAge: 10e3, 
+	            timeout: 20e3 
+	        });
+    }
+    else{	  
+        noGeolocation('Error: Your browser doesn\'t support geolocation.');
+    }
 }
 
 function gotPosition(position) {

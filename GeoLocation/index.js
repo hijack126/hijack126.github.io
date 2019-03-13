@@ -39,12 +39,18 @@ function init() {
     }
 }
 
+function startRecord(){
+	
+}
+
 function gotPosition(position) {
   var at  = position.coords
     , off = at.accuracy
     , z
     ;
 
+  currentSpeed = position.speed;
+	
   pos = ll(at.latitude, at.longitude);
   if (you) you.setPosition(pos); else {
     t_0 = Math.round(+new Date / 1000);

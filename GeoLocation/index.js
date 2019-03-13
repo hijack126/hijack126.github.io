@@ -99,7 +99,6 @@ function moveSpeed(speed) {
         }
     });
 }
-}
 
 function noGeolocation(message) {
   var opts = { map: map

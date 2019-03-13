@@ -41,7 +41,7 @@ function init() {
 
 function startRecord(){
 	 var sl = document.getElementById("currentSpeed");
-	 sl.text = currentSpeed;
+	 sl.innerText = this.currentSpeed;
 }
 
 function gotPosition(position) {

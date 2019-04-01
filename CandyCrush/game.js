@@ -17,10 +17,10 @@ var Preload=function(game){
 
 Preload.prototype={
     preload:function(){
-        this.game.load.sprite('Monkey','assets/Croissant@2x.png');
-        this.game.load.sprite('Penguin','assets/Penguin@2x.png');
-        this.game.load.sprite('Rhino','assets/Rhino@2x.png');
-        this.game.load.sprite('Tiger','assets/Tiger@2x.png');
+        this.game.load.image('Monkey','assets/Croissant@2x.png');
+        this.game.load.image('Penguin','assets/Penguin@2x.png');
+        this.game.load.image('Rhino','assets/Rhino@2x.png');
+        this.game.load.image('Tiger','assets/Tiger@2x.png');
 
         this.game.load.image("powerupHintClose", "assets/Powerup-Hint-Close@2x.png")
         this.game.load.image("powerupBackground", "assets/Powerup-Background@2x.png")

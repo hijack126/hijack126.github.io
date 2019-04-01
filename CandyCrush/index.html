@@ -39,7 +39,7 @@
     <script type="text/javascript">
 		(function() {
                 //Create a new game that fills the screen
-                game = new Phaser.Game(400, 700, Phaser.WEBGL, "");
+                game = new Phaser.Game(400, 700, Phaser.WEBGL, "", this, false, true);
 				
 				//Add all states
 				game.state.add("Boot", Boot);

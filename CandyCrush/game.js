@@ -95,7 +95,7 @@ Main.prototype={
         me.tileHeight =  me.tileWidth;
 
         me.tileContainer = new TileContainer(me.game, 20 , me.offsety, w1, w1);
-        me.tileContainer.scale.setTo(window.devicePixelRatio / 3);
+        me.tileContainer.scale.setTo(window.devicePixelRatio / 4);
         me.tileContainer.addChild(me.tiles);
 
         var seed=Date.now();

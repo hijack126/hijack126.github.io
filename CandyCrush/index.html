@@ -42,7 +42,7 @@
     <script type="text/javascript">
 		(function() {
                 //Create a new game that fills the screen
-                game = new Phaser.Game(window.innerWidth * 4/7, window.innerHeight, Phaser.Canvas, "");
+                game = new Phaser.Game(window.innerWidth *  window.devicePixelRatio, window.innerHeight*  window.devicePixelRatio, Phaser.Canvas, "");
 				
 				//Add all states
 				game.state.add("Boot", Boot);

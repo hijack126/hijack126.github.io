@@ -17,7 +17,7 @@ var Preload=function(game){
 
 Preload.prototype={
     preload:function(){
-        this.game.load.image('Monkey','assets/Monkey@2x.png');
+        this.game.load.image('Monkey','assets/Croissant@2x.png');
         this.game.load.image('Penguin','assets/Penguin@2x.png');
         this.game.load.image('Rhino','assets/Rhino@2x.png');
         this.game.load.image('Tiger','assets/Tiger@2x.png');

@@ -90,11 +90,12 @@ Main.prototype={
                      [null,null,null,null,null,null,null],
                      [null,null,null,null,null,null,null]]
 
-        var w1 = game.width.scale.setTo(window.devicePixelRatio / 3);
+        var w1 = game.width.scale;
         me.tileWidth = Math.floor(w1/7) - 5;
         me.tileHeight =  me.tileWidth;
 
         me.tileContainer = new TileContainer(me.game, 20 , me.offsety, w1, w1);
+        me.tileContainer.setTo(window.devicePixelRatio / 3);
         me.tileContainer.addChild(me.tiles);
 
         var seed=Date.now();

@@ -18,7 +18,7 @@ var Preload=function(game){
 Preload.prototype={
     preload:function(){
         this.game.load.image('Monkey','assets/Monkey@2x.png');
-        this.game.load.image('Penguin','assets/Penguin@2x.png');
+        this.game.load.image('Penguin','assets/Penguin.png');
         this.game.load.image('Rhino','assets/Rhino@2x.png');
         this.game.load.image('Tiger','assets/Tiger@2x.png');
 
@@ -171,7 +171,7 @@ Main.prototype={
         var me=this;
         var tileToAdd=me.tileTypes[me.random.integerInRange(0,me.tileTypes.length-1)];
         var tile=me.tiles.create((x*me.tileWidth)+me.tileWidth/2, 0, tileToAdd);
-        tile.scale.setTo(0.7);
+        //tile.scale.setTo(0.7);
         me.game.add.tween(tile).to({y:y*me.tileHeight+me.tileHeight/2},500,Phaser.Easing.Linear.In,true);
         tile.anchor.setTo(0.5);
         tile.inputEnabled=true;

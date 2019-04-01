@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8" />
     <title> Demo </title>
     <style type="text/css">
@@ -39,7 +42,7 @@
     <script type="text/javascript">
 		(function() {
                 //Create a new game that fills the screen
-                game = new Phaser.Game(400, 700, Phaser.WEBGL, "", this, false, true);
+                game = new Phaser.Game(640, 1136, Phaser.AUTO);
 				
 				//Add all states
 				game.state.add("Boot", Boot);

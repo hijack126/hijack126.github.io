@@ -90,7 +90,7 @@ Main.prototype={
                      [null,null,null,null,null,null,null],
                      [null,null,null,null,null,null,null]]
 
-        var w1 = game.width;
+        var w1 = game.width.scale.setTo(window.devicePixelRatio / 3);
         me.tileWidth = Math.floor(w1/7) - 5;
         me.tileHeight =  me.tileWidth;
 

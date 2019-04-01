@@ -170,7 +170,7 @@ Main.prototype={
     addTile:function(x,y){
         var me=this;
         var tileToAdd=me.tileTypes[me.random.integerInRange(0,me.tileTypes.length-1)];
-        var tile = me.game.add.sprite((x*me.tileWidth)+me.tileWidth/2, 0, tileToAdd); //me.tiles.create((x*me.tileWidth)+me.tileWidth/2, 0, tileToAdd);
+        var tile = me.tiles.create((x*me.tileWidth)+me.tileWidth/2, 0, tileToAdd);
         //tile.scale.setTo(0.7);
         me.game.add.tween(tile).to({y:y*me.tileHeight+me.tileHeight/2},500,Phaser.Easing.Linear.In,true);
         tile.anchor.setTo(0.5);

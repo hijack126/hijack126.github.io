@@ -15,6 +15,8 @@ google.maps.event.addDomListener(window, 'load', init);
 var currentSpeed = 0;
 var topSpeed = 0;
 
+var self = this;
+
 function init() {
     map = new google.maps.Map(document.getElementById('map'), 
 	                        { 
@@ -80,6 +82,7 @@ function gotPosition(position) {
     save(at);
 	
 	$("#currentSpeed").text("speed: " + at.speed);
+	self.topSpeed = Math.max(self.topSpeed, at.speed);
 
 }
 

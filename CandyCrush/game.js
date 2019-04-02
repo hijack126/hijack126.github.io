@@ -49,7 +49,7 @@ var TileContainer = function(game, x, y, w, h){
     Phaser.Sprite.call(this, game, x, y, "");
     var tile = this.game.add.image(200, 400,'tile');
     tile.anchor.setTo(0.5);
-    tile.scale.setTo(0.6);
+    tile.scale.setTo(window.devicePixelRatio / 4.2);
     this.anchor.setTo(0.5);
     game.add.existing(this); 
 }
@@ -66,7 +66,7 @@ Main.prototype={
         var me=this;
  
         me.game.add.image(0, 0,'bg');
-        me.game.add.image(0, 0,'header').scale.setTo(window.devicePixelRatio / 3);
+        me.game.add.image(0, 0,'header').scale.setTo(window.devicePixelRatio / 4.2);
         me.tween = null;
         me.popup;
         me.tileTypes=['Monkey','Penguin','Rhino','Tiger'];

@@ -39,7 +39,7 @@
     <script type="text/javascript">
 		(function() {
                 //Create a new game that fills the screen
-                if(window.devicePixelRatio >= 3){
+                if(window.innerWidth >= window.innerHeight){
                     game = new Phaser.Game(400,700, Phaser.Canvas, "");
                 }
                 else{

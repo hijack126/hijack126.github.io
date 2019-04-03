@@ -3,6 +3,10 @@ Boot.prototype={
     reload:function(){},
     create:function(){
 
+        if(window.innerWidth <= window.innerHeight){
+            game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        }
+
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true;
         game.renderer.renderSession.roundPixels = true;

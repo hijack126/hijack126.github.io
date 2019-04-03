@@ -39,13 +39,12 @@
     <script type="text/javascript">
 		(function() {
                 //Create a new game that fills the screen
-                // if(window.innerWidth >= window.innerHeight){
-                //     game = new Phaser.Game(400,700, Phaser.Canvas, "");
-                // }
-                // else{
-                //     game = new Phaser.Game(window.innerWidth *  window.devicePixelRatio, window.innerHeight*  window.devicePixelRatio, Phaser.Canvas, "");
-                // }
-                game = new Phaser.Game(400,700, Phaser.Canvas, "");
+                if(window.innerWidth >= window.innerHeight){
+                    game = new Phaser.Game(400,700, Phaser.Canvas, "");
+                }
+                else{
+                    game = new Phaser.Game(window.innerWidth , window.innerHeight, Phaser.Canvas, "");
+                }
 				//Add all states
 				game.state.add("Boot", Boot);
                 game.state.add("Preload", Preload);

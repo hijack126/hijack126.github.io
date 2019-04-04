@@ -51,7 +51,7 @@ var TileContainer = function(game, x, y, w, h){
     height = h;
     Phaser.Sprite.call(this, game, x, y, "");
     var tile = this.game.add.image(200, 400,'tile');
-    tile.scale.setTo(0.6);//.setTo(window.devicePixelRatio / 3.7);
+    tile.scale.setTo(0.66);//.setTo(window.devicePixelRatio / 3.7);
     tile.anchor.setTo(0.5);
     this.anchor.setTo(0.5);
     game.add.existing(this); 
@@ -93,7 +93,7 @@ Main.prototype={
                      [null,null,null,null,null,null,null],
                      [null,null,null,null,null,null,null]]
 
-        var w1 = game.width + 20;
+        var w1 = game.width;
         me.tileWidth = Math.floor(w1/7) - 5;
         me.tileHeight =  me.tileWidth;
 

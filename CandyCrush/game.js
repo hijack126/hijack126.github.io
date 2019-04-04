@@ -97,7 +97,7 @@ Main.prototype={
         me.tileWidth = Math.floor(w1/7) - 5;
         me.tileHeight =  me.tileWidth;
 
-        me.tileContainer = new TileContainer(me.game, 20 , me.offsety, w1, w1);
+        me.tileContainer = new TileContainer(me.game, 25 , me.offsety, w1, w1);
         //me.tileContainer.scale.setTo(0.6);//.setTo(window.devicePixelRatio / 4.2);
         me.tileContainer.addChild(me.tiles);
 

@@ -69,7 +69,7 @@ Main.prototype={
         var me=this;
  
         me.game.add.image(0, 0,'bg');
-        me.game.add.image(0, 0,'header').scale.setTo(0.63);//.scale.setTo(window.devicePixelRatio / 3.3);
+        me.game.add.image(0, 0,'header').scale.setTo(0.66);//.scale.setTo(window.devicePixelRatio / 3.3);
         me.tween = null;
         me.popup;
         me.tileTypes=['Monkey','Penguin','Rhino','Tiger'];

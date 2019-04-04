@@ -56,7 +56,7 @@ var TileContainer = function(game, x, y, w, h){
     }else{
         tile = this.game.add.image(200, 400,'tile');
     }
-    tile.scale.setTo(0.63);//.setTo(window.devicePixelRatio / 3.7);
+    tile.scale.setTo(0.6);//.setTo(window.devicePixelRatio / 3.7);
     tile.anchor.setTo(0.5);
     this.anchor.setTo(0.5);
     game.add.existing(this); 

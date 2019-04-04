@@ -49,8 +49,7 @@ Preload.prototype={
 var TileContainer = function(game, x, y, w, h){
     width = w;
     height = h;
-    Phaser.Sprite.call(this, game, x, y, "");
-    var tile = this.game.add.image(200, 400,'tile');
+    var tile = this.game.add.image(window.innerWidth/2, 400,'tile');
     tile.scale.setTo(0.63);//.setTo(window.devicePixelRatio / 3.7);
     tile.anchor.setTo(0.5);
     this.anchor.setTo(0.5);
@@ -97,7 +96,7 @@ Main.prototype={
         me.tileWidth = Math.floor(w1/7) - 5;
         me.tileHeight =  me.tileWidth;
 
-        me.tileContainer = new TileContainer(me.game, 25 , me.offsety, w1, w1);
+        me.tileContainer = new TileContainer(me.game, 20 , me.offsety, w1, w1);
         //me.tileContainer.scale.setTo(0.6);//.setTo(window.devicePixelRatio / 4.2);
         me.tileContainer.addChild(me.tiles);
 

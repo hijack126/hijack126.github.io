@@ -409,12 +409,13 @@ Main.prototype={
         var me=this;
         if(window.innerWidth <= window.innerHeight){
             me.game.add.image(10, 110,'scoreBackground').scale.setTo(0.5);
+            me.scoreLabel=me.game.add.bitmapText(75,120, 'myfont', '0', 25);
         }else{
             me.game.add.image(10, 140,'scoreBackground').scale.setTo(0.5);
+            me.scoreLabel=me.game.add.bitmapText(75,150, 'myfont', '0', 25);
         }
       
         var scoreFont="20px CaveatBrush-Regular";
-        me.scoreLabel=me.game.add.bitmapText(75,150, 'myfont', '0', 25);
         me.scoreLabel.anchor.setTo(0.5,0);
         me.scoreLabel.align='center';
 

@@ -709,11 +709,21 @@ ScoreBar.prototype.setupConfiguration = function (providedConfig) {
 };
 
 ScoreBar.prototype.drawBackground = function() {
+
+    if(window.innerWidth <= window.innerHeight){
+        this.game.add.image(this.x - 95, this.y-55,'starbg').scale.setTo(0.7);
+        this.game.add.image(this.x - 30, this.y-80,'star').scale.setTo(0.7);
+        this.game.add.image(this.x, this.y-80,'star').scale.setTo(0.7); 
+        this.game.add.image(this.x + 60, this.y-80,'star').scale.setTo(0.7);
+     
+    }else{
+        this.game.add.image(this.x - 95, this.y-25,'starbg').scale.setTo(0.7);
+        this.game.add.image(this.x - 30, this.y-50,'star').scale.setTo(0.7);
+        this.game.add.image(this.x, this.y-50,'star').scale.setTo(0.7); 
+        this.game.add.image(this.x + 60, this.y-50,'star').scale.setTo(0.7);
+    }
  
-    this.game.add.image(this.x - 95, this.y-25,'starbg').scale.setTo(0.7);
-    this.game.add.image(this.x - 30, this.y-50,'star').scale.setTo(0.7);
-    this.game.add.image(this.x, this.y-50,'star').scale.setTo(0.7); 
-    this.game.add.image(this.x + 60, this.y-50,'star').scale.setTo(0.7);
+   
 
     var bmd = this.game.add.bitmapData(this.config.width, this.config.height);
     bmd.ctx.fillStyle = this.config.bg.color;

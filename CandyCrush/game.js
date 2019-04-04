@@ -698,7 +698,12 @@ var ScoreBar = function(game, providedConfig) {
     this.game = game;
    
     this.setupConfiguration(providedConfig);
-    this.setPosition(this.config.x, this.config.y);
+    if(window.innerWidth <= window.innerHeight){
+        this.setPosition(this.config.x, this.config.y - 30);
+    }else{
+        this.setPosition(this.config.x, this.config.y);
+    }
+  
     this.drawBackground();
     this.drawScoreBar();
 };
@@ -723,8 +728,6 @@ ScoreBar.prototype.drawBackground = function() {
         this.game.add.image(this.x + 60, this.y-50,'star').scale.setTo(0.7);
     }
  
-   
-
     var bmd = this.game.add.bitmapData(this.config.width, this.config.height);
     bmd.ctx.fillStyle = this.config.bg.color;
     bmd.ctx.beginPath();

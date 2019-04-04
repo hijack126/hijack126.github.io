@@ -52,7 +52,7 @@ var TileContainer = function(game, x, y, w, h){
     Phaser.Sprite.call(this, game, x, y, "");
     var tile = null;
     if(window.innerWidth <= window.innerHeight){
-        tile = this.game.add.image(window.innerWidth/2, 380,'tile');
+        tile = this.game.add.image(window.innerWidth/2, 360,'tile');
     }else{
         tile = this.game.add.image(200, 400,'tile');
     }
@@ -104,7 +104,7 @@ Main.prototype={
 
 
         if(window.innerWidth <= window.innerHeight){
-            me.tileContainer = new TileContainer(me.game, 20 , me.offsety - 20, w1, w1);
+            me.tileContainer = new TileContainer(me.game, 20 , me.offsety - 40, w1, w1);
         }else{
             me.tileContainer = new TileContainer(me.game, 20 , me.offsety, w1, w1);
         }

@@ -99,7 +99,7 @@ Main.prototype={
                      [null,null,null,null,null,null,null]]
 
         var w1 = game.width;
-        me.tileWidth = (Math.floor(w1/7) - 6);
+        me.tileWidth = (Math.floor(w1/7) - 5);
         me.tileHeight =  me.tileWidth;
 
         if(window.innerWidth <= window.innerHeight){
@@ -150,7 +150,7 @@ Main.prototype={
         if(me.activeTile1&&!me.activeTile2){
             var hoverX=me.game.input.x;
             var hoverY=me.game.input.y - me.offsety;
-            var hoverPosX=Math.floor(hoverX/me.tileWidth);
+            var hoverPosX=Math.floor(hoverX/(me.tileWidth + 3);
             var hoverPosY=Math.floor(hoverY/me.tileHeight);
             var difX=(hoverPosX-me.startPosX);
             var difY=(hoverPosY-me.startPosY);

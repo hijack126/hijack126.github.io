@@ -103,7 +103,8 @@ Main.prototype={
         me.tileHeight =  me.tileWidth;
 
         if(window.innerWidth <= window.innerHeight){
-            me.tileContainer = new TileContainer(me.game, 20 , me.offsety - 60, w1, w1);
+            me.offsety = 215 - 60; 
+            me.tileContainer = new TileContainer(me.game, 20 , me.offsety, w1, w1);
         }else{
             me.tileContainer = new TileContainer(me.game, 20 , me.offsety, w1, w1);
         }
@@ -151,7 +152,7 @@ Main.prototype={
             var hoverX=me.game.input.x;
             var hoverY=me.game.input.y - me.offsety;
             var hoverPosX=Math.floor(hoverX/(me.tileWidth + 3));
-            var hoverPosY=Math.floor(hoverY/(me.tileHeight+ 3));
+            var hoverPosY=Math.floor(hoverY/(me.tileHeight));
             var difX=(hoverPosX-me.startPosX);
             var difY=(hoverPosY-me.startPosY);
             if(!(hoverPosY>me.tileGrid[0].length-1||hoverPosY<0)&&!(hoverPosX>me.tileGrid.length-1||hoverPosX<0)){

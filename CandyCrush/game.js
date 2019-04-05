@@ -9,7 +9,7 @@ Boot.prototype={
 
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true;
-        //game.renderer.renderSession.roundPixels = true;
+        game.renderer.renderSession.roundPixels = true;
 
         this.game.state.start("Preload");
     }

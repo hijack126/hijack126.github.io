@@ -6,7 +6,7 @@ Boot.prototype={
         // if(window.innerWidth <= window.innerHeight){
         //     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         // }
-         game.stage.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true;

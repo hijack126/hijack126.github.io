@@ -99,7 +99,7 @@ Main.prototype={
                      [null,null,null,null,null,null,null]]
 
         var w1 = game.width;
-        me.tileWidth =(Math.floor(w1/7) - 5);
+        me.tileWidth = (Math.floor(w1/7) - 4);
         me.tileHeight =  me.tileWidth;
 
         if(window.innerWidth <= window.innerHeight){
@@ -185,7 +185,6 @@ Main.prototype={
         var me=this;
         var tileToAdd=me.tileTypes[me.random.integerInRange(0,me.tileTypes.length-1)];
         var tile = me.tiles.create((x*me.tileWidth)+me.tileWidth/2, 0, tileToAdd);
-        tile.color= "#000";
         //tile.scale.setTo(0.7);
         me.game.add.tween(tile).to({y:y*me.tileHeight+me.tileHeight/2},500,Phaser.Easing.Linear.In,true);
         tile.anchor.setTo(0.5);

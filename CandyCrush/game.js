@@ -99,7 +99,7 @@ Main.prototype={
                      [null,null,null,null,null,null,null]]
 
         var w1 = game.width;
-        me.tileWidth = (Math.floor(w1/7) - 2);
+        me.tileWidth = (Math.floor(w1/7) - 6);
         me.tileHeight =  me.tileWidth;
 
         if(window.innerWidth <= window.innerHeight){

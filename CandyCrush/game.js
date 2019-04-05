@@ -104,11 +104,9 @@ Main.prototype={
 
         if(window.innerWidth <= window.innerHeight){
             me.offsety = 215 - 60; 
-            me.tileContainer = new TileContainer(me.game, 20 , me.offsety, w1, w1);
-        }else{
-            me.tileContainer = new TileContainer(me.game, 20 , me.offsety, w1, w1);
         }
-       
+
+        me.tileContainer = new TileContainer(me.game, 20 , me.offsety, w1, w1);
         //me.tileContainer.scale.setTo(0.6);//.setTo(window.devicePixelRatio / 4.2);
         me.tileContainer.addChild(me.tiles);
 
@@ -186,7 +184,7 @@ Main.prototype={
         var me=this;
         var tileToAdd=me.tileTypes[me.random.integerInRange(0,me.tileTypes.length-1)];
         var tile = me.tiles.create((x*me.tileWidth)+me.tileWidth/2, 0, tileToAdd);
-        //tile.scale.setTo(0.7);
+        tile.scale.setTo(0.7);
         me.game.add.tween(tile).to({y:y*me.tileHeight+me.tileHeight/2},500,Phaser.Easing.Linear.In,true);
         tile.anchor.setTo(0.5);
         tile.inputEnabled=true;

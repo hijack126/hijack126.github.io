@@ -26,10 +26,10 @@ Preload.prototype={
             this.game.load.image('Rhino','assets/Rhino@1x.png');
             this.game.load.image('Tiger','assets/Tiger@1x.png');
         }else{
-            this.game.load.image('Monkey','assets/Monkey@2x.png');
-            this.game.load.image('Penguin','assets/Penguin@2x.png');
-            this.game.load.image('Rhino','assets/Rhino@2x.png');
-            this.game.load.image('Tiger','assets/Tiger@2x.png');
+            this.game.load.image('Monkey','assets/Monkey@1x.png');
+            this.game.load.image('Penguin','assets/Penguin@1x.png');
+            this.game.load.image('Rhino','assets/Rhino@1x.png');
+            this.game.load.image('Tiger','assets/Tiger@1x.png');
         }
 
         this.game.load.image("powerupHintClose", "assets/Powerup-Hint-Close@2x.png")

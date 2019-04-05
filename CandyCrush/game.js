@@ -151,7 +151,7 @@ Main.prototype={
             var hoverX=me.game.input.x;
             var hoverY=me.game.input.y - me.offsety;
             var hoverPosX=Math.floor(hoverX/(me.tileWidth + 3));
-            var hoverPosY=Math.floor(hoverY/me.tileHeight);
+            var hoverPosY=Math.floor(hoverY/(me.tileHeight+ 3));
             var difX=(hoverPosX-me.startPosX);
             var difY=(hoverPosY-me.startPosY);
             if(!(hoverPosY>me.tileGrid[0].length-1||hoverPosY<0)&&!(hoverPosX>me.tileGrid.length-1||hoverPosX<0)){

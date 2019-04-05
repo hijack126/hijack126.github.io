@@ -43,7 +43,7 @@
                     game = new Phaser.Game(400,700, Phaser.Canvas, "");
                 }
                 else{
-                    game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.Canvas, "");
+                    game = new Phaser.Game(window.innerWidth* window.devicePixelRatio, window.innerHeight* window.devicePixelRatio, Phaser.Canvas, "");
                 }
 				//Add all states
 				game.state.add("Boot", Boot);

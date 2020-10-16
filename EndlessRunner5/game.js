@@ -44,6 +44,8 @@ let gameOptions = {
     firePercent: 25
 }
 
+let gameStarted = false;
+
 window.onload = function() {
 
     // object containing configuration options
@@ -72,6 +74,8 @@ class preloadGame extends Phaser.Scene{
     }
     preload(){
         this.load.image("platform", "platform.png");
+        this.load.image("title", "game-title.png");
+        this.load.image("startBtn", "start-btn.png");
 
         this.load.spritesheet('button', 'button_sprite_sheet.png', {
             frameWidth: 193,
@@ -143,12 +147,28 @@ class playGame extends Phaser.Scene{
     }
 
     create(){
+        var title = this.add.image(game.config.width / 2, 300, 'title');
+        title.setDepth(3);
+    
+        var startBtn = this.add.image(game.config.width / 2, 600, 'startBtn').setInteractive();
+        startBtn.setDepth(3);
+        startBtn.on('pointerup', function () {
+            title.visible = false;
+            startBtn.visible = false;
+
+            this.player.visible = true;
+
+           // checking for input
+           this.input.on("pointerdown", this.jump, this);
+
+           gameStarted = true;
+
+        }, this);
 
         var bt = this.add.image(300, 80, 'help').setInteractive();
         bt.setScale(.2);
         bt.on('pointerup', function () {
-            //this.events.preventDefault();
-            this.scene.pause();
+            //this.scene.pause();
             console.log("sssssssssss");
         }, this);
 
@@ -157,7 +177,6 @@ class playGame extends Phaser.Scene{
 
         // group with all active platforms.
         this.platformGroup = this.add.group({
-
             // once a platform is removed, it's added to the pool
             removeCallback: function(platform){
                 platform.scene.platformPool.add(platform)
@@ -166,7 +185,6 @@ class playGame extends Phaser.Scene{
 
         // platform pool
         this.platformPool = this.add.group({
-
             // once a platform is removed from the pool, it's added to the active platforms group
             removeCallback: function(platform){
                 platform.scene.platformGroup.add(platform)
@@ -197,12 +215,11 @@ class playGame extends Phaser.Scene{
         // adding a platform to the game, the arguments are platform width, x position and y position
         this.addPlatform(game.config.width * 2, game.config.width / 2, game.config.height * gameOptions.platformVerticalLimit[1]);
 
-        //var button = this.game.add.sprite();
-
         // adding the player;
         this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height * 0.7, "player");
         this.player.setGravityY(gameOptions.playerGravity);
         this.player.setDepth(2);
+        this.player.visible = false;
 
         // the player is not dying
         this.dying = false;
@@ -218,7 +235,6 @@ class playGame extends Phaser.Scene{
 
         // setting collisions between the player and the fire group
         this.physics.add.overlap(this.player, this.obstacleGroup, function(player, fire){
-
             this.dying = true;
             this.player.anims.stop();
             this.player.setFrame(2);
@@ -226,9 +242,6 @@ class playGame extends Phaser.Scene{
             this.physics.world.removeCollider(this.platformCollider);
 
         }, null, this);
-
-        // checking for input
-        this.input.on("pointerdown", this.jump, this);
     }
 
     // adding mountains
@@ -333,6 +346,7 @@ class playGame extends Phaser.Scene{
     }
 
     update(){
+      
         // game over
         if(this.player.y > game.config.height){
             this.scene.start("PlayGame");
@@ -357,6 +371,8 @@ class playGame extends Phaser.Scene{
             }
         }, this);
 
+
+
         // recycling mountains
         this.mountainGroup.getChildren().forEach(function(mountain){
             if(mountain.x < - mountain.displayWidth){
@@ -369,6 +385,8 @@ class playGame extends Phaser.Scene{
                 }
             }
         }, this);
+
+        if(!gameStarted) return;
 
         //adding obstcles
         if(Phaser.Math.Between(1, 2000) <= gameOptions.firePercent){

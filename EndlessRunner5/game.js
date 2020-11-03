@@ -70,7 +70,7 @@ window.onload = function() {
         physics: {
             default: "arcade",
             arcade: {
-                debug: false
+                debug: true
             }
         }
     }
@@ -115,9 +115,9 @@ class preloadGame extends Phaser.Scene{
         // });
         // player is a sprite sheet made by 24x48 pixels
 
-        this.load.spritesheet("player", "assets/player1.png", {
-            frameWidth: 179,
-            frameHeight: 218
+        this.load.spritesheet("player", "assets/player.png", {
+            frameWidth: 170,
+            frameHeight: 210
         });
 
         // this.load.spritesheet("player", "assets/player.png", {
@@ -129,10 +129,10 @@ class preloadGame extends Phaser.Scene{
         //     frameHeight: 32
         // });
         // mountains are a sprite sheet made by 512x512 pixels
-        this.load.spritesheet("mountain", "assets/mountain.png", {
-            frameWidth: 512,
-            frameHeight: 512
-        });
+        // this.load.spritesheet("mountain", "assets/mountain.png", {
+        //     frameWidth: 512,
+        //     frameHeight: 512
+        // });
 
         this.load.image('mountain2', 'assets/bgmountain-2.png');
         this.load.image('bgtree1', 'assets/bg-tree1.png');
@@ -149,10 +149,20 @@ class preloadGame extends Phaser.Scene{
             key: "run",
             frames: this.anims.generateFrameNumbers("player", {
                 start: 0,
-                end: 0
+                end: 11
             }),
-            frameRate: 8,
+            frameRate: 10,
             repeat: -1
+        });
+
+        this.anims.create({
+            key: "jump",
+            frames: this.anims.generateFrameNumbers("player", {
+                start: 12,
+                end: 20
+            }),
+            frameRate: 10,
+            repeat: 0
         });
 
         // setting coin animation
@@ -235,8 +245,8 @@ class playGame extends Phaser.Scene{
 
         //if(!faq)
         {
-           faq = this.add.image(game.config.width / 2, 260, 'helpScreen');
-           faq.setScale(.7);
+           faq = this.add.image(game.config.width / 2, 240, 'helpScreen');
+           faq.setScale(.5);
            faq.setDepth(4);
            faq.visible = false;
         }
@@ -396,7 +406,7 @@ class playGame extends Phaser.Scene{
         this.addPlatform();
 
         // adding the player;
-        this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height * 0.7, "player");
+        this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height * 0.6, "player");
         this.player.setGravityY(gameOptions.playerGravity);
         this.player.setDepth(2);
         this.player.setScale(.8);
@@ -687,7 +697,6 @@ class playGame extends Phaser.Scene{
     // the player jumps when on the ground, or once in the air as long as there are jumps left and the first jump was on the ground
     // and obviously if the player is not dying
     jump(){
-
         if(faq.visible){
             this.showFAQ();
             return;
@@ -699,11 +708,13 @@ class playGame extends Phaser.Scene{
             if(this.player.body.touching.down){
                 this.playerJumps = 0;
             }
+
+            this.player.anims.play("jump");
             this.player.setVelocityY(gameOptions.jumpForce * -1);
             this.playerJumps ++;
 
             // stops animation
-            this.player.anims.stop();
+            //this.player.anims.stop();
         }
     }
 

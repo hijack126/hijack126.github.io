@@ -9,6 +9,8 @@ let gameOptions = {
     // mountain speed, in pixels per second
     mountainSpeed: 80,
 
+    cloudSpeed: 10,
+
     // spawn range, how far should be the rightmost platform from the right edge
     // before next platform spawns, in pixels
     spawnRange: [80, 300],
@@ -61,7 +63,7 @@ window.onload = function() {
         width: 1080,
         height: 520,
         scene: [preloadGame, playGame],
-        backgroundColor: 0x0c88c7,
+        backgroundColor: 0xf4f4e2,
         parent: 'game-content',
         dom: {
             createContainer: true
@@ -76,8 +78,10 @@ window.onload = function() {
     }
     game = new Phaser.Game(gameConfig);
     window.focus();
-    //resize();
-    //window.addEventListener("resize", resize, false);
+    resize();
+    window.addEventListener("resize", resize, false);
+
+    scene.scale.updateBounds();
 }
 
 // preloadGame scene
@@ -87,6 +91,7 @@ class preloadGame extends Phaser.Scene{
     }
 
     preload(){
+        
         this.load.html('nameform', 'loginform.html');
 
         this.load.image("platform", "assets/platform.png");
@@ -95,7 +100,9 @@ class preloadGame extends Phaser.Scene{
         this.load.image("startBtn", "assets/start-btn.png");
         this.load.image('help', 'assets/helpIcon.png');
         this.load.image('sound', 'assets/Sound.png');
+        this.load.image('muted', 'assets/muted.png');
         this.load.image('pause', 'assets/Pause.png');
+        this.load.image('play', 'assets/play.png');
         this.load.image('road', 'assets/road.png');
         this.load.image('helpScreen', 'assets/HelpScreen.png');
         this.load.image('gameover', 'assets/game-over.png');
@@ -103,6 +110,7 @@ class preloadGame extends Phaser.Scene{
         this.load.image('submitscoreBtn', 'assets/submitscore-btn.png');
         this.load.image('tryagainBtn', 'assets/tryagain-btn.png');
         this.load.image('shareSign', 'assets/share-sign.png');
+        this.load.image('rd', 'assets/r-d.png');
         
         this.load.image('obstacle1', 'assets/obstacle1.png');
         this.load.image('obstacle2', 'assets/obstacle2.png');
@@ -134,9 +142,13 @@ class preloadGame extends Phaser.Scene{
         //     frameHeight: 512
         // });
 
+        this.load.image('clouds', 'assets/bg-clouds.png');
+        this.load.image('mountain1', 'assets/bgmountain-1.png');
         this.load.image('mountain2', 'assets/bgmountain-2.png');
         this.load.image('bgtree1', 'assets/bg-tree1.png');
         this.load.image('bgtree2', 'assets/bg-tree2.png');
+
+        var styles = '@font-face { font-family: "bahnschrift"; src: url("assets/fonts/bahnschrift.ttf") format("opentype"); }\n';
 
         this.load.audio('theme', [
             'assets/audio/technogeek.mp3'
@@ -151,17 +163,17 @@ class preloadGame extends Phaser.Scene{
                 start: 0,
                 end: 11
             }),
-            frameRate: 10,
+            frameRate: 12,
             repeat: -1
         });
 
         this.anims.create({
             key: "jump",
             frames: this.anims.generateFrameNumbers("player", {
-                start: 12,
-                end: 20
+                start: 13,
+                end: 15
             }),
-            frameRate: 10,
+            frameRate: 6,
             repeat: 0
         });
 
@@ -204,16 +216,35 @@ var runningDistance = 0;
 var mouseInButton = false;
 var preObstcleTime = 0;
 var obstacleTypes = ['obstacle1', 'obstacle2', 'obstacle3', 'obstacle4'];
+var gameOverText = ['"Tough times never last,but tough people\n  do!" - Robert Schuller',
+'"There is hope, even when your brain tells\n you there isnt." - John Green',
+'"I fight for my health every day in ways most people\n don’t understand.\n I’m not lazy. I’m a warrior."',
+'"Don’t let your struggle becomeyour identity."\n  – Unknown',
+'"The strongest people are those who win battles\n we know nothing about." – Unknown',
+'"What mental health needs are more sunlight, more\n candor, and more unashamed conversation."\n - Glenn Close',
+'Dr. Lauren Fogel Mersy -"Beingable to be your true\n  self is one of the strongest components\n of good mental health."',
+'"Today I refuse to stress myself out over things I\n cant\n control and change."',
+'"My dark days made me stronger.Or maybe I already\n  was strong,and they made me prove it."\n  - Emery Lord',
+'"Happiness can be found even in the darkest of times\n if one only remembers to turn on the light."\n - Albus Dumbledore from Harry Potter\n and the Prisoner of Azkaban',
+'"There is a crack in everything, thats how the light\n gets in" - Leonard Cohen',
+'"Its okay to not be okay" - unknown',
+'"Mental illness is nothing to be ashamed of, but\n stigma and bias shame us all." - Bill Clinton',
+'"Healing takes time, and askingfor help is a courageous\n step."  - Mariska Hargitay'];
 var updateSpeedInterval = 0;
 var resscoreLable;
+var gameovertextLable;
 var restextLable;
 var titleLogo;
 var title;
 var startBtn;
+var rd;
 var mutebtn;
+var mutedbtn;
 var pausebtn;
+var playbtn;
 var bt;
 var shareSign;
+var screenMaskGraphics;
 
 // playGame scene
 class playGame extends Phaser.Scene{
@@ -224,17 +255,25 @@ class playGame extends Phaser.Scene{
 
     create(data){
         //this.startGame();
+        var rect = new Phaser.Geom.Rectangle(0, 0, 1100, 85);
+        var graphics = this.add.graphics({ fillStyle: { color: 0xffffff } });
+        graphics.fillRectShape(rect);
+        graphics.setDepth(2);
+
+        titleLogo = this.add.image(game.config.width / 2, 40, 'titleLogo');
+        titleLogo.setDepth(3);
+        titleLogo.setScale(0.5);
 
         if(gameStatus.currentScore > gameStatus.bestScore) gameStatus.bestScore = gameStatus.currentScore;
         gameStatus.currentScore = 0;
         gameStatus.currentSpeed = 180;
 
-        //if(!titleLogo)
-        {
-           titleLogo = this.add.image(game.config.width / 2, 100, 'titleLogo');
-           titleLogo.setDepth(3);
-           titleLogo.setScale(0.3);
-        }
+        var screenMask =  new Phaser.Geom.Rectangle(0, 85, 1100, 600);
+        screenMaskGraphics = this.add.graphics({ fillStyle: { color: 0x000000 } });
+        screenMaskGraphics.alpha = 0.5;
+        screenMaskGraphics.fillRectShape(screenMask);
+        screenMaskGraphics.setDepth(3);
+        screenMaskGraphics.visible = false;
 
         //if(!title)
         {
@@ -245,8 +284,8 @@ class playGame extends Phaser.Scene{
 
         //if(!faq)
         {
-           faq = this.add.image(game.config.width / 2, 240, 'helpScreen');
-           faq.setScale(.5);
+           faq = this.add.image(game.config.width / 2, 270, 'helpScreen');
+           faq.setScale(.6);
            faq.setDepth(4);
            faq.visible = false;
         }
@@ -259,24 +298,27 @@ class playGame extends Phaser.Scene{
            gameoverBoard = this.add.image(game.config.width / 2, 340, 'gameoverBoard')
            gameoverBoard.setScale(.5);
            gameoverBoard.setDepth(3);
-           submitscoreBtn = this.add.image(game.config.width / 2 + 100, 400, 'submitscoreBtn').setInteractive(new Phaser.Geom.Rectangle(0, -10, 170, 57), Phaser.Geom.Rectangle.Contains);
+           submitscoreBtn = this.add.image(game.config.width / 2 + 100, 420, 'submitscoreBtn').setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(0, -10, 170, 57), Phaser.Geom.Rectangle.Contains);
            submitscoreBtn.on('pointerup', function () {
 
            });
            submitscoreBtn.setDepth(4);
            submitscoreBtn.setScale(.7);
-           tryagainBtn = this.add.image(game.config.width / 2 -100, 400, 'tryagainBtn').setInteractive(new Phaser.Geom.Rectangle(50, -10, 170, 57), Phaser.Geom.Rectangle.Contains);
+           tryagainBtn = this.add.image(game.config.width / 2 -100, 420, 'tryagainBtn').setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(50, -10, 170, 57), Phaser.Geom.Rectangle.Contains);
            tryagainBtn.on('pointerup', function () {
                this.scene.scene.start("PlayGame", true);
            });
            tryagainBtn.setScale(.7);
            tryagainBtn.setDepth(4);
-           restextLable = this.add.text(game.config.width / 2-80, 200, 'Your Score', { font: '28px Arial', fill: '#666666' });
+           restextLable = this.add.text(game.config.width / 2-70, 200, 'Your Score', { font: '30px bahnschrift', fill: '#666666' });
            restextLable.setDepth(4);
-           resscoreLable = this.add.text(game.config.width / 2-30, 240, '0', { font: '28px Arial', fill: '#000000' });
+           resscoreLable = this.add.text(game.config.width / 2-30, 240, '0', { font: '32px bahnschrift', fill: '#000000' });
            resscoreLable.setDepth(4);
+           gameovertextLable = this.add.text(game.config.width / 2-130, 280, 'Your Score', { font: '12px Arial', fill: '#666666', lineSpacing: 8 });
+           gameovertextLable.setDepth(4);
 
-           shareSign = this.add.image(game.config.width / 2, 690, 'shareSign').setInteractive(new Phaser.Geom.Rectangle(50, -40, 546, 63), Phaser.Geom.Rectangle.Contains);
+           shareSign = this.add.image(game.config.width / 2, 490, 'shareSign').setInteractive({ cursor: 'pointer' },new Phaser.Geom.Rectangle(50, -40, 546, 63), Phaser.Geom.Rectangle.Contains);
+           shareSign.setScale(.7);
            shareSign.setDepth(4);
 
            gameover.visible = false;
@@ -285,29 +327,34 @@ class playGame extends Phaser.Scene{
            tryagainBtn.visible = false;
            restextLable.visible = false;
            resscoreLable.visible = false;
+           gameovertextLable.visible = false;
            shareSign.visible = false;
         }
 
-        //if(!scoreLable)
-        {
-           scoreLable = this.add.text(10, 10, 'aaa', { font: '48px Arial', fill: '#000000' });
-           scoreLable.setDepth(4);
-           scoreLable.visible = false;
-        }
+        scoreLable = this.add.text(10, 100, '0', { font: '28px Arial', fill: '#000000' });
+        scoreLable.setDepth(4);
+        scoreLable.visible = false;
     
         //if(!startBtn)
         {
-            startBtn = this.add.image(game.config.width / 2, 460, 'startBtn').setInteractive(new Phaser.Geom.Rectangle(0, -40, 211, 190), Phaser.Geom.Rectangle.Contains);
+            startBtn = this.add.image(game.config.width / 2, 390, 'startBtn').setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(0, -40, 211, 190), Phaser.Geom.Rectangle.Contains);
             startBtn.setScale(0.7);
             startBtn.setDepth(3);
             startBtn.on('pointerup', function () {
                   this.startGame();
             }, this);
+
+            rd =  this.add.image(game.config.width / 2, 440, 'rd')
+            rd.setScale(0.5);
+            rd.setDepth(3);
         }
+
+        var touchIconRect = new Phaser.Geom.Rectangle(20, 0, 170, 55);
 
         //if(!mutebtn)
         {
-            mutebtn = this.add.image(1000, 50, 'sound').setInteractive(new Phaser.Geom.Rectangle(-25, 0, 45, 35), Phaser.Geom.Rectangle.Contains);
+            mutebtn = this.add.image(1000, 120, 'sound').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);        
+            mutebtn.setScale(.7);
             mutebtn.setDepth(3);
             mutebtn.on('pointerup', function () {
                 this.muteGame();
@@ -319,11 +366,26 @@ class playGame extends Phaser.Scene{
                 mouseInButton = false;
             }, this);
             mutebtn.visible  = false;
+
+            mutedbtn = this.add.image(1000, 120, 'muted').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);        
+            mutedbtn.setScale(.7);
+            mutedbtn.setDepth(3);
+            mutedbtn.on('pointerup', function () {
+                this.muteGame();
+            }, this);
+            mutedbtn.on('pointerover', function () {
+                mouseInButton = true;
+            }, this);
+            mutedbtn.on('pointerout', function () {
+                mouseInButton = false;
+            }, this);
+            mutedbtn.visible  = false;
         }
 
         //if(!pausebtn)
         {
-            pausebtn = this.add.image(900, 50, 'pause').setInteractive(new Phaser.Geom.Rectangle(-15, 0, 30, 36), Phaser.Geom.Rectangle.Contains);
+            pausebtn = this.add.image(930, 120, 'pause').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
+            pausebtn.setScale(.6);
             pausebtn.setDepth(3);
             pausebtn.on('pointerup', function () {
                 this.pauseGame();
@@ -335,11 +397,26 @@ class playGame extends Phaser.Scene{
                 mouseInButton = false;
             }, this);
             pausebtn.visible  = false;
+
+            playbtn = this.add.image(930, 120, 'play').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
+            playbtn.setScale(.6);
+            playbtn.setDepth(3);
+            playbtn.on('pointerup', function () {
+                this.pauseGame();
+            }, this);
+            playbtn.on('pointerover', function () {
+                mouseInButton = true;
+            }, this);
+            playbtn.on('pointerout', function () {
+                mouseInButton = false;
+            }, this);
+            playbtn.visible  = false;
         }
 
         //if(!bt)
         {
-            bt = this.add.image(800, 50, 'help').setInteractive(new Phaser.Geom.Rectangle(-15, 0, 30, 61), Phaser.Geom.Rectangle.Contains);
+            bt = this.add.image(860, 120, 'help').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
+            bt.setScale(.6);
             bt.setDepth(3);
             bt.on('pointerup', function () {
                 this.showFAQ();
@@ -353,17 +430,18 @@ class playGame extends Phaser.Scene{
             bt.visible  = false;
         }
 
-        this.input.on('gameobjectover', function (pointer, gameObject) {
-            gameObject.alpha = 0.1;
-        });
+        // this.input.on('gameobjectover', function (pointer, gameObject) {
+        //     gameObject.alpha = 0.1;
+        // });
     
-        this.input.on('gameobjectout', function (pointer, gameObject) {
-            gameObject.alpha = 1;
-        });
+        // this.input.on('gameobjectout', function (pointer, gameObject) {
+        //     gameObject.alpha = 1;
+        // });
 
         // group with all active mountains.
         this.mountainGroup = this.add.group();
         this.bgtree2Group = this.add.group();
+        this.bgcloud2Group = this.add.group();
 
         // // group with all active platforms.
         this.platformGroup = this.add.group({
@@ -418,19 +496,14 @@ class playGame extends Phaser.Scene{
         // setting collisions between the player and the platform group
         this.platformCollider = this.physics.add.collider(this.player, this.platformGroup, function(){
             // play "run" animation if the player is on a platform
-            if(!this.player.anims.isPlaying){
+            if(!this.player.anims.isPlaying && !this.dying){
                 this.player.anims.play("run");
             }
         }, null, this);
 
         // setting collisions between the player and the fire group
         this.obstacleCollider =  this.physics.add.overlap(this.player, this.obstacleGroup, function(player, fire){
-            this.dying = true;
-            this.player.anims.stop();
-            this.player.setFrame(2);
-            this.player.body.setVelocityY(-200);
-            this.physics.world.removeCollider(this.obstacleCollider);
-            this.physics.world.removeCollider(this.platformCollider);
+            this.gameOver();
         }, null, this);
 
         if(!music){
@@ -442,15 +515,33 @@ class playGame extends Phaser.Scene{
     }
 
     startGame(){
-        titleLogo.visible = false;
+
         title.visible = false;
         startBtn.visible = false;
+        rd.visible = false;
 
         this.player.visible = true;
         scoreLable.visible  = true;
         bt.visible  = true;
         mutebtn.visible = true;
         pausebtn.visible = true;
+
+        this.platformGroup.getChildren().forEach(function(platform){
+            platform.body.setVelocityX(gameStatus.currentSpeed * -1);
+        }, this);
+
+        this.bgtree2Group.getChildren().forEach(function(mountain){
+            mountain.body.setVelocityX(gameOptions.mountainSpeed * -1);
+        });
+
+        this.bgcloud2Group.getChildren().forEach(function(mountain){
+            mountain.body.setVelocityX(gameOptions.cloudSpeed * -1);
+        });
+
+        this.obstacleGroup.getChildren().forEach(function(obstacle){
+            obstacle.body.setVelocityX(gameStatus.currentSpeed * -1);
+        });
+
        // checking for input
        this.input.on("pointerdown", this.jump, this);
 
@@ -471,16 +562,24 @@ class playGame extends Phaser.Scene{
          if(gameStatus.paused && !faq.visible) return;
 
          faq.visible = !faq.visible;
+         screenMaskGraphics.visible = faq.visible;
         this.pauseGame();
     }
 
     muteGame() {
         gameStatus.muted = !gameStatus.muted;
         music.setMute(gameStatus.muted);
+
+        mutebtn.visible = !gameStatus.muted;
+        mutedbtn.visible = gameStatus.muted;
     }
 
     pauseGame(){
         gameStatus.paused = !gameStatus.paused;
+
+        playbtn.visible = gameStatus.paused;
+        pausebtn.visible = !gameStatus.paused;
+
         if(gameStatus.paused){
 
             this.platformGroup.getChildren().forEach(function(platform){
@@ -488,6 +587,10 @@ class playGame extends Phaser.Scene{
             }, this);
 
             this.bgtree2Group.getChildren().forEach(function(mountain){
+                mountain.body.setVelocityX(0);
+            });
+
+            this.bgcloud2Group.getChildren().forEach(function(mountain){
                 mountain.body.setVelocityX(0);
             });
 
@@ -511,6 +614,10 @@ class playGame extends Phaser.Scene{
                 mountain.body.setVelocityX(gameOptions.mountainSpeed * -1);
             });
 
+            this.bgcloud2Group.getChildren().forEach(function(mountain){
+                mountain.body.setVelocityX(gameOptions.cloudSpeed * -1);
+            });
+
             this.obstacleGroup.getChildren().forEach(function(obstacle){
                 obstacle.body.setVelocityX(gameStatus.currentSpeed * -1);
             });
@@ -528,8 +635,8 @@ class playGame extends Phaser.Scene{
         gameStatus.currentScore += Math.round(spd);
         scoreLable.text = gameStatus.currentScore;
 
-        if(updateSpeedInterval > 100){
-           this.updateGameSpeed(gameStatus.currentSpeed + 3);
+        if(updateSpeedInterval > 60){
+           this.updateGameSpeed(gameStatus.currentSpeed + 10);
            updateSpeedInterval = 0;
         }
 
@@ -556,7 +663,7 @@ class playGame extends Phaser.Scene{
         platform = this.add.image(0, game.config.height, "road");
         this.physics.add.existing(platform);
         platform.body.setImmovable(true);
-        platform.body.setVelocityX(gameStatus.currentSpeed * -1);
+        //platform.body.setVelocityX(gameStatus.currentSpeed * -1);
         platform.setDepth(2);
         platform.body.offset.y = 23;
         this.platformGroup.add(platform);
@@ -564,7 +671,7 @@ class playGame extends Phaser.Scene{
         let platform2 = this.add.image(platform.width -2 , game.config.height, "road");
         this.physics.add.existing(platform2);
         platform2.body.setImmovable(true);
-        platform2.body.setVelocityX(gameStatus.currentSpeed * -1);
+        //platform2.body.setVelocityX(gameStatus.currentSpeed * -1);
         platform2.setDepth(2);
         platform2.body.offset.y = 23;
         this.platformGroup.add(platform2);
@@ -572,9 +679,14 @@ class playGame extends Phaser.Scene{
 
     // adding mountains
     addMountains() {
+
         let mountain = this.physics.add.image(0, game.config.height, "mountain2");
-        mountain.setScale(.5);
-        mountain.setOrigin(0, 1.3);
+        mountain.setScale(.3);
+        mountain.setOrigin(0, 1.8);
+
+        let mountain1 = this.physics.add.image(0, game.config.height, "mountain1");
+        mountain1.setScale(.3);
+        mountain1.setOrigin(0, 1.4);
 
         this.addBGTree();
     }
@@ -640,18 +752,43 @@ class playGame extends Phaser.Scene{
 
     addBGTree() {
         let bgtree1 = this.physics.add.sprite(0, game.config.height, "bgtree1");
-        bgtree1.setOrigin(0.5, .6);
+        bgtree1.setOrigin(0, 1);
+        bgtree1.setScale(.3);
 
         let bgtree2 = this.physics.add.sprite(0, game.config.height, "bgtree2");
-        bgtree2.setOrigin(0.5, .5);
-        let bgtree22 = this.physics.add.sprite(bgtree2.width - 2, game.config.height, "bgtree2");
-        bgtree22.setOrigin(0.5, .5);
+        bgtree2.setOrigin(0,1);
+        bgtree2.setScale(.3);
+        let bgtree22 = this.physics.add.sprite(bgtree2.width - 2550, game.config.height, "bgtree2");
+        bgtree22.setOrigin(0, 1);
+        bgtree22.setScale(.3);
+        let bgtree222 = this.physics.add.sprite(bgtree2.width - 1550, game.config.height, "bgtree2");
+        bgtree222.setOrigin(0, 1);
+        bgtree222.setScale(.3);
 
         this.bgtree2Group.add(bgtree2);
         this.bgtree2Group.add(bgtree22);
+        this.bgtree2Group.add(bgtree222);
 
-        bgtree2.body.setVelocityX(gameOptions.mountainSpeed * -1)
-        bgtree22.body.setVelocityX(gameOptions.mountainSpeed * -1)
+        let clouds = this.physics.add.image(0, game.config.height, "clouds");
+        clouds.setScale(.5);
+        clouds.setOrigin(0, 4);
+        let clouds22 = this.physics.add.sprite(clouds.width - 100, game.config.height, "clouds");
+        clouds22.setOrigin(0, 4);
+        clouds22.setScale(.5);
+        let clouds222 = this.physics.add.sprite(clouds.width * 1.5, game.config.height, "clouds");
+        clouds222.setOrigin(0, 4);
+        clouds222.setScale(.5);
+
+        this.bgcloud2Group.add(clouds);
+        this.bgcloud2Group.add(clouds22);
+        this.bgcloud2Group.add(clouds222);
+
+        clouds.body.setVelocityX(gameOptions.cloudSpeed * -1);
+        clouds22.body.setVelocityX(gameOptions.cloudSpeed * -1);
+        clouds222.body.setVelocityX(gameOptions.cloudSpeed * -1);
+
+        //bgtree2.body.setVelocityX(gameOptions.mountainSpeed * -1)
+        //bgtree22.body.setVelocityX(gameOptions.mountainSpeed * -1)
     }
 
     // addMountains(){
@@ -694,6 +831,13 @@ class playGame extends Phaser.Scene{
         return rightmostTree;
     }
 
+    getRightmostClound(){
+        let rightmostClound = -200;
+        this.bgcloud2Group.getChildren().forEach(function(clound){
+            rightmostClound = Math.max(rightmostClound, clound.x);
+        })
+        return rightmostClound;
+    }
     // the player jumps when on the ground, or once in the air as long as there are jumps left and the first jump was on the ground
     // and obviously if the player is not dying
     jump(){
@@ -720,6 +864,30 @@ class playGame extends Phaser.Scene{
 
     gameOver(){
 
+        this.dying = true;
+        this.player.anims.stop();
+        this.player.setFrame(2);
+        this.player.body.setVelocityY(-200);
+        this.player.angle += 61;
+        this.physics.world.removeCollider(this.obstacleCollider);
+        //this.physics.world.removeCollider(this.platformCollider);
+
+        this.platformGroup.getChildren().forEach(function(platform){
+            platform.body.setVelocityX(0);
+        }, this);
+
+        this.bgtree2Group.getChildren().forEach(function(mountain){
+            mountain.body.setVelocityX(0);
+        });
+
+        this.bgcloud2Group.getChildren().forEach(function(mountain){
+            mountain.body.setVelocityX(0);
+        });
+
+        this.obstacleGroup.getChildren().forEach(function(obstacle){
+            obstacle.body.setVelocityX(0);
+        });
+
         gameStatus.started = false;
         gameover.visible = true;
         gameoverBoard.visible = true;
@@ -730,6 +898,19 @@ class playGame extends Phaser.Scene{
         resscoreLable.visible = true;
         shareSign.visible = true;
 
+        screenMaskGraphics.visible = true;
+
+        gameovertextLable.text = gameOverText[Phaser.Math.Between(0, 13)];
+        gameovertextLable.visible = true;
+
+        pausebtn.visible =false;
+        mutebtn.visible = false;
+        mutedbtn.visible = false;
+        playbtn.visible =false;
+        bt.visible =false;
+
+        this.obstacleGroup.clear();
+
         //this.scene.start("PlayGame");
         //scoreLable.visible = false;
     }
@@ -737,11 +918,6 @@ class playGame extends Phaser.Scene{
     update(){
 
         if(gameStatus.paused) return;
-
-        // game over
-        if(this.player.y > game.config.height){
-            this.gameOver();
-        }
 
         this.player.x = gameOptions.playerStartPosition;
 
@@ -777,7 +953,14 @@ class playGame extends Phaser.Scene{
         this.bgtree2Group.getChildren().forEach(function(tree){
             if(tree.x < - tree.width/2){
                 let rightmostTree = this.getRightmostTree();
-                tree.x = rightmostTree + tree.width - 2;
+                tree.x = rightmostTree + tree.width - 2550;
+            }
+        }, this);
+
+        this.bgcloud2Group.getChildren().forEach(function(clound){
+            if(clound.x < - clound.width/2){
+                let rightmostClound = this.getRightmostClound();
+                clound.x = rightmostClound + clound.width;
             }
         }, this);
 
@@ -801,6 +984,9 @@ function resize(){
     let windowHeight = window.innerHeight;
     let windowRatio = windowWidth / windowHeight;
     let gameRatio = game.config.width / game.config.height;
+
+    this.scale.resize(windowWidth, windowHeight);
+
     if(windowRatio < gameRatio){
         canvas.style.width = windowWidth + "px";
         canvas.style.height = (windowWidth / gameRatio) + "px";

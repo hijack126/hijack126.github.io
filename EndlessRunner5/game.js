@@ -60,11 +60,17 @@ window.onload = function() {
     // object containing configuration options
     let gameConfig = {
         type: Phaser.AUTO,
-        width: 1080,
-        height: 520,
         scene: [preloadGame, playGame],
         backgroundColor: 0xf4f4e2,
         parent: 'game-content',
+        scale: {
+            // we do scale the game manually in resize()
+            // please check if the parent matched the id in your index.html file
+            parent: 'game-content',
+            mode: Phaser.Scale.NONE,
+            width: 1080,
+            height: 520
+          },
         dom: {
             createContainer: true
         },
@@ -78,10 +84,10 @@ window.onload = function() {
     }
     game = new Phaser.Game(gameConfig);
     window.focus();
-    resize();
     window.addEventListener("resize", resize, false);
+    //setTimeout(() => resize(), 1000)
 
-    scene.scale.updateBounds();
+    //scene.scale.updateBounds();
 }
 
 // preloadGame scene
@@ -117,30 +123,10 @@ class preloadGame extends Phaser.Scene{
         this.load.image('obstacle3', 'assets/obstacle3.png');
         this.load.image('obstacle4', 'assets/obstacle4.png');
 
-        // this.load.spritesheet('button', 'assets/button_sprite_sheet.png', {
-        //     frameWidth: 193,
-        //     frameHeight: 71
-        // });
-        // player is a sprite sheet made by 24x48 pixels
-
         this.load.spritesheet("player", "assets/player.png", {
             frameWidth: 170,
             frameHeight: 210
         });
-
-        // this.load.spritesheet("player", "assets/player.png", {
-        //     frameWidth: 24,
-        //     frameHeight: 48
-        // });
-        // this.load.spritesheet("obstacle", "assets/obstacle1.png", {
-        //     frameWidth: 82,
-        //     frameHeight: 32
-        // });
-        // mountains are a sprite sheet made by 512x512 pixels
-        // this.load.spritesheet("mountain", "assets/mountain.png", {
-        //     frameWidth: 512,
-        //     frameHeight: 512
-        // });
 
         this.load.image('clouds', 'assets/bg-clouds.png');
         this.load.image('mountain1', 'assets/bgmountain-1.png');
@@ -791,30 +777,6 @@ class playGame extends Phaser.Scene{
         //bgtree22.body.setVelocityX(gameOptions.mountainSpeed * -1)
     }
 
-    // addMountains(){
-    //     let rightmostMountain = this.getRightmostMountain();
-    //     if(rightmostMountain < game.config.width * 2) {
-    //         let mountain = this.physics.add.sprite(rightmostMountain + Phaser.Math.Between(100, 350), game.config.height + Phaser.Math.Between(0, 100), "mountain2");
-    //         mountain.setOrigin(0.5, 1);
-    //         mountain.body.setVelocityX(gameOptions.mountainSpeed * -1)
-    //         this.mountainGroup.add(mountain);
-    //         if(Phaser.Math.Between(0, 1)){
-    //             mountain.setDepth(1);
-    //         }
-    //         mountain.setFrame(Phaser.Math.Between(0, 3))
-    //         this.addMountains()
-    //     }
-    // }
-
-    // getting rightmost mountain x position
-    // getRightmostMountain(){
-    //     let rightmostMountain = -200;
-    //     this.mountainGroup.getChildren().forEach(function(mountain){
-    //         rightmostMountain = Math.max(rightmostMountain, mountain.x);
-    //     })
-    //     return rightmostMountain;
-    // }
-
     getRightmostRoad(){
         let rightmostRoad = -200;
         this.platformGroup.getChildren().forEach(function(road){
@@ -984,8 +946,6 @@ function resize(){
     let windowHeight = window.innerHeight;
     let windowRatio = windowWidth / windowHeight;
     let gameRatio = game.config.width / game.config.height;
-
-    this.scale.resize(windowWidth, windowHeight);
 
     if(windowRatio < gameRatio){
         canvas.style.width = windowWidth + "px";

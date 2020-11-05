@@ -644,8 +644,8 @@ class playGame extends Phaser.Scene{
         gameStatus.currentScore += Math.round(spd);
         scoreLable.text = gameStatus.currentScore;
 
-        if(updateSpeedInterval > 60){
-           this.updateGameSpeed(gameStatus.currentSpeed + 10);
+        if(updateSpeedInterval > 40){
+           this.updateGameSpeed(gameStatus.currentSpeed + 50);
            updateSpeedInterval = 0;
         }
 
@@ -732,7 +732,7 @@ class playGame extends Phaser.Scene{
                     var currentOb = obstacleTypes[typeIndex];
 
                     var obHeight = game.config.height;
-                    var obSizeW = 46;
+                    var obSizeW = 42;
                     var obSizeH = 27;
 
                     switch(typeIndex){
@@ -741,13 +741,13 @@ class playGame extends Phaser.Scene{
                             break;
                         case 1:
                             obHeight = game.config.height - 110
-                            obSizeW = 52;
-                            obSizeH = 62;
+                            obSizeW = 50;
+                            obSizeH = 60;
                             break;
                         case 2:
                             obHeight = game.config.height - 110
-                            obSizeW = 52;
-                            obSizeH = 72;
+                            obSizeW = 50;
+                            obSizeH = 70;
                             break;
                         case 3:
                             obHeight = game.config.height - 70

@@ -62,17 +62,10 @@ window.onload = function() {
         type: Phaser.AUTO,
         scene: [preloadGame, playGame],
         backgroundColor: 0xf4f4e2,
-        parent: 'game-content',
-        scale: {
-            // we do scale the game manually in resize()
-            // please check if the parent matched the id in your index.html file
-            parent: 'game-content',
-            mode: Phaser.Scale.NONE,
-            width: 1080,
-            height: 520
-          },
-        dom: {
-            createContainer: true
+        width: 1080,
+        height: 520,
+        scale:{
+            mode: Phaser.Scale.FIT,
         },
         // physics settings
         physics: {
@@ -84,10 +77,8 @@ window.onload = function() {
     }
     game = new Phaser.Game(gameConfig);
     window.focus();
-    window.addEventListener("resize", resize, false);
-    //setTimeout(() => resize(), 1000)
-
-    //scene.scale.updateBounds();
+    //window.addEventListener("resize", resize, false);
+    //resize();
 }
 
 // preloadGame scene
@@ -117,7 +108,6 @@ class preloadGame extends Phaser.Scene{
         this.load.image('tryagainBtn', 'assets/tryagain-btn.png');
         this.load.image('shareSign', 'assets/share-sign.png');
         this.load.image('rd', 'assets/r-d.png');
-        
         this.load.image('obstacle1', 'assets/obstacle1.png');
         this.load.image('obstacle2', 'assets/obstacle2.png');
         this.load.image('obstacle3', 'assets/obstacle3.png');
@@ -201,21 +191,33 @@ var tryagainBtn;
 var runningDistance = 0;
 var mouseInButton = false;
 var preObstcleTime = 0;
+var obstacleLables = [
+    'Fear',
+    'Depression',
+    'Anxiety',
+    'Stress',
+    'Panic Disorder',
+    'PTSD',
+    'shame', 
+    'guilt',
+    'self-blame',
+    'addictions'
+];
 var obstacleTypes = ['obstacle1', 'obstacle2', 'obstacle3', 'obstacle4'];
-var gameOverText = ['"Tough times never last,but tough people\n  do!" - Robert Schuller',
-'"There is hope, even when your brain tells\n you there isnt." - John Green',
-'"I fight for my health every day in ways most people\n don’t understand.\n I’m not lazy. I’m a warrior."',
-'"Don’t let your struggle becomeyour identity."\n  – Unknown',
-'"The strongest people are those who win battles\n we know nothing about." – Unknown',
-'"What mental health needs are more sunlight, more\n candor, and more unashamed conversation."\n - Glenn Close',
-'Dr. Lauren Fogel Mersy -"Beingable to be your true\n  self is one of the strongest components\n of good mental health."',
-'"Today I refuse to stress myself out over things I\n cant\n control and change."',
-'"My dark days made me stronger.Or maybe I already\n  was strong,and they made me prove it."\n  - Emery Lord',
-'"Happiness can be found even in the darkest of times\n if one only remembers to turn on the light."\n - Albus Dumbledore from Harry Potter\n and the Prisoner of Azkaban',
-'"There is a crack in everything, thats how the light\n gets in" - Leonard Cohen',
+var gameOverText = ['"Tough times never last,but tough people\ndo!" - Robert Schuller',
+'"There is hope, even when your brain tells\nyou there isnt." - John Green',
+'"I fight for my health every day in ways most people\n don’t understand.\nIm not lazy. I’m a warrior."',
+'"Don’t let your struggle becomeyour identity."\n – Unknown',
+'"The strongest people are those who win battles\nwe know nothing about." – Unknown',
+'"What mental health needs are more sunlight, more\ncandor, and more unashamed conversation."\n - Glenn Close',
+'Dr. Lauren Fogel Mersy -"Beingable to be your true\nself is one of the strongest components\n of good mental health."',
+'"Today I refuse to stress myself out over things I\nant\n control and change."',
+'"My dark days made me stronger.Or maybe I already\nwas strong,and they made me prove it."\n  - Emery Lord',
+'"Happiness can be found even in the darkest of times\nif one only remembers to turn on the light."\n - Albus Dumbledore from Harry Potter\n and the Prisoner of Azkaban',
+'"There is a crack in everything, thats how the light\ngets in" - Leonard Cohen',
 '"Its okay to not be okay" - unknown',
-'"Mental illness is nothing to be ashamed of, but\n stigma and bias shame us all." - Bill Clinton',
-'"Healing takes time, and askingfor help is a courageous\n step."  - Mariska Hargitay'];
+'"Mental illness is nothing to be ashamed of, but\nstigma and bias shame us all." - Bill Clinton',
+'"Healing takes time, and askingfor help is a courageous\nstep."  - Mariska Hargitay'];
 var updateSpeedInterval = 0;
 var resscoreLable;
 var gameovertextLable;
@@ -323,8 +325,7 @@ class playGame extends Phaser.Scene{
     
         //if(!startBtn)
         {
-            startBtn = this.add.image(game.config.width / 2, 390, 'startBtn').setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(0, -40, 211, 190), Phaser.Geom.Rectangle.Contains);
-            startBtn.setScale(0.7);
+            startBtn = this.add.image(game.config.width / 2, 390, 'startBtn').setScale(0.7).setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(0, -40, 211, 190), Phaser.Geom.Rectangle.Contains);
             startBtn.setDepth(3);
             startBtn.on('pointerup', function () {
                   this.startGame();
@@ -333,87 +334,6 @@ class playGame extends Phaser.Scene{
             rd =  this.add.image(game.config.width / 2, 440, 'rd')
             rd.setScale(0.5);
             rd.setDepth(3);
-        }
-
-        var touchIconRect = new Phaser.Geom.Rectangle(20, 0, 170, 55);
-
-        //if(!mutebtn)
-        {
-            mutebtn = this.add.image(1000, 120, 'sound').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);        
-            mutebtn.setScale(.7);
-            mutebtn.setDepth(3);
-            mutebtn.on('pointerup', function () {
-                this.muteGame();
-            }, this);
-            mutebtn.on('pointerover', function () {
-                mouseInButton = true;
-            }, this);
-            mutebtn.on('pointerout', function () {
-                mouseInButton = false;
-            }, this);
-            mutebtn.visible  = false;
-
-            mutedbtn = this.add.image(1000, 120, 'muted').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);        
-            mutedbtn.setScale(.7);
-            mutedbtn.setDepth(3);
-            mutedbtn.on('pointerup', function () {
-                this.muteGame();
-            }, this);
-            mutedbtn.on('pointerover', function () {
-                mouseInButton = true;
-            }, this);
-            mutedbtn.on('pointerout', function () {
-                mouseInButton = false;
-            }, this);
-            mutedbtn.visible  = false;
-        }
-
-        //if(!pausebtn)
-        {
-            pausebtn = this.add.image(930, 120, 'pause').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
-            pausebtn.setScale(.6);
-            pausebtn.setDepth(3);
-            pausebtn.on('pointerup', function () {
-                this.pauseGame();
-            }, this);
-            pausebtn.on('pointerover', function () {
-                mouseInButton = true;
-            }, this);
-            pausebtn.on('pointerout', function () {
-                mouseInButton = false;
-            }, this);
-            pausebtn.visible  = false;
-
-            playbtn = this.add.image(930, 120, 'play').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
-            playbtn.setScale(.6);
-            playbtn.setDepth(3);
-            playbtn.on('pointerup', function () {
-                this.pauseGame();
-            }, this);
-            playbtn.on('pointerover', function () {
-                mouseInButton = true;
-            }, this);
-            playbtn.on('pointerout', function () {
-                mouseInButton = false;
-            }, this);
-            playbtn.visible  = false;
-        }
-
-        //if(!bt)
-        {
-            bt = this.add.image(860, 120, 'help').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
-            bt.setScale(.6);
-            bt.setDepth(3);
-            bt.on('pointerup', function () {
-                this.showFAQ();
-            }, this);
-            bt.on('pointerover', function () {
-                mouseInButton = true;
-            }, this);
-            bt.on('pointerout', function () {
-                mouseInButton = false;
-            }, this);
-            bt.visible  = false;
         }
 
         // this.input.on('gameobjectover', function (pointer, gameObject) {
@@ -429,21 +349,38 @@ class playGame extends Phaser.Scene{
         this.bgtree2Group = this.add.group();
         this.bgcloud2Group = this.add.group();
 
-        // // group with all active platforms.
-        this.platformGroup = this.add.group({
-            // once a platform is removed, it's added to the pool
-            // removeCallback: function(platform){
-            //     platform.scene.platformPool.add(platform)
-            // }
+        this.obLabelGroup = this.add.group({
+            removeCallback: function(lable){
+                lable.scene.obLabelPool.add(lable)
+            }
         });
 
-        // // platform pool
-        // this.platformPool = this.add.group({
-        //     // once a platform is removed from the pool, it's added to the active platforms group
-        //     removeCallback: function(platform){
-        //         platform.scene.platformGroup.add(platform)
-        //     }
+        this.obLabelPool = this.add.group({
+            removeCallback: function(lable){
+                lable.scene.obLabelGroup.add(lable)
+            }
+        });
+
+        // obstacleLables.forEach(l => {
+
+        //     var container = this.add.container(obstacle.x, obstacle.y);
+        //     var r1 = this.add.rectangle(0, 0, 90, 20, 0xffffff);//.setStrokeStyle(1, 0x000000);
+        //     var txt = this.add.text(0, 0, l, { font: '12px bahnschrift', fill: '#000000' });
+        //     container.add(r1);
+        //     container.add(txt);
+        //     //txt.setDepth(2);
+        //     //var r1 = this.add.rectangle(obstacle.x, obstacle.y, 90, 20, 0xffffff).setStrokeStyle(1, 0x000000);
+        //     this.physics.add.existing(container);
+        //     container.setDepth(3);
+        //     container.body.setImmovable(true);
+        //     //container.body.setVelocityX(gameStatus.currentSpeed * -1);
+
+        //     this.obLabelGroup.add(container);
         // });
+
+        // // group with all active platforms.
+        this.platformGroup = this.add.group({});
+
 
         this.obstacleGroup = this.add.group({
             removeCallback: function(obstacle){
@@ -458,10 +395,10 @@ class playGame extends Phaser.Scene{
         });
 
         // adding a mountain
-        this.addMountains()
+        this.addMountains();
 
         // keeping track of added platforms
-        this.addedPlatforms = 0;
+        //this.addedPlatforms = 0;
 
         // number of consecutive jumps made by the player so far
         this.playerJumps = 0;
@@ -508,9 +445,83 @@ class playGame extends Phaser.Scene{
 
         this.player.visible = true;
         scoreLable.visible  = true;
-        bt.visible  = true;
-        mutebtn.visible = true;
-        pausebtn.visible = true;
+
+        var touchIconRect = new Phaser.Geom.Rectangle(20, 0, 170, 155);
+
+        //if(!mutebtn)
+        {
+            mutebtn = this.add.image(1000, 120, 'sound').setScale(.7).setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);        
+            mutebtn.setDepth(3);
+            mutebtn.on('pointerup', function () {
+                this.muteGame();
+            }, this);
+            mutebtn.on('pointerover', function () {
+                mouseInButton = true;
+            }, this);
+            mutebtn.on('pointerout', function () {
+                mouseInButton = false;
+            }, this);
+
+            mutedbtn = this.add.image(1000, 120, 'muted').setScale(.7).setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);        
+            mutedbtn.setDepth(3);
+            mutedbtn.on('pointerup', function () {
+                this.muteGame();
+            }, this);
+            mutedbtn.on('pointerover', function () {
+                mouseInButton = true;
+            }, this);
+            mutedbtn.on('pointerout', function () {
+                mouseInButton = false;
+            }, this);
+            mutedbtn.visible  = false;
+        }
+
+        //if(!pausebtn)
+        {
+            pausebtn = this.add.image(930, 120, 'pause').setScale(.7).setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
+            pausebtn.setDepth(3);
+            pausebtn.on('pointerup', function () {
+                this.pauseGame();
+            }, this);
+            pausebtn.on('pointerover', function () {
+                mouseInButton = true;
+            }, this);
+            pausebtn.on('pointerout', function () {
+                mouseInButton = false;
+            }, this);
+
+            playbtn = this.add.image(930, 120, 'play').setScale(.7).setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
+            playbtn.setDepth(3);
+            playbtn.on('pointerup', function () {
+                this.pauseGame();
+            }, this);
+            playbtn.on('pointerover', function () {
+                mouseInButton = true;
+            }, this);
+            playbtn.on('pointerout', function () {
+                mouseInButton = false;
+            }, this);
+            playbtn.visible = false;
+        }
+
+        //if(!bt)
+        {
+            bt = this.add.image(860, 120, 'help').setScale(.6).setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
+            bt.setDepth(3);
+            bt.on('pointerup', function () {
+                this.showFAQ();
+            }, this);
+            bt.on('pointerover', function () {
+                mouseInButton = true;
+            }, this);
+            bt.on('pointerout', function () {
+                mouseInButton = false;
+            }, this);
+        }
+
+        // bt.visible  = true;
+        // mutebtn.visible = true;
+        // pausebtn.visible = true;
 
         this.platformGroup.getChildren().forEach(function(platform){
             platform.body.setVelocityX(gameStatus.currentSpeed * -1);
@@ -526,6 +537,10 @@ class playGame extends Phaser.Scene{
 
         this.obstacleGroup.getChildren().forEach(function(obstacle){
             obstacle.body.setVelocityX(gameStatus.currentSpeed * -1);
+        });
+
+        this.obLabelGroup.getChildren().forEach(function(label){
+            label.body.setVelocityX(gameStatus.currentSpeed * -1);
         });
 
        // checking for input
@@ -638,12 +653,16 @@ class playGame extends Phaser.Scene{
             obstacle.body.setVelocityX(speed* -1);
         });
 
+        this.obLabelGroup.getChildren().forEach(function(label){
+            label.body.setVelocityX(speed* -1);
+        });
+
         gameStatus.currentSpeed = speed;
     }
 
     // the core of the script: platform are added from the pool or created on the fly
     addPlatform(){
-        this.addedPlatforms ++;
+        //this.addedPlatforms ++;
         let platform;
       
         platform = this.add.image(0, game.config.height, "road");
@@ -681,15 +700,25 @@ class playGame extends Phaser.Scene{
         if(Phaser.Math.Between(1, 2000) <= gameOptions.firePercent){
             if(preObstcleTime > 20000/gameStatus.currentSpeed)
             {
-                if(this.obstaclePool.getLength()){
-                    let obstacle = this.obstaclePool.getFirst();
+                if(this.obstaclePool.getLength() > 8){
+                    let obstacle = this.obstaclePool.children.entries[Phaser.Math.Between(0, this.obstaclePool.getLength()-1)];
                     obstacle.x = game.config.width + Phaser.Math.Between(1, 3);
                     //obstacle.y = game.config.height - 82;
                     obstacle.setVelocityX(gameStatus.currentSpeed * -1);
                     obstacle.alpha = 1;
                     obstacle.active = true;
                     obstacle.visible = true;
+                    obstacle.setDepth(2);
                     this.obstaclePool.remove(obstacle);
+
+                    let container = this.obLabelPool.children.entries[Phaser.Math.Between(0, this.obLabelPool.getLength()-1)];
+                    container.x = obstacle.x;
+                    container.y = obstacle.y;
+                    container.body.setVelocityX(gameStatus.currentSpeed * -1);
+                    container.visible =true;
+                    container.setDepth(2.1);
+                    this.obLabelPool.remove(container);
+
                 }
                 else{
                     var typeIndex = Phaser.Math.Between(0, 3);
@@ -728,6 +757,18 @@ class playGame extends Phaser.Scene{
                     //obstacle.anims.play("burn");
                     obstacle.setDepth(2);
                     this.obstacleGroup.add(obstacle);
+
+                    var container = this.add.container(obstacle.x, obstacle.y);
+                    var r1 = this.add.rectangle(0, 0, 90, 20, 0xffffff);//.setStrokeStyle(1, 0x000000);
+                    var txt = this.add.text(-30, -10, obstacleLables[Phaser.Math.Between(0, 9)], { font: '12px bahnschrift', fill: '#000000' });
+                    container.add(r1);
+                    container.add(txt);
+                    this.physics.add.existing(container);
+                    container.setDepth(2.1);
+                    container.body.setImmovable(true);
+                    container.body.setVelocityX(gameStatus.currentSpeed * -1);
+
+                    this.obLabelGroup.add(container);
                 }
 
                 preObstcleTime = 0;
@@ -850,6 +891,10 @@ class playGame extends Phaser.Scene{
             obstacle.body.setVelocityX(0);
         });
 
+        this.obLabelGroup.getChildren().forEach(function(label){
+            label.body.setVelocityX(0);
+        });
+
         gameStatus.started = false;
         gameover.visible = true;
         gameoverBoard.visible = true;
@@ -872,6 +917,7 @@ class playGame extends Phaser.Scene{
         bt.visible =false;
 
         this.obstacleGroup.clear();
+        this.obLabelGroup.clear();
 
         //this.scene.start("PlayGame");
         //scoreLable.visible = false;
@@ -895,6 +941,13 @@ class playGame extends Phaser.Scene{
             if(obstacle.x < - obstacle.displayWidth / 2){
                 this.obstacleGroup.killAndHide(obstacle);
                 this.obstacleGroup.remove(obstacle);
+            }
+        }, this);
+
+        this.obLabelGroup.getChildren().forEach(function(label){
+            if(label.x < - label.displayWidth / 2){
+                this.obLabelGroup.killAndHide(label);
+                this.obLabelGroup.remove(label);
             }
         }, this);
 
@@ -940,19 +993,19 @@ class playGame extends Phaser.Scene{
     }
 };
 
-function resize(){
-    let canvas = document.querySelector("canvas");
-    let windowWidth = window.innerWidth;
-    let windowHeight = window.innerHeight;
-    let windowRatio = windowWidth / windowHeight;
-    let gameRatio = game.config.width / game.config.height;
+// function resize(){
+//     let canvas = document.querySelector("canvas");
+//     let windowWidth = window.innerWidth;
+//     let windowHeight = window.innerHeight;
+//     let windowRatio = windowWidth / windowHeight;
+//     let gameRatio = game.config.width / game.config.height;
 
-    if(windowRatio < gameRatio){
-        canvas.style.width = windowWidth + "px";
-        canvas.style.height = (windowWidth / gameRatio) + "px";
-    }
-    else{
-        canvas.style.width = (windowHeight * gameRatio) + "px";
-        canvas.style.height = windowHeight + "px";
-    }
-}
+//     if(windowRatio < gameRatio){
+//         canvas.style.width = windowWidth + "px";
+//         canvas.style.height = (windowWidth / gameRatio) + "px";
+//     }
+//     else{
+//         canvas.style.width = (windowHeight * gameRatio) + "px";
+//         canvas.style.height = windowHeight + "px";
+//     }
+// }

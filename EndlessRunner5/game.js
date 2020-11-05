@@ -88,6 +88,8 @@ class preloadGame extends Phaser.Scene{
     }
 
     preload(){
+
+        this.add.text( game.config.width / 2, game.config.height / 2, 'Loading...', { font: '60px bahnschrift', fill: '#666666' }).setOrigin(0.5);
         
         this.load.html('nameform', 'loginform.html');
 
@@ -154,28 +156,7 @@ class preloadGame extends Phaser.Scene{
             repeat: 0
         });
 
-        // setting coin animation
-        // this.anims.create({
-        //     key: "rotate",
-        //     frames: this.anims.generateFrameNumbers("coin", {
-        //         start: 0,
-        //         end: 5
-        //     }),
-        //     frameRate: 15,
-        //     yoyo: true,
-        //     repeat: -1
-        // });
-
-        // // setting fire animation
-        // this.anims.create({
-        //     key: "burn",
-        //     frames: this.anims.generateFrameNumbers("fire", {
-        //         start: 0,
-        //         end: 4
-        //     }),
-        //     frameRate: 15,
-        //     repeat: -1
-        // });
+       
 
         this.scene.start("PlayGame");
     }
@@ -211,7 +192,7 @@ var gameOverText = ['"Tough times never last, but\n tough people do!"\n - Robert
 '"There is hope, even when your brain\n tells you there isnt." - John Green',
 '"I fight for my health every day in\n ways most people don’t understand.\nIm not lazy. I’m a warrior."',
 '"Dont let your struggle become your\n identity." - Unknown',
-'"The strongest people are those who win\n battles we know nothing\n about." – Unknown',
+'"The strongest people are those who win\n battles we know nothing\n about." - Unknown',
 '"What mental health needs are more\n sunlight, more candor, and more unashamed conversation."\n - Glenn Close',
 'Dr. Lauren Fogel Mersy -"Beingable to\n be your true\nself is one of the strongest components\n of good mental health."',
 '"Today I refuse to stress myself out\n over things I cant control and change."',
@@ -245,7 +226,7 @@ class playGame extends Phaser.Scene{
     }
 
     create(data){
-        //this.startGame();
+
         var rect = new Phaser.Geom.Rectangle(0, 0, 1920, 160);
         var graphics = this.add.graphics({ fillStyle: { color: 0xffffff } });
         graphics.fillRectShape(rect);
@@ -253,7 +234,6 @@ class playGame extends Phaser.Scene{
 
         titleLogo = this.add.image(game.config.width / 2, 80, 'titleLogo');
         titleLogo.setDepth(3);
-        //titleLogo.setScale(0.5);
 
         if(gameStatus.currentScore > gameStatus.bestScore) gameStatus.bestScore = gameStatus.currentScore;
         gameStatus.currentScore = 0;
@@ -766,8 +746,9 @@ class playGame extends Phaser.Scene{
                     this.obstacleGroup.add(obstacle);
 
                     var container = this.add.container(obstacle.x, obstacle.y);
+
                     var r1 = this.add.rectangle(0, 0, 90, 20, 0xffffff);//.setStrokeStyle(1, 0x000000);
-                    var txt = this.add.text(-30, -10, obstacleLables[Phaser.Math.Between(0, 9)], { font: '12px bahnschrift', fill: '#000000' });
+                    var txt = this.add.text(0, 0, obstacleLables[Phaser.Math.Between(0, 9)], { font: '12px bahnschrift', fill: '#000000' }).setOrigin(0.5);
                     container.add(r1);
                     container.add(txt);
                     this.physics.add.existing(container);

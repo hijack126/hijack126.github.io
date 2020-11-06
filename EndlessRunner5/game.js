@@ -355,7 +355,7 @@ class playGame extends Phaser.Scene{
            submitTextLableContain.visible = false;
         }
 
-        scoreLable = this.add.text(40, 190, '0', { font: '42px Arial', fill: '#000000' });
+        scoreLable = this.add.text(40, 180, '0', { font: '42px Arial', fill: '#000000' });
         scoreLable.setDepth(4);
         scoreLable.visible = false;
     
@@ -910,9 +910,9 @@ class playGame extends Phaser.Scene{
 
         this.dying = true;
         this.player.anims.stop();
-        this.player.setFrame(2);
+        this.player.setFrame(21);
         this.player.body.setVelocityY(-200);
-        this.player.angle += 31;
+        //this.player.angle += 31;
         this.physics.world.removeCollider(this.obstacleCollider);
         //this.physics.world.removeCollider(this.platformCollider);
 

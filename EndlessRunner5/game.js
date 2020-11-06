@@ -62,8 +62,8 @@ window.onload = function() {
         type: Phaser.AUTO,
         scene: [preloadGame, playGame],
         backgroundColor: 0xf4f4e2,
-        width: 1920,
-        height: 1080,
+        width: 1280,
+        height: 720,
         scale:{
             mode: Phaser.Scale.FIT,
         },
@@ -190,7 +190,7 @@ var obstacleLables = [
 var obstacleTypes = ['obstacle1', 'obstacle2', 'obstacle3', 'obstacle4'];
 var gameOverText = ['"Tough times never last, but\n tough people do!"\n - Robert Schuller',
 '"There is hope, even when your brain\n tells you there isnt." - John Green',
-'"I fight for my health every day in\n ways most people don’t understand.\nIm not lazy. I’m a warrior."',
+'"I fight for my health every day in\n ways most people dont understand.\nIm not lazy. Im a warrior."',
 '"Dont let your struggle become your\n identity." - Unknown',
 '"The strongest people are those who win\n battles we know nothing\n about." - Unknown',
 '"What mental health needs are more\n sunlight, more candor, and more unashamed conversation."\n - Glenn Close',
@@ -227,19 +227,20 @@ class playGame extends Phaser.Scene{
 
     create(data){
 
-        var rect = new Phaser.Geom.Rectangle(0, 0, 1920, 160);
+        var rect = new Phaser.Geom.Rectangle(0, 0, 1920, 140);
         var graphics = this.add.graphics({ fillStyle: { color: 0xffffff } });
         graphics.fillRectShape(rect);
         graphics.setDepth(2);
 
-        titleLogo = this.add.image(game.config.width / 2, 80, 'titleLogo');
+        titleLogo = this.add.image(game.config.width / 2, 70, 'titleLogo');
+        titleLogo.setScale(.7);
         titleLogo.setDepth(3);
 
         if(gameStatus.currentScore > gameStatus.bestScore) gameStatus.bestScore = gameStatus.currentScore;
         gameStatus.currentScore = 0;
         gameStatus.currentSpeed = 180;
 
-        var screenMask =  new Phaser.Geom.Rectangle(0, 160, 1920, 1000);
+        var screenMask =  new Phaser.Geom.Rectangle(0, 140, 1280, 768);
         screenMaskGraphics = this.add.graphics({ fillStyle: { color: 0x000000 } });
         screenMaskGraphics.alpha = 0.5;
         screenMaskGraphics.fillRectShape(screenMask);
@@ -248,54 +249,56 @@ class playGame extends Phaser.Scene{
 
         //if(!title)
         {
-            title = this.add.image(game.config.width / 2, 400, 'title');
+            title = this.add.image(game.config.width / 2, 300, 'title');
             title.setDepth(3);
-            //title.setScale(0.3);
+            title.setScale(0.6);
         }
 
         //if(!faq)
         {
-           faq = this.add.image(game.config.width / 2, 650, 'helpScreen');
-           //faq.setScale(.6);
+           faq = this.add.image(game.config.width / 2, 460, 'helpScreen');
+           faq.setScale(.6);
            faq.setDepth(4);
            faq.visible = false;
         }
 
         //if(!gameover)
         {
-           gameover = this.add.image(game.config.width / 2, 330, 'gameover')
-           //gameover.setScale(.5);
+           gameover = this.add.image(game.config.width / 2, 220, 'gameover')
+           gameover.setScale(.7);
            gameover.setDepth(4);
-           gameoverBoard = this.add.image(game.config.width / 2, 700, 'gameoverBoard')
-           //gameoverBoard.setScale(.5);
+           gameoverBoard = this.add.image(game.config.width / 2, 470, 'gameoverBoard')
+           gameoverBoard.setScale(.7);
            gameoverBoard.setDepth(3);
-           submitscoreBtn = this.add.image(game.config.width / 2 + 140, 910, 'submitscoreBtn').setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(0, -10, 170, 57), Phaser.Geom.Rectangle.Contains);
+           submitscoreBtn = this.add.image(game.config.width / 2 + 100, 600, 'submitscoreBtn').setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(0, -10, 170, 57), Phaser.Geom.Rectangle.Contains);
            submitscoreBtn.on('pointerup', function () {
               this.submitScore();
            },this);
            submitscoreBtn.setDepth(4);
+           submitscoreBtn.setScale(.7);
 
-           submitscoreBtnS = this.add.image(game.config.width / 2 + 140, 910, 'submitscoreBtnS').setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(0, -10, 170, 57), Phaser.Geom.Rectangle.Contains);
+           submitscoreBtnS = this.add.image(game.config.width / 2 + 100, 600, 'submitscoreBtnS').setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(0, -10, 170, 57), Phaser.Geom.Rectangle.Contains);
            submitscoreBtnS.on('pointerup', function () {
            },this);
            submitscoreBtnS.setDepth(4);
+           submitscoreBtnS.setScale(.7);
 
-           //submitscoreBtn.setScale(.7);
-           tryagainBtn = this.add.image(game.config.width / 2 -140, 910, 'tryagainBtn').setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(50, -10, 170, 57), Phaser.Geom.Rectangle.Contains);
+           tryagainBtn = this.add.image(game.config.width / 2 -100, 600, 'tryagainBtn').setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(50, -10, 170, 57), Phaser.Geom.Rectangle.Contains);
            tryagainBtn.on('pointerup', function () {
                this.scene.scene.start("PlayGame", true);
            });
-           //tryagainBtn.setScale(.7);
+           tryagainBtn.setScale(.7);
            tryagainBtn.setDepth(4);
-           restextLable = this.add.text(game.config.width / 2, 440, 'Your Score', { font: '60px bahnschrift', fill: '#666666' }).setOrigin(0.5);
+
+           restextLable = this.add.text(game.config.width / 2, 310, 'Your Score', { font: '50px bahnschrift', fill: '#666666' }).setOrigin(0.5);
            restextLable.setDepth(4);
-           resscoreLable = this.add.text(game.config.width / 2, 520, '0', { font: '50px bahnschrift', fill: '#000000' }).setOrigin(0.5);
+           resscoreLable = this.add.text(game.config.width / 2, 360, '0', { font: '40px bahnschrift', fill: '#000000' }).setOrigin(0.5);
            resscoreLable.setDepth(4);
-           gameovertextLable = this.add.text(game.config.width / 2, 720, 'Your Score', { font: '25px bahnschrift', fill: '#666666',align: 'center', lineSpacing: 8,boundsAlignH: "center", boundsAlignV: "middle" }).setOrigin(0.5);
+           gameovertextLable = this.add.text(game.config.width / 2, 470, 'Your Score', { font: '15px bahnschrift', fill: '#666666',align: 'center', lineSpacing: 8,boundsAlignH: "center", boundsAlignV: "middle" }).setOrigin(0.5);
            gameovertextLable.setDepth(4);
 
-           shareSign = this.add.image(game.config.width / 2, 1020, 'shareSign').setInteractive({ cursor: 'pointer' },new Phaser.Geom.Rectangle(50, -40, 546, 63), Phaser.Geom.Rectangle.Contains);
-           //shareSign.setScale(.7);
+           shareSign = this.add.image(game.config.width / 2, 680, 'shareSign').setInteractive({ cursor: 'pointer' },new Phaser.Geom.Rectangle(50, -40, 546, 63), Phaser.Geom.Rectangle.Contains);
+           shareSign.setScale(.8);
            shareSign.setDepth(4);
 
            gameover.visible = false;
@@ -315,14 +318,15 @@ class playGame extends Phaser.Scene{
     
         //if(!startBtn)
         {
-            startBtn = this.add.image(game.config.width / 2, 920, 'startBtn').setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(0, -40, 211, 190), Phaser.Geom.Rectangle.Contains);
+            startBtn = this.add.image(game.config.width / 2, game.config.height - 150, 'startBtn').setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(0, -40, 211, 190), Phaser.Geom.Rectangle.Contains);
+            startBtn.setScale(.9);
             startBtn.setDepth(3);
             startBtn.on('pointerup', function () {
                   this.startGame();
             }, this);
 
-            rd =  this.add.image(game.config.width / 2, 975, 'rd')
-            //rd.setScale(0.5);
+            rd =  this.add.image(game.config.width / 2, game.config.height - 95, 'rd')
+            rd.setScale(0.8);
             rd.setDepth(3);
         }
 
@@ -423,7 +427,7 @@ class playGame extends Phaser.Scene{
 
         //if(!mutebtn)
         {
-            mutebtn = this.add.image(1600, 220, 'sound').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);        
+            mutebtn = this.add.image(1000, 210, 'sound').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);        
             mutebtn.setDepth(3);
             mutebtn.on('pointerup', function () {
                 this.muteGame();
@@ -435,7 +439,7 @@ class playGame extends Phaser.Scene{
                 mouseInButton = false;
             }, this);
 
-            mutedbtn = this.add.image(1600, 220, 'muted').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);        
+            mutedbtn = this.add.image(1000, 210, 'muted').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);        
             mutedbtn.setDepth(3);
             mutedbtn.on('pointerup', function () {
                 this.muteGame();
@@ -451,7 +455,7 @@ class playGame extends Phaser.Scene{
 
         //if(!pausebtn)
         {
-            pausebtn = this.add.image(1800, 220, 'pause').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
+            pausebtn = this.add.image(1200, 210, 'pause').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
             pausebtn.setDepth(3);
             pausebtn.on('pointerup', function () {
                 this.pauseGame();
@@ -463,7 +467,7 @@ class playGame extends Phaser.Scene{
                 mouseInButton = false;
             }, this);
 
-            playbtn = this.add.image(1800, 220, 'play').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
+            playbtn = this.add.image(1200, 210, 'play').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
             playbtn.setDepth(3);
             playbtn.on('pointerup', function () {
                 this.pauseGame();
@@ -479,7 +483,7 @@ class playGame extends Phaser.Scene{
 
         //if(!bt)
         {
-            bt = this.add.image(1700, 220, 'help').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
+            bt = this.add.image(1100, 210, 'help').setInteractive({ cursor: 'pointer' }, touchIconRect, Phaser.Geom.Rectangle.Contains);
             bt.setDepth(3);
             bt.on('pointerup', function () {
                 this.showFAQ();
@@ -674,12 +678,12 @@ class playGame extends Phaser.Scene{
     addMountains() {
 
         let mountain = this.physics.add.image(0, game.config.height, "mountain2");
-        mountain.setScale(.7);
-        mountain.setOrigin(0, 1.6);
+        mountain.setScale(.4);
+        mountain.setOrigin(0, 1.7);
 
         let mountain1 = this.physics.add.image(0, game.config.height, "mountain1");
-        mountain1.setScale(.7);
-        mountain1.setOrigin(0, 1.2);
+        mountain1.setScale(.4);
+        mountain1.setOrigin(0, 1.4);
 
         this.addBGTree();
     }
@@ -767,8 +771,8 @@ class playGame extends Phaser.Scene{
 
     addBGTree() {
         let bgtree1 = this.physics.add.sprite(0, game.config.height, "bgtree1");
-        bgtree1.setOrigin(0, 0.6);
-        //bgtree1.setScale(.3);
+        bgtree1.setOrigin(0, 1.2);
+        bgtree1.setScale(.4);
 
         let bgtree2 = this.physics.add.sprite(0, game.config.height, "bgtree2");
         bgtree2.setOrigin(0,.5);
@@ -783,12 +787,12 @@ class playGame extends Phaser.Scene{
 
         let clouds = this.physics.add.image(0, game.config.height, "clouds");
         //clouds.setScale(.5);
-        clouds.setOrigin(0, 4);
+        clouds.setOrigin(0, 3);
         let clouds22 = this.physics.add.sprite(clouds.width, game.config.height, "clouds");
-        clouds22.setOrigin(0, 4);
+        clouds22.setOrigin(0, 3);
         //clouds22.setScale(.5);
         let clouds222 = this.physics.add.sprite(clouds.width * 2, game.config.height, "clouds");
-        clouds222.setOrigin(0, 4);
+        clouds222.setOrigin(0, 3);
         //clouds222.setScale(.5);
 
         this.bgcloud2Group.add(clouds);

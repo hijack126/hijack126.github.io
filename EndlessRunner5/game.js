@@ -111,11 +111,6 @@ class preloadGame extends Phaser.Scene{
         this.load.image('tryagainBtn', 'assets/tryagain-btn.png');
         this.load.image('shareSign', 'assets/share-sign.png');
         this.load.image('rd', 'assets/r-d.png');
-        // this.load.image('obstacle1', 'assets/obstacle1.png');
-        // this.load.image('obstacle2', 'assets/obstacle2.png');
-        // this.load.image('obstacle3', 'assets/obstacle3.png');
-        // this.load.image('obstacle4', 'assets/obstacle4.png');
-
 
         this.load.image('obstacle1', 'assets/Obstacle-1.png');
         this.load.image('obstacle2', 'assets/Obstacle-2.png');
@@ -139,7 +134,7 @@ class preloadGame extends Phaser.Scene{
         this.load.image('bgtree1', 'assets/bg-tree1.png');
         this.load.image('bgtree2', 'assets/bg-tree2.png');
 
-        var styles = '@font-face { font-family: "bahnschrift"; src: url("assets/fonts/bahnschrift.ttf") format("opentype"); }\n';
+        //var styles = '@font-face { font-family: "bahnschrift"; src: url("assets/fonts/bahnschrift.ttf") format("opentype"); }\n';
 
         this.load.audio('theme', [
             'assets/audio/technogeek.mp3'
@@ -199,7 +194,7 @@ var obstacleLables = [
     'self-blame',
     'addictions'
 ];
-var obstacleTypes = ['obstacle1', 'obstacle2', 'obstacle3', 'obstacle4'];
+var obstacleTypes = ['obstacle1', 'obstacle2', 'obstacle3', 'obstacle4','obstacle5', 'obstacle6', 'obstacle7', 'obstacle8', 'obstacle9', 'obstacle10'];
 var gameOverByText = ['Robert Schuller',
 'John Green',
 '',
@@ -735,7 +730,7 @@ class playGame extends Phaser.Scene{
 
     addObstcles() {
         if(Phaser.Math.Between(1, 2000) <= gameOptions.firePercent){
-            if(preObstcleTime > 20000/gameStatus.currentSpeed)
+            if(preObstcleTime > 30000 / gameStatus.currentSpeed)
             {
                 if(this.obstaclePool.getLength() > 8){
                     let obstacle = this.obstaclePool.children.entries[Phaser.Math.Between(0, this.obstaclePool.getLength()-1)];
@@ -757,7 +752,7 @@ class playGame extends Phaser.Scene{
                     // this.obLabelPool.remove(container);
                 }
                 else{
-                    var typeIndex = Phaser.Math.Between(0, 3);
+                    var typeIndex = Phaser.Math.Between(0, 9);
                     var currentOb = obstacleTypes[typeIndex];
 
                     var obHeight = game.config.height;

@@ -240,6 +240,7 @@ var bt;
 var shareSign;
 var screenMaskGraphics;
 var submitTextLableContain;
+var isShareOpend = false;
 
 // playGame scene
 class playGame extends Phaser.Scene{
@@ -289,10 +290,10 @@ class playGame extends Phaser.Scene{
         {
            gameover = this.add.image(game.config.width / 2, 220, 'gameover')
            gameover.setScale(.7);
-           gameover.setDepth(4);
+           gameover.setDepth(4.1);
            gameoverBoard = this.add.image(game.config.width / 2, 470, 'gameoverBoard')
            gameoverBoard.setScale(.7);
-           gameoverBoard.setDepth(3);
+           gameoverBoard.setDepth(4);
            submitscoreBtn = this.add.image(game.config.width / 2 + 110, 600, 'submitscoreBtn').setInteractive({ cursor: 'pointer' }, new Phaser.Geom.Rectangle(0, -10, 170, 57), Phaser.Geom.Rectangle.Contains);
            submitscoreBtn.on('pointerup', function () {
               this.submitScore();
@@ -338,6 +339,9 @@ class playGame extends Phaser.Scene{
            shareSign.setDepth(4);
            shareSign.on('pointerup', function () {
                $(".social-media-container").show();
+               screenMaskGraphics.setDepth(5);
+               isShareOpend = true;
+               //$(".social-media-container, .overlay").show();
            }, this);
 
            gameover.visible = false;
@@ -883,6 +887,14 @@ class playGame extends Phaser.Scene{
     // the player jumps when on the ground, or once in the air as long as there are jumps left and the first jump was on the ground
     // and obviously if the player is not dying
     jump(){
+
+        if(isShareOpend){
+            $(".social-media-container").hide();
+            screenMaskGraphics.setDepth(3);
+            isShareOpend = false;
+            return;
+        }
+
         if(faq.visible){
             this.showFAQ();
             return;

@@ -89,7 +89,7 @@ class preloadGame extends Phaser.Scene{
 
     preload(){
 
-        this.add.text( game.config.width / 2, game.config.height / 2, 'Loading...', { fontFamily: 'bahnschrift, Montserrat', fontSize: 60, fill: '#666666' }).setOrigin(0.5);
+        this.add.text( game.config.width / 2, game.config.height / 2, 'Loading...', { fontFamily: 'Montserrat', fontSize: 60, fill: '#666666' }).setOrigin(0.5);
 
         this.load.html('nameform', 'loginform.html');
 
@@ -314,20 +314,20 @@ class playGame extends Phaser.Scene{
            tryagainBtn.setScale(.8);
            tryagainBtn.setDepth(4);
 
-           restextLable = this.add.text(game.config.width / 2, 310, 'Your Score', {fontFamily: 'bahnschrift semiBold SemiCondensed, Montserrat', fontSize: 50, fill: '#4f4f4f' }).setOrigin(0.5);
+           restextLable = this.add.text(game.config.width / 2, 310, 'Your Score', {fontFamily: 'Montserrat SemiBold', fontSize: 43, fill: '#4f4f4f' }).setOrigin(0.5);
            restextLable.setDepth(4);
-           resscoreLable = this.add.text(game.config.width / 2, 360, '0', { fontFamily: 'bahnschrift semiBold SemiCondensed, Montserrat', fontSize: 40, fill: '#000000' }).setOrigin(0.5);
+           resscoreLable = this.add.text(game.config.width / 2, 360, '0', { fontFamily: 'Montserrat SemiBold', fontSize: 38, fill: '#000000' }).setOrigin(0.5);
            resscoreLable.setDepth(4);
-           gameovertextLable = this.add.text(game.config.width / 2, 450, 'Your Score', { fontFamily: 'bahnschrift regular, Montserrat', fontSize: 18, fill: '#4f4f4f',align: 'center', lineSpacing: 1 }).setOrigin(0.5);
+           gameovertextLable = this.add.text(game.config.width / 2, 450, 'Your Score', { fontFamily: 'Montserrat', fontSize: 16, fill: '#4f4f4f',align: 'center', lineSpacing: 1 }).setOrigin(0.5);
            gameovertextLable.setDepth(4);
-           gameovertextbyLable = this.add.text(game.config.width / 2, 510, 'unknown', {  fontFamily: 'bahnschrift light, Montserrat', fontSize: 18, fill: '#4f4f4f',align: 'center', lineSpacing: 1 }).setOrigin(0.5);
+           gameovertextbyLable = this.add.text(game.config.width / 2, 510, 'unknown', {  fontFamily: 'Montserrat Light', fontSize: 16, fill: '#4f4f4f',align: 'center', lineSpacing: 1 }).setOrigin(0.5);
            gameovertextbyLable.setDepth(4);
 
            submitTextLableContain = this.add.container(game.config.width / 2, 420);
-           var text = this.add.text(0, 0, 'To be eligible for the Mountain Trail Game Leaderboard,\nsubmit the screenshot of your score and send it to', { fontFamily: 'bahnschrift light', fontSize: 18, lineSpacing: 1, align: 'center', fill: '#4f4f4f' }).setOrigin(0.5);
-           var text1 = this.add.text(0, 45, 'enquiry@themindsetchallengecarnival.com\nbefore 23:59hrs, 25 December 2020.', { fontFamily: 'bahnschrift regular, Montserrat', fontSize: 18, align: 'center', lineSpacing: 1, fill: '#4f4f4f' }).setOrigin(0.5);
-           var text2 = this.add.text(0, 90, 'Top 5 winners names will be displayed on the Leaderboard', { fontFamily: 'bahnschrift light, Montserrat, Montserrat', fontSize: 18, align: 'center', fill: '#4f4f4f' }).setOrigin(0.5);
-           var text3 = this.add.text(0, 110, 'by 12:00hrs on 29 December 2020.', { fontFamily: 'bahnschrift regular, Montserrat', fontSize: 18, align: 'center', fill: '#4f4f4f' }).setOrigin(0.5);
+           var text = this.add.text(0, 0, 'To be eligible for the Mountain Trail Game Leaderboard,\nsubmit the screenshot of your score and send it to', { fontFamily: 'Montserrat Light', fontSize: 16, lineSpacing: 1, align: 'center', fill: '#4f4f4f' }).setOrigin(0.5);
+           var text1 = this.add.text(0, 45, 'enquiry@themindsetchallengecarnival.com\nbefore 23:59hrs, 25 December 2020.', { fontFamily: 'Montserrat', fontSize: 16, align: 'center', lineSpacing: 1, fill: '#4f4f4f' }).setOrigin(0.5);
+           var text2 = this.add.text(0, 90, 'Top 5 winners names will be displayed on the Leaderboard', { fontFamily: 'Montserrat Light', fontSize: 16, align: 'center', fill: '#4f4f4f' }).setOrigin(0.5);
+           var text3 = this.add.text(0, 110, 'by 12:00hrs on 29 December 2020.', { fontFamily: 'Montserrat', fontSize: 16, align: 'center', fill: '#4f4f4f' }).setOrigin(0.5);
            submitTextLableContain.add(text);
            submitTextLableContain.add(text1);
            submitTextLableContain.add(text2);
@@ -357,7 +357,7 @@ class playGame extends Phaser.Scene{
            submitTextLableContain.visible = false;
         }
 
-        scoreLable = this.add.text(40, 180, '0', {  fontFamily: 'bahnschrift regular, Montserrat', fontSize: 42, fill: '#000000' });
+        scoreLable = this.add.text(40, 180, '0', {  fontFamily: 'Montserrat', fontSize: 42, fill: '#000000' });
         scoreLable.setDepth(4);
         scoreLable.visible = false;
     

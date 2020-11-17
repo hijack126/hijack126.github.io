@@ -314,7 +314,7 @@ class playGame extends Phaser.Scene{
            tryagainBtn.setScale(.8);
            tryagainBtn.setDepth(4);
 
-           restextLable = this.add.text(game.config.width / 2, 310, 'Your Score', {fontFamily: 'Montserrat SemiBold', fontSize: 43, fill: '#4f4f4f' }).setOrigin(0.5);
+           restextLable = this.add.text(game.config.width / 2, 310, 'Your Score', {fontFamily: 'Montserrat SemiBold', fontSize: 41, fill: '#4f4f4f' }).setOrigin(0.5);
            restextLable.setDepth(4);
            resscoreLable = this.add.text(game.config.width / 2, 360, '0', { fontFamily: 'Montserrat SemiBold', fontSize: 38, fill: '#000000' }).setOrigin(0.5);
            resscoreLable.setDepth(4);
